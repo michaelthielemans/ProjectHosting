@@ -15,15 +15,16 @@
 
 # Responsibility silos
 
-| **Silo** | **Technology** | **responsibles**
+| **Silo** | **Technology** | **Responsibles**
 | ---|---|---|
-| HyperVisor | Proxmox | Michael
-| Cluster | Kubernetes | Michael
+| HyperVisor | Proxmox | Michael  |
+| Cluster | Kubernetes | Michael  |
 | storage | truenass |
-| Firewall | unknown|
+| Firewall | unknown|  Jakub  |
 | Proxy | nginx ?? | Michael |
 | Security | WAZUH | Dieter |
 | Backups | Proxmox + truenas |
+| Ticketing  | FreeScout HelpDesk | Jakub |
 | automation platform | ansible (+ puppet) | Michael |
 | webstacks and web platforms| LAMP, LEMP, DJANGO, CMS, e-commerce ... |
 | procedures and compliance| - | 
