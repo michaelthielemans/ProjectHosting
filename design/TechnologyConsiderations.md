@@ -34,6 +34,11 @@
      - install ansible AWX
 - puppet -> only if we have the spare time to deploy it.
 
+## Backups
+- on hypervisor level👍 
+- truenas level👍 
+- optionally Veeam K10
+  
 ## Monitoring
 - Prometheus + alert manager + Grafana dashboard 👍 
 - network monitoring ....
@@ -45,6 +50,16 @@
 - hashicorp vault👍
 - passbolt for credential sharing 👍
   -> + encrypted backups locally
+
+## Certificate Authority
+- letsencrypt
+- combell (if it is free)
+
+## DNS
+- dns registrar = combell👍 
+- > should be free for students
+- geen eigen DNS server
+- cloudflare dns 'filter' 👍 
 
 ## CI/CD pipeline
 - argo CD
