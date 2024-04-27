@@ -18,7 +18,7 @@
 | **Silo** | **Technology** | **responsibles**
 | ---|---|---|
 | HyperVisor | Proxmox | Michael
-| Cluster | Kubernets | Michael
+| Cluster | Kubernetes | Michael
 | storage | truenass |
 | Firewall proxy | 
 | Security | WAZUH | Dieter |
