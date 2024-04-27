@@ -24,12 +24,24 @@
 - RAM : 16GB ( depending on total physical memory)
 - storage: 1 Disk 100GB
 
-### 3. Truenas VM  specifications
-- CPU :
-- RAM :
-- Storage :
+## Kubernetes MGMT-cluster nodes specifications:
 
-### Ansible (+puppet) VM specifications
-- CPU :
-- RAM :
-- Storage : 
+**01 masternodes in HA**
+- CPU : 4 cores
+- RAM : 8GB
+- storage: 1 Disk 100GB
+
+**minimum 02 Worker Nodes**
+- CPU : 4 cores
+- RAM : 16GB ( depending on total physical memory)
+- storage: 1 Disk 100GB
+
+## 3. Truenas VM  specifications
+- CPU : 8 cores
+- RAM : 32 GB
+- Storage : a lot
+
+## Ansible (+puppet) VM specifications
+- CPU : 4 cores
+- RAM : 8GB
+- Storage : 250GB 
