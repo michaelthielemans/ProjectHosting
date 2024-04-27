@@ -1,4 +1,4 @@
-# On-prem or in the cloud??
+# On-prem or in the cloud?
 - On-prem servers are made available to us. No need to rent cloud infrastructure.
 
 ## Operating system we will use?
@@ -30,8 +30,7 @@
 
 ## automatisation
 - ansible 👍 
-     - in container or in vm ?
-     - try to do as much automation as possible with ansible
+     - Dedicated VM for ansible
      - install ansible AWX
 - puppet -> only if we have the spare time to deploy it.
 
@@ -39,7 +38,7 @@
 - Prometheus + alert manager + Grafana dashboard 👍 
 - network monitoring ....
 
-Security dashboard
+## Security dashboard
 - Wazuh 👌
 
 ## key management and key vault
