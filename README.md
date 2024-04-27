@@ -20,10 +20,11 @@
 | HyperVisor | Proxmox | Michael
 | Cluster | Kubernetes | Michael
 | storage | truenass |
-| Firewall proxy | 
+| Firewall | unknown|
+| Proxy | nginx ?? | Michael |
 | Security | WAZUH | Dieter |
 | Backups | Proxmox + truenas |
-| automation platform | ansible | Michael |
+| automation platform | ansible (+ puppet) | Michael |
 | webstacks and web platforms| LAMP, LEMP, DJANGO, CMS, e-commerce ... |
 | procedures and compliance| - | 
 | documentation | github | ALL
