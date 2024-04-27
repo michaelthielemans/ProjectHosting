@@ -41,8 +41,9 @@
 ## Security dashboard
 - Wazuh 👌
 
-## key management and key vault
-- hashicorp vault
+## password management and secretes, certificates and key vault
+- hashicorp vault👍
+- passbolt for credential sharing 👍
 
 ## CI/CD pipeline
 - argo CD
