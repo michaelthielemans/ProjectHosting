@@ -44,6 +44,7 @@
 ## password management and secretes, certificates and key vault
 - hashicorp vault👍
 - passbolt for credential sharing 👍
+  -> + encrypted backups locally
 
 ## CI/CD pipeline
 - argo CD
