@@ -31,3 +31,8 @@
 
 
 # Conventions
+### ** attention This is a public REPO   NEVER EVER save login credentials or secrets here.**
+
+## Documentation
+- Write documentation in Markdown
+
