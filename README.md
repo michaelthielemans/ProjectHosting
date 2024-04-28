@@ -20,7 +20,7 @@
 | HyperVisor | Proxmox | Michael  |
 | Cluster | Kubernetes | Michael  |
 | storage | truenass |
-| Firewall | unknown|  Jakub  |
+| Firewall | iptables? |  Jakub  |
 | Proxy | nginx ?? | Michael |
 | Security | WAZUH | Dieter |
 | Backups | Proxmox + truenas |
