@@ -1,6 +1,10 @@
 # On-prem or in the cloud?
 - On-prem servers are made available to us. No need to rent cloud infrastructure.
 
+# Hypervisor:
+VMWare ?
+XCP-NG ?
+
 ## Operating system we will use?
 - Debian 👍 
 - ubuntu 
