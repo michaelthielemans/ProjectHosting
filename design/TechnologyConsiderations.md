@@ -57,18 +57,18 @@ XCP-NG ?
 
 ## HTTPS/TLS and PKI infra
 ### Certificat authority service:
-     - letsencrypt as a authority -> signed for only 90 days
-     - combell (if it is free)
+- letsencrypt as a authority -> signed for only 90 days
+- combell (if it is free)
 ### HTTPS offloading
-     - Ingress controller , NGINX
+- Ingress controller , NGINX
 ### certificate auto renewal
-     - Jetstack’s cert-manager ( letsencrypt is supported)
-     - cert manager has r/w access to the secrets (certificate and private key) and are stored in the vault
+- Jetstack’s cert-manager ( letsencrypt is supported)
+- cert manager has r/w access to the secrets (certificate and private key) and are stored in the vault
 
-     Job of the certificate manager :
-          issue certs to the ingress controller
-          - auto renew certificates at set intervals
-          - certmanager needs to prove that it has the ownership of the domain we are using against letsencrypt
+#### Job of the certificate manager :
+- issue certs to the ingress controller
+- auto renew certificates at set intervals
+- certmanager needs to prove that it has the ownership of the domain we are using against letsencrypt
 
 ## DNS
 - dns registrar = combell👍 
