@@ -1,58 +1,64 @@
+# Version Control System
+- github
+  Het team is reeds vertrouwd met het github platform
+
+# Taken en Planning tool
+- github projects
+  Alle documentatie, configuratie, code, planning op hetzelfde platform 
+  
 # On-prem or in the cloud?
-- On-prem servers are made available to us. No need to rent cloud infrastructure.
+- on-premis
+De school stelt ons on-premise server infrastructuur ter beschikking.
 
 # Hypervisor:
 VMWare ?
-XCP-NG ?
+- XCP-NG
+  Is een opensource project
 
-## Operating system we will use?
-- Debian 👍 
-- ubuntu 
-- Rocky Linux
+## Which operating system we will use?
+- Debian gebaseerde distributie
+  Het team heeft het meest ervaring met debian distributies
 
 ## kubernetes deployment method?
-- kubeAdm 👍
-- rancher 
-- kubespray
+- kubeAdm
+  Dit is de meest compacte en toch simpele manier om een cluster op te bouwen. Weinig extra complexiteit of 'overhead'
 
 ## Storage for the cluster:
-- Block storage? object storage? or file persona storage?
-- KubeFS ? (CNCF incubating state)
-- ROOK ? (CNCF graduate) Ceph cluster ?
-- MINio - object storage
-- longhorn -> when using rancher
-- trueNAS can deliver block, object and file storage (S3,block zfs, ,NFS,..).  👌 
+- trueNAS
+  Is gebruiksvriendelijk en bied alle functionaliteiten aan die we nodig hebben.
 
 ## Kubernetes pod networking = CNI cluster Network Interface
-- CNI: cilium 👌 
+- CNI: cilium
+  Native ondersteuning op kubernetes, meest moderne CNI technologie.
 
 ## Kubernetes ingress controller:
-- NGINX ingress 👌 
-
-## External reverse proxy needed?
-??????
+- NGINX ingress
+  Nat
 
 ## automatisation
-- ansible 👍 
-     - Dedicated VM for ansible
-     - install ansible AWX
-- puppet -> only if we have the spare time to deploy it.
+- ansible
+  zeer veelzijdige configuratie tool, van servers tot netwerk apparatuur.
 
 ## Backups
-- on hypervisor level👍 
-- truenas level👍 
-- optionally Veeam K10
+- on hypervisor level 
+- TrueNas
+    we maken reeds gebruik van trueNas dus geen extra software nodig om backups te maken
+
+## Antivirus
+- ClamAV
+  Opensource
   
 ## Monitoring
-- Prometheus + alert manager + Grafana dashboard 👍 
-- network monitoring ....
+- Prometheus + alert manager + Grafana dashboard
+  wordt native ondersteund door kubernetes
 
 ## Security dashboard
-- Wazuh 👌
+- Wazuh
+  opensource, overzichtelijk dashboard
 
 ## password management and secretes, certificates and key vault
-- hashicorp vault👍
-- passbolt for credential sharing 👍
+- hashicorp vault
+- passbolt for credential sharing
   -> + encrypted backups locally
 
 ## HTTPS/TLS and PKI infra
@@ -77,8 +83,5 @@ XCP-NG ?
 - cloudflare dns 'filter' 👍 
 
 ## CI/CD pipeline
-- argo CD
-- github actions <--
-- jenkins
-- gitLab
-- circleCI
+- github actions
+  We maken reeds gebruik van github als VCS repository
