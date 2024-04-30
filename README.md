@@ -21,15 +21,14 @@
 | Cluster | Kubernetes | Michael  |
 | storage | truenass |
 | Firewall | iptables? |  Jakub  |
-| Proxy | nginx ?? | Michael |
 | Security | WAZUH | Dieter |
 | Backups | Proxmox + truenas |
 | Ticketing  | FreeScout HelpDesk | Jakub |
 | automation platform | ansible (+ puppet) | Michael |
 | webstacks and web platforms| LAMP, LEMP, DJANGO, CMS, e-commerce ... |
-| procedures and compliance| - | 
+| procedures and compliance| - | -|
 | documentation | github | ALL
-| Monitoring | Prometheus  - Grafana | Wim
+| Monitoring | Prometheus  - Grafana | Wim |
 
 
 # Conventions
