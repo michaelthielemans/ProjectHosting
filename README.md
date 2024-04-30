@@ -29,7 +29,7 @@
 | webstacks and web platforms| LAMP, LEMP, DJANGO, CMS, e-commerce ... |
 | procedures and compliance| - | 
 | documentation | github | ALL
-| Monitoring | Prometheus |
+| Monitoring | Prometheus  - Grafana | Wim
 
 
 # Conventions
