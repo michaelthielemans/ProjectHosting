@@ -17,7 +17,7 @@
 
 | **Silo** | **Technology** | **Responsibles**
 | ---|---|---|
-| HyperVisor | Proxmox | Michael  |
+| HyperVisor |  | Michael  |
 | Cluster | Kubernetes | Michael  |
 | storage | truenass |
 | Firewall | iptables? |  Jakub  |
