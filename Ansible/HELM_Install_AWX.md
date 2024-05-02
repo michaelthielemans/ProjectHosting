@@ -1,4 +1,10 @@
 # Installing ansible AWX with HELM
+read : [install AWX operator](https://github.com/ansible/awx-operator/blob/devel/.helm/starter/README.md)
+
+AWX can only be installed on a kubernetes cluster, for existing clusters a HELM chart can be used.
+This kind of AWX installation is called 'AWX-operator'
+
+It has its own namespace in the cluster, with multiple pods.
 
 ```
 $ helm repo add awx-operator https://ansible.github.io/awx-operator/
