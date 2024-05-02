@@ -36,12 +36,17 @@
 - RAM : 16GB ( depending on total physical memory)
 - storage: 1 Disk 100GB
 
-## 3. Truenas VM  specifications
+## Truenas VM  specifications
 - CPU : 8 cores
 - RAM : 32 GB
 - Storage : a lot
 
-## Ansible (+puppet) VM specifications
+## 05 test vm's with baseline debian machine for each team member
+- CPU : 2 Cores
+- RAM : 8 GB
+- Storage : 100GB
+
+## Ansible (+puppet) VM specifications needed , install ansible inside the mgmt cluster??
 - CPU : 4 cores
 - RAM : 8GB
 - Storage : 250GB 
