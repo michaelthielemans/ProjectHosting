@@ -20,15 +20,17 @@
 | ---|---|---|
 | HyperVisor |  | Michael  |
 | Cluster | Kubernetes | Michael  |
-| storage | truenass |
-| Firewall | iptables? |  Jakub  |
+| Storage | truenass | .. |
+| DNS | ...| .. |
+| Mailserver | ....| ..|
+| Firewall & VPN | iptables? |  Jakub  |
 | Security | WAZUH | Dieter |
 | Backups | Proxmox + truenas |
 | Ticketing  | FreeScout HelpDesk | Jakub |
-| automation platform | ansible (+ puppet) | Michael |
+| Automation platform | ansible (+ puppet) | Michael |
 | webstacks and web platforms| LAMP, LEMP, DJANGO, CMS, e-commerce ... |
-| procedures and compliance| - | -|
-| documentation | github | ALL
+| Procedures and compliance| - | -|
+| Documentation | github | ALL
 | Monitoring | Prometheus  - Grafana | Wim |
 
 
