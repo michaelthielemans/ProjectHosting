@@ -37,3 +37,7 @@
 ## Documentation
 - Write documentation in Markdown
 
+-
+- <img width="1434" alt="image" src="https://github.com/michaelthielemans/ProjectHosting/assets/74772232/6ba281cd-4731-4816-b68a-43c33ffc6d08">
+
+
