@@ -41,3 +41,9 @@
 ## Documentation
 - Write documentation in Markdown
 
+
+
+soorten webshops
+- small
+- medium
+- heavy -> meer resources -> meer replica's
