@@ -32,6 +32,7 @@
 | Procedures and compliance| - | -|
 | Documentation | github | ALL
 | Monitoring | Prometheus  - Grafana | Wim |
+| logging | ....| 
 
 
 # Conventions
