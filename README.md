@@ -18,7 +18,7 @@
 
 | **Silo** | **Technology** | **Responsibles**
 | ---|---|---|
-| HyperVisor |  | Michael  |
+| HyperVisor | VMWARE | Michael  |
 | Cluster | Kubernetes | Michael  |
 | Storage | truenass | .. |
 | DNS | ...| .. |
@@ -26,9 +26,9 @@
 | Firewall & VPN | iptables? |  Jakub  |
 | Security | WAZUH | Dieter |
 | Backups | Proxmox + truenas |
-| Ticketing  | FreeScout HelpDesk | Jakub |
+| Ticketing | FreeScout HelpDesk | Jakub |
 | Automation platform | ansible (+ puppet) | Michael |
-| webstacks and web platforms| LAMP, LEMP, DJANGO, CMS, e-commerce ... |
+| webstacks and web platforms| LAMP, e-commerce ... |
 | Procedures and compliance| - | -|
 | Documentation | github | ALL
 | Monitoring | Prometheus  - Grafana | Wim |
