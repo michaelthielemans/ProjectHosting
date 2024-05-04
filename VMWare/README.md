@@ -10,7 +10,7 @@ test - mgmt - prod
 #### type:
 vm - template
 #### Function/owner:
-workernode - masternode - truenas - michael
+workernode - masternode - truenas - michael - .......
 #### For example:
 - test-vm-michael-01
 - prod-vm-workernode-01
