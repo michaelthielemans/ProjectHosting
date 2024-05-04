@@ -16,23 +16,23 @@
 
 # Responsibility silos
 
-| **Silo** | **Technology** | **Responsibles**
+| **Silo** | **Technology** | **Lead** | **Support** |
 | ---|---|---|
-| HyperVisor | VMWARE | Michael  |
-| Cluster | Kubernetes | Michael  |
-| Storage | truenass | .. |
+| HyperVisor | VMWARE | Michael | Niels |
+| Cluster | Kubernetes | Michael | Niels |
+| Storage | truenass | Niels |
 | DNS | ...| .. |
 | Mailserver | ....| ..|
 | Firewall & VPN | iptables? |  Jakub  |
-| Security | WAZUH | Dieter |
-| Backups | Proxmox + truenas |
+| Security | WAZUH | Dieter | 
+| Backups | Proxmox + truenas | Niels | Michael |
 | Ticketing | FreeScout HelpDesk | Jakub |
 | Automation platform | ansible (+ puppet) | Michael |
-| webstacks and web platforms| LAMP, e-commerce ... |
-| Procedures and compliance| - | -|
-| Documentation | github | ALL
-| Monitoring | Prometheus  - Grafana | Wim |
-| logging | ....| 
+| Docker images / webstacks | Niels | |
+| Procedures and compliance| .. | .. |
+| Documentation | github | ALL |
+| Monitoring | Prometheus  - Grafana | Wim | Michael |
+| logging | ....| .. | .. |
 
 
 # Conventions
