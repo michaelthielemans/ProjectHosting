@@ -2,7 +2,7 @@
 
 [![OurWebsite](https://img.shields.io/static/v1?label=Our&message=Website&color=blue)](https://projecthosting/)
 [![Our Team](https://img.shields.io/static/v1?label=Sign-up&message=for%20news&color=red)](https://projecthosting)
-
+[IP plan](IPplan/ip.md)
 [Conventions](#conventions)
 
 # OUR TEAM
@@ -17,7 +17,7 @@
 # Responsibility silos
 
 | **Silo** | **Technology** | **Lead** | **Support** |
-| ---|---|---|
+| ---|---|---|---|
 | HyperVisor | VMWARE | Michael | Niels |
 | Cluster | Kubernetes | Michael | Niels |
 | Storage | truenass | Niels |
@@ -36,10 +36,12 @@
 
 
 # Conventions
-### ** attention This is a public REPO   NEVER EVER save login credentials or secrets here.**
+### ** attention NEVER EVER save login credentials or secrets on this repository.**
 
 ## Documentation
 - Write documentation in Markdown
+
+
 
 
 
