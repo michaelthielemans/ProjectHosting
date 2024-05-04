@@ -1,4 +1,5 @@
 # VMWARE VSphere info
+- [vSphere login](https://172.24.1.10)
 - [how to upload iso files](#location-of-image-files)
 - [Create VM](CreateVM.md)
 - [Download VMWare REmote Client](https://customerconnect.vmware.com/en/downloads/details?downloadGroup=VMRC1205&productId=614)
