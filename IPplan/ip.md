@@ -1,0 +1,4 @@
+| **ip** | **machine** | **comment** |
+|---|---|---|
+| 172.24.1.10| vmhost esxi 01 | |
+| 172.24.1.11 | vhmhost esxi 02 | |
