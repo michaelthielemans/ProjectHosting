@@ -33,13 +33,6 @@ For test VMs you can leave it dhcp if you want.
 - By default dhcp is enabled on newly created test vm's
 
 
-## Location of image files
-LocalDS on esxi1 -> ISOs
-
-
-## Uploading new ISOs to vSphere
-
-![../images/upload.png](../images/upload.png)
 
 
 
