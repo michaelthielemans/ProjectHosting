@@ -20,3 +20,5 @@
 | test | 172.24.1.81 | TEST-VM-Masternode-01 | |
 | test | 172.24.1.82 | TEST-VM-Workernode-01 | |
 | test | 172.24.1.83 | TEST-VM-Workernode-02 | |
+| networking |
+| network | 172.24.1.252 | PFsense gateway| gateway + dns forwarder |
