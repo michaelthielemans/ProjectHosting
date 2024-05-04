@@ -15,7 +15,7 @@ workernode - masternode - truenas - michael
 - test-vm-michael-01
 - prod-vm-workernode-01
 - test-vm-masternode-01
-- prod-template-masternode
+- test-template-masternode
 
 
 ## IP-ranges and conventions
