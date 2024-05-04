@@ -1,4 +1,4 @@
-# installing kubernetes with kubeadm on UBUNTU
+# Installing kubernetes with kubeadm on UBUNTU
 -------------------------
 - Set static ip address
 - Set the hostname correct
@@ -7,60 +7,66 @@
 ## disable swap
     swapoff -a
     /etc/fstab
-    
-## sudo ufw disable
-## add port to ufw
-`$ sudo ufw allow 6443
-`$ sudo ufw reload
 
+## allow port to ufw
+```
+$ sudo ufw allow 6443
+$ sudo ufw reload
+```
 ## check if the product_uuid is unique on every node
-`sudo cat /sys/class/dmi/id/product_uuid
-
+```
+$ sudo cat /sys/class/dmi/id/product_uuid
+```
 ## check if the mac addresses are unique on every node
-`ip link
-`ip a
+```
+ip link
+ip a
+```
 
-## Reboot the machine
-# Installing containerd
------------------------
-## Enable IPv4 packet forwarding
-    To manually enable IPv4 packet forwarding:
+Reboot the machine
 
-    ### sysctl params required by setup, params persist across reboots
-
+## Installing containerd
+### Enable IPv4 packet forwarding
+sysctl params required by setup, params persist across reboots
+```
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.ipv4.ip_forward = 1
 EOF
-
-    ### Apply sysctl params without reboot
-        sudo sysctl --system
-
-    #### Verify that net.ipv4.ip_forward is set to 1 with:
-
-        sysctl net.ipv4.ip_forward
-
+```
+Apply sysctl params without reboot
+```
+$ sudo sysctl --system
+```
+### Verify that net.ipv4.ip_forward is set to 1 with:
+```
+$ sysctl net.ipv4.ip_forward
+```
 ## download and extract containerd   
 ### download and extract from official binaries
-        in dir /usr/local
-
-        wget https://github.com/containerd/containerd/releases/download/v1.7.15/containerd-1.7.15-linux-amd64.tar.gz
-        tar Cxzvf /usr/local containerd-1.7.15-linux-amd64.tar.gz
-
+in dir /usr/local
+```
+wget https://github.com/containerd/containerd/releases/download/v1.7.15/containerd-1.7.15-linux-amd64.tar.gz
+tar Cxzvf /usr/local containerd-1.7.15-linux-amd64.tar.gz
+```
 ### enable start containerd with systemd
-        cd /usr/lib/systemd/system/
-        wget https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
+```
+cd /usr/lib/systemd/system/
+wget https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
 
-        systemctl daemon-reload
-        systemctl enable --now containerd
+systemctl daemon-reload
+systemctl enable --now containerd
+```
 
 ### install runc
-        cd /usr/local
-        wget https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.amd64
-        install -m 755 runc.amd64 /usr/local/sbin/runc
-
+```
+cd /usr/local
+wget https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.amd64
+install -m 755 runc.amd64 /usr/local/sbin/runc
+```
 ### adjustment of the config.toml file for systemd
-    `mkdir /etc/containerd
-    `touch /etc/containerd/config.toml
+```
+mkdir /etc/containerd
+touch /etc/containerd/config.toml
 
             The systemd cgroup driver is recommended if you use cgroup v2.
         --> rocky9 and ubuntu uses cgroup2fs
@@ -75,20 +81,22 @@ EOF
         ...
             [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
                 SystemdCgroup = true
-
+```
 ### adjust config file for sandbox image that is compatible wit the kubetrnetes version
         [plugins."io.containerd.grpc.v1.cri"]
             sandbox_image = "registry.k8s.io/pause:3.9"
 
 ### restart container d
-        systemctl restart containerd
-
+```
+$ systemctl restart containerd
+```
 ## install CNI plugins
-    in dir /opt
-    wget https://github.com/containernetworking/plugins/releases/download/v1.4.1/cni-plugins-linux-amd64-v1.4.1.tgz
-    mkdir -p /opt/cni/bin
-    tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.1.tgz
-
+```
+in dir /opt
+wget https://github.com/containernetworking/plugins/releases/download/v1.4.1/cni-plugins-linux-amd64-v1.4.1.tgz
+mkdir -p /opt/cni/bin
+tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.1.tgz
+```
 
 ## manually configure the cgroup driver for kubelet.
     Kubeadm will use the systemd cgroup driver, from
@@ -120,14 +128,18 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ` sudo systemctl enable --now kubelet
 
 # create a cluster
-    ## check if network route is ok
-        ip route show # Look for a line starting with "default via"
-
-    ## Initializing your control-plane node
-        $ kubeadm init --apiserver-advertise-address=172.24.1.81 --pod-network-cidr
-    
-    ## export the KUBECONFIG alias if you are the root user
-        export KUBECONFIG=/etc/kubernetes/admin.conf
+## check if network route is ok
+```
+$ ip route show # Look for a line starting with "default via"
+```
+## Initializing your control-plane node
+```
+$ kubeadm init --apiserver-advertise-address=172.24.1.81 --pod-network-cidr
+```
+## export the KUBECONFIG alias if you are the root user
+```
+$ export KUBECONFIG=/etc/kubernetes/admin.conf
+```
 
 # deploying the cilium pod network
     ## Install the Cilium CLI with helm
