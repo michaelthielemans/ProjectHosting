@@ -1,3 +1,5 @@
+# Please keep this list up to date !!
+
 |**environment**| **ip** | **machine** | **comment** |
 |---|---|---|---|
 | infra | 172.24.1.10| vmhost esxi 01 | online |
