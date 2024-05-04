@@ -1,4 +1,4 @@
-| **ip** | **machine** | **comment** |
-|---|---|---|
-| 172.24.1.10| vmhost esxi 01 | |
-| 172.24.1.11 | vhmhost esxi 02 | |
+|**environment**| **ip** | **machine** | **comment** |
+|---|---|---|---|
+|infra | 172.24.1.10| vmhost esxi 01 | |
+|infra | 172.24.1.11 | vhmhost esxi 02 | |
