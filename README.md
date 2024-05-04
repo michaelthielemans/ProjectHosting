@@ -1,9 +1,8 @@
 # Hi this is, HostHive hosting
 
 [![OurWebsite](https://img.shields.io/static/v1?label=Our&message=Website&color=blue)](https://projecthosting/)
-[![Our Team](https://img.shields.io/static/v1?label=Sign-up&message=for%20news&color=red)](https://projecthosting)
-[IP plan](IPplan/ip.md)
-[Conventions](#conventions)
+- [IP plan](IPplan/ip.md)
+- [Conventions](#conventions)
 
 # OUR TEAM
 
