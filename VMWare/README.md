@@ -22,7 +22,7 @@ workernode - masternode - truenas - michael - .......
 Subnet = 172.24.1.0/24
 |start address | end address | assigned to |
 |---|---|---|
-| 172.24.1.1 | 172.24.1.50 | 3WT |
+| 172.24.1.1 | 172.24.1.50 | 3WerkTraject |
 | 172.24.1.51 | 172.24.1.70 | Production net |
 | 172.24.1.71 | 172.24.1.80 | Mgmt net |
 | 172.24.1.81 | 172.24.1.100 | Test net |
