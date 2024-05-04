@@ -2,8 +2,9 @@
 
 |**environment**| **ip** | **machine** | **comment** |
 |---|---|---|---|
-| infra | 172.24.1.10| vmhost esxi 01 | online |
-| infra | 172.24.1.11 | vhmhost esxi 02 | online |
+| infra | 172.24.1.10 | vSphere Interface | online |
+| infra | 172.24.1.11 | vmhost esxi 01 | online |
+| infra | 172.24.1.12 | vhmhost esxi 02 | online |
 | infra | 172.24.1.20 | xcp-server-1| online-  8 Cores, 64GB ram |
 | infra | 172.24.1.21 | xcp-server-2 | online- 8 Cores, 64GB ram|
 | infra | 172.24.1.22 | xcp-ce | online orchestrator- virtual machine |
