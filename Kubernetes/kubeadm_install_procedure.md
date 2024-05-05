@@ -132,6 +132,8 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 sudo systemctl enable --now kubelet
 ```
+The kubelet is now restarting every few seconds, as it waits in a crashloop for kubeadm to tell it what to do.
+
 # create the cluster
 ## check if network route is ok
 ```
