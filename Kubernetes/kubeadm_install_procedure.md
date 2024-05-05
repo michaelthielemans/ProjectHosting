@@ -33,24 +33,25 @@ Reboot the machine
 ### Enable IPv4 packet forwarding
 sysctl params required by setup, params persist across reboots
 ```
-cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+sudo cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.ipv4.ip_forward = 1
 EOF
 ```
 Apply sysctl params without reboot
 ```
-$ sudo sysctl --system
+sudo sysctl --system
 ```
 ### Verify that net.ipv4.ip_forward is set to 1 with:
 ```
-$ sysctl net.ipv4.ip_forward
+sudo sysctl net.ipv4.ip_forward
 ```
 ## download and extract containerd   
 ### download and extract from official binaries
 in dir /usr/local
 ```
-wget https://github.com/containerd/containerd/releases/download/v1.7.15/containerd-1.7.15-linux-amd64.tar.gz
-tar Cxzvf /usr/local containerd-1.7.15-linux-amd64.tar.gz
+cd /usr/local
+sudo wget https://github.com/containerd/containerd/releases/download/v1.7.15/containerd-1.7.15-linux-amd64.tar.gz
+sudo tar Cxzvf /usr/local containerd-1.7.15-linux-amd64.tar.gz
 ```
 ### enable start containerd with systemd
 ```
@@ -116,11 +117,19 @@ sudo apt-get install -y apt-transport-https ca-certificates curl gpg
 ```
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
-## add package repository for kubernetes 1.30
+if you want to use v1.29
+```
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+```
+
+
+if you want to use 1.30 add package repository for kubernetes 1.30
 ```
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
-
+```
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+```
 ## install packages
 ```
 sudo apt-get update
@@ -149,6 +158,10 @@ Installed by default:
 [addons] Applied essential addon: CoreDNS
 [addons] Applied essential addon: kube-proxy
 
+if you have a iptables error:
+```
+sudo modprobe br_netfilter
+```
 
 # Make kubectl available for users:
 first check the config in /etc/kubernetes/admin.conf file -> check if it point to the correct network port !! 6443
@@ -192,6 +205,14 @@ cilium status --wait
 cilium connectivity test --single-node
 cilium connectivity test
 ```
+
+
+## adjust the ownership of the /opt/cni/bin directory
+during installation, cilium will create a couple of pods. the cilium-xxxx pods will pull some data from the /opt/cni/bin folder. by default this folder is not owned by root, change it to root
+```
+sudo chown root:root /opt/cni/bin
+```
+
 
 ### install helm
             $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
