@@ -33,6 +33,7 @@ Verantwoordelijke : Janssen Niels
 
 ## Dataset topologie
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/13ce0e66-7a87-4e46-8405-afc03e249797)
 
 ## Data Protection 
 
