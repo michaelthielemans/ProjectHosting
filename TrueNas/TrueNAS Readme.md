@@ -51,8 +51,8 @@ Daarbovenop zijn er de volgende data protection voorzorgsmaatregelen genomen.
 1. Install nfs-common package
 2. Mount nfs share
 
-`Sudo apt-get install nfs-common -y`
-`Sudo mount -t nfs 172.24.1.173:/mnt/Main/testshare /var/backups`
+```Sudo apt-get install nfs-common -y```
+```Sudo mount -t nfs 172.24.1.173:/mnt/Main/testshare /var/backups```
 
 ### Mounting NFS share Kubernetes
 
@@ -63,35 +63,35 @@ Daarbovenop zijn er de volgende data protection voorzorgsmaatregelen genomen.
 5. Mount de persistent volume & persistent volume claim
 
 ###### nfs-pvc.yaml
-'''apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: nfs-pvc
-spec:
-  storageClassName: nfs
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 1Gi'''
+```apiVersion: v1```
+```kind: PersistentVolumeClaim```
+```metadata:```
+```  name: nfs-pvc```
+```spec:```
+```  storageClassName: nfs```
+```  accessModes:```
+```    - ReadWriteMany```
+```  resources:```
+```    requests:```
+```      storage: 1Gi```
 ###### nfs-pv.yaml
-'''apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: nfs-pv
-spec:
-  capacity:
-    storage: 1Gi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteMany
-  persistentVolumeReclaimPolicy: Recycle
-  storageClassName: nfs
-  mountOptions:
-    - hard
-    - nfsvers=4.1
-  nfs:
-    path: /mnt/Main/Management/Niels # pas dit aan naar jouw path 
-    server: 172.24.1.99'''
+```apiVersion: v1```
+```kind: PersistentVolume```
+```metadata:```
+```  name: nfs-pv```
+```spec:```
+```  capacity:```
+```    storage: 1Gi```
+```  volumeMode: Filesystem```
+```  accessModes:```
+```    - ReadWriteMany```
+```  persistentVolumeReclaimPolicy: Recycle```
+```  storageClassName: nfs```
+```  mountOptions:```
+```    - hard```
+```    - nfsvers=4.1```
+```  nfs:```
+```    path: /mnt/Main/Management/Niels``` # pas dit aan naar jouw path 
+```    server: 172.24.1.99```
 ### SFTP via Filezilla
 
