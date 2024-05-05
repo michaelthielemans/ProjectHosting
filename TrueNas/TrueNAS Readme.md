@@ -30,6 +30,10 @@ Verantwoordelijke : Janssen Niels
 | --------- | ------------ | ------- | ----- | --- | ------- |
 | Primary   | 32gb         | 2TB     | 64 GB | 2   | 24.04   |
 | Secondary | 32gb         | 2TB     | 64 GB | 2   | 24.04   |
+
+## Dataset topologie
+
+
 ## Data Protection 
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/9bfc0883-4625-4ae3-ad49-a384650e0e42)
