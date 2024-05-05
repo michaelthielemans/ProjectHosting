@@ -56,43 +56,12 @@ Daarbovenop zijn er de volgende data protection voorzorgsmaatregelen genomen.
 
 ### Mounting NFS share Kubernetes
 
-1. Maak file nfs-pv.yaml
+1. Maak file nfs-pv.yaml (zie deze folder)
 2. Pas het path aan naar wat voor jou van toepassing is. 
-3. Maak file nfs-pvc.yaml 
+3. Maak file nfs-pvc.yaml (zie deze folder)
 4. Pas de storage aan naar wat voor jou van toepassing is. 
 5. Mount de persistent volume & persistent volume claim
 
-###### nfs-pvc.yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: nfs-pvc
-spec:
-  storageClassName: nfs
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 1Gi
-
-###### nfs-pv.yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: nfs-pv
-spec:
-  capacity:
-    storage: 1Gi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteMany
-  persistentVolumeReclaimPolicy: Recycle
-  storageClassName: nfs
-  mountOptions:
-    - hard
-    - nfsvers=4.1
-  nfs:
-    path: /mnt/Main/Management/Michael
-    server: 172.24.1.99
 ### SFTP via Filezilla
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/f66a3d27-365f-4d26-8b5f-bbf87e516f33)
