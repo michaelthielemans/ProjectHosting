@@ -1,3 +1,7 @@
+#VERY important! Be aware of the version matrix of all the different components
+K8s 1.29 - compatible with - cilium 1.15.4
+K8s 1.30 - not yet compatible with - cilium
+
 # Installing kubernetes with kubeadm on UBUNTU
 -------------------------
 - Set static ip address
