@@ -8,26 +8,26 @@ K8s 1.30 - not yet compatible with - cilium
 - Set the hostname correct
 - Edit the hosts file
   - add all other ip's and hostnames of the other nodes in the cluster
-## disable swap
+### disable swap
     swapoff -a
     /etc/fstab
 
-## allow port to ufw
+### allow port to ufw
 ```
-$ sudo ufw allow 6443
-$ sudo ufw reload
+sudo ufw allow 6443
+sudo ufw reload
 ```
-## check if the product_uuid is unique on every node
+### check if the product_uuid is unique on every node
 ```
-$ sudo cat /sys/class/dmi/id/product_uuid
+sudo cat /sys/class/dmi/id/product_uuid
 ```
-## check if the mac addresses are unique on every node
+### check if the mac addresses are unique on every node
 ```
 ip link
 ip a
 ```
 
-Reboot the machine
+### Reboot the machine
 
 ## Installing containerd
 ### Enable IPv4 packet forwarding
@@ -41,10 +41,18 @@ Apply sysctl params without reboot
 ```
 sudo sysctl --system
 ```
+
 ### Verify that net.ipv4.ip_forward is set to 1 with:
 ```
 sudo sysctl net.ipv4.ip_forward
 ```
+
+### On debian based systems
+```
+sudo modprobe br_netfilter
+```
+
+
 ## download and extract containerd   
 ### download and extract from official binaries
 in dir /usr/local
@@ -56,32 +64,33 @@ sudo tar Cxzvf /usr/local containerd-1.7.15-linux-amd64.tar.gz
 ### enable start containerd with systemd
 ```
 cd /usr/lib/systemd/system/
-wget https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
-
-systemctl daemon-reload
-systemctl enable --now containerd
+sudo wget https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now containerd
 ```
 
 ### install runc
 ```
 cd /usr/local
-wget https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.amd64
-install -m 755 runc.amd64 /usr/local/sbin/runc
+sudo wget https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.amd64
+sudo vinstall -m 755 runc.amd64 /usr/local/sbin/runc
 ```
 ### adjustment of the config.toml file for systemd
 ```
-mkdir /etc/containerd
-touch /etc/containerd/config.toml
+sudo mkdir /etc/containerd
+sudo touch /etc/containerd/config.toml
+sudo chmod 777 config.toml
+containerd config default > /etc/containerd/config.toml
+```
+The systemd cgroup driver is recommended if you use cgroup v2.
+--> rocky9 and ubuntu uses cgroup2fs
+the cgroup you use can be checked with   $ stat -fc %T /sys/fs/cgroup/
 
-            The systemd cgroup driver is recommended if you use cgroup v2.
-        --> rocky9 and ubuntu uses cgroup2fs
-            the cgroup you use can be checked with   $ stat -fc %T /sys/fs/cgroup/
+The default configuration can be generated via (run as root)
+containerd config default
 
-        The default configuration can be generated via (run as root)
-        ` containerd config default > /etc/containerd/config.toml
-
-        Open the config.toml and adjust the settings
-
+Open the config.toml and adjust the settings
+```
         [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
         ...
             [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
@@ -93,16 +102,17 @@ touch /etc/containerd/config.toml
 
 ### restart container d
 ```
-$ systemctl restart containerd
+$ sudo systemctl restart containerd
 ```
 ## install CNI plugins
 ```
-in dir /opt
-wget https://github.com/containernetworking/plugins/releases/download/v1.4.1/cni-plugins-linux-amd64-v1.4.1.tgz
-mkdir -p /opt/cni/bin
-tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.1.tgz
+cd /opt
+sudo wget https://github.com/containernetworking/plugins/releases/download/v1.4.1/cni-plugins-linux-amd64-v1.4.1.tgz
+sudo mkdir -p /opt/cni/bin
+sudo chown root:root cni/bin
+sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.1.tgz
 ```
-
+❗ Check the permissions on the bin folder inside the cni directory! should be root:root 755 ❗
 ## manually configure the cgroup driver for kubelet.
     Kubeadm will use the systemd cgroup driver, from
     this is not needed when using kubeadm version higher then 1.28
@@ -113,13 +123,16 @@ tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.1.tgz
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg
 ```
 
-## If the directory `/etc/apt/keyrings` does not exist, it should be created before the curl command, read the note below.
+### If the directory `/etc/apt/keyrings` does not exist, it should be created before the curl command.
+
+if you want to use version v1.30
 ```
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+sudo curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
+
 if you want to use v1.29
 ```
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+sudo curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
 
@@ -127,10 +140,12 @@ if you want to use 1.30 add package repository for kubernetes 1.30
 ```
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
+v1.29
 ```
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
-## install packages
+
+### install packages
 ```
 sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
@@ -150,7 +165,7 @@ $ ip route show # Look for a line starting with "default via"
 ```
 ## Initializing your control-plane node
 ```
-$ kubeadm init --apiserver-advertise-address=172.24.1.81 --pod-network-cidr=10.244.0.0/16
+sudo kubeadm init --apiserver-advertise-address=172.24.1.81 --pod-network-cidr=10.244.0.0/16
 ```
 If you want to configure in HA you need to add the --control-plane-endpoint= parameter !
 You can skip specific addons by --skip-
@@ -180,7 +195,8 @@ $ export KUBECONFIG=/etc/kubernetes/admin.conf
 
 # deploying the cilium pod network
 ## Install the Cilium CLI
-
+Installing cilium cni, hubble, ... can be done with cilium cli
+```
 CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt)
 CLI_ARCH=amd64
 if [ "$(uname -m)" = "aarch64" ]; then CLI_ARCH=arm64; fi
@@ -188,6 +204,7 @@ curl -L --fail --remote-name-all https://github.com/cilium/cilium-cli/releases/d
 sha256sum --check cilium-linux-${CLI_ARCH}.tar.gz.sha256sum
 sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
 rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
+```
 
 Check if cilium cli is installed:
 the latest version of the cilium cli can be found at https://github.com/cilium/cilium-cli/releases
@@ -195,7 +212,7 @@ the latest version of the cilium cli can be found at https://github.com/cilium/c
 cilium version --client
 ```
 
-### install cilium from the CLI
+## install cilium from the CLI
 ```
 cilium install --version 1.15.4
 ```
@@ -205,7 +222,6 @@ cilium status --wait
 cilium connectivity test --single-node
 cilium connectivity test
 ```
-
 
 ## adjust the ownership of the /opt/cni/bin directory
 during installation, cilium will create a couple of pods. the cilium-xxxx pods will pull some data from the /opt/cni/bin folder. by default this folder is not owned by root, change it to root
