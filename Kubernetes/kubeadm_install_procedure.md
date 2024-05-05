@@ -27,6 +27,12 @@ ip link
 ip a
 ```
 
+### Install nfs-common package on the workernodes
+this package will make it possible for the persistent volume to be created on the node.
+```
+sudo apt install nfs-common
+```
+
 ### Reboot the machine
 
 ## Installing containerd
