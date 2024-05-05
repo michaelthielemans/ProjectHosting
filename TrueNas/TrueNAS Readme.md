@@ -33,8 +33,14 @@ Verantwoordelijke : Janssen Niels
 
 ## Dataset topologie
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/525781df-08aa-43b2-ba4d-ed0801987cd9)
+
 
 ## Data Protection 
+
+Alle storage is beschermd door middel van Raid 5 hardware raid. 
+
+Daarbovenop zijn er de volgende data protection voorzorgsmaatregelen genomen.  
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/9bfc0883-4625-4ae3-ad49-a384650e0e42)
 
