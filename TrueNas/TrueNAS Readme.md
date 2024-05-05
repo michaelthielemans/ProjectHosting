@@ -32,5 +32,6 @@ Verantwoordelijke : Janssen Niels
 | Secondary | 32gb         | 2TB     | 64 GB | 2   | 24.04   |
 ## Data Protection 
 
-![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/7703fff1-87c7-4957-9aa0-75749c5cc0be)
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/9bfc0883-4625-4ae3-ad49-a384650e0e42)
+
 
