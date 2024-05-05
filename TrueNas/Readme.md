@@ -14,15 +14,19 @@ Verantwoordelijke : Janssen Niels
 | --------- | ------------ | ------------- |
 | Primary   | 172.24.1.99  | VSphere       |
 | Secondary | 172.24.1.100 | Xen Orchestra |
-## Credentials 
+## Shares 
 
-| Username    | NFS Share | Mount path                   | SFTP Share |
-| ----------- | --------- | ---------------------------- | ---------- |
-| dverbeek    | ✅         | /mnt/Main/Management/Dieter  | ✅          |
-| jzeczkowski | ✅         | /mnt/Main/Management/Jakub   | ✅          |
-| mthielemans | ✅         | /mnt/Main/Management/Michael | ✅          |
-| njanssen    | ✅         | /mnt/Main/Management/Wim     | ✅          |
-| wheyns      | ✅         | /mnt/Main/Management/Niels   | ✅          |
+| Rol         | Username    | NFS Share | Mount path                   | SFTP Share |     |
+| ----------- | ----------- | --------- | ---------------------------- | ---------- | --- |
+| Persoonlijk | dverbeek    | ✅         | /mnt/Main/Management/Dieter  | ✅          |     |
+| Persoonlijk | jzeczkowski | ✅         | /mnt/Main/Management/Jakub   | ✅          |     |
+| Persoonlijk | mthielemans | ✅         | /mnt/Main/Management/Michael | ✅          |     |
+| Persoonlijk | njanssen    | ✅         | /mnt/Main/Management/Wim     | ✅          |     |
+| Persoonlijk | wheyns      | ✅         | /mnt/Main/Management/Niels   | ✅          |     |
+| Apps        | /           | ✅         | /mnt/Main/Apps               | ❌          |     |
+| Klant       |             | ✅         |                              | ✅          |     |
+| Klant       |             | ✅         |                              | ✅          |     |
+| Klant       |             | ✅         |                              | ✅          |     |
 
 ## Specifications 
 
@@ -49,11 +53,14 @@ Daarbovenop zijn er de volgende data protection voorzorgsmaatregelen genomen.
 ### Mounting NFS share Linux 
 
 1. Install nfs-common package
-2. Mount nfs share
+2. maak een directory in de /mnt waar je de NFS share will mounten
+3. Mount nfs share (pas het commando aan waar nodig)
 
 ```sudo apt-get install nfs-common -y```
 
-```sudo mount -t nfs 172.24.1.173:/mnt/Main/testshare /var/backups```
+```sudo mkdir /mnt/Apps```
+
+```sudo mount -t nfs 172.24.1.99:/mnt/Main/Apps /mnt/Apps```
 
 ### Mounting NFS share Kubernetes
 

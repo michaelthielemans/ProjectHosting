@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TrueNas/TrueNAS Readme.md",
+                "file": "TrueNas/Readme.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TrueNas/TrueNAS Readme.md",
+                "file": "TrueNas/Readme.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TrueNas/TrueNAS Readme.md",
+                "file": "TrueNas/Readme.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TrueNas/TrueNAS Readme.md"
+                "file": "TrueNas/Readme.md"
               }
             }
           }
