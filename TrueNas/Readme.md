@@ -19,7 +19,7 @@ Verantwoordelijke : Janssen Niels
 | Rol         | Username    | NFS Share | Mount path                   | SFTP Share |     |
 | ----------- | ----------- | --------- | ---------------------------- | ---------- | --- |
 | Persoonlijk | dverbeek    | ✅         | /mnt/Main/Management/Dieter  | ✅          |     |
-| Persoonlijk | jzeczkowski | ✅         | /mnt/Main/Management/Jakub   | ✅          |     |
+| Persoonlijk | jrzeczkowski | ✅         | /mnt/Main/Management/Jakub   | ✅          |     |
 | Persoonlijk | mthielemans | ✅         | /mnt/Main/Management/Michael | ✅          |     |
 | Persoonlijk | njanssen    | ✅         | /mnt/Main/Management/Wim     | ✅          |     |
 | Persoonlijk | wheyns      | ✅         | /mnt/Main/Management/Niels   | ✅          |     |
