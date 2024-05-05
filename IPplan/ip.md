@@ -26,6 +26,6 @@
 | test | 172.24.1.83 | TEST-VM-Workernode-02 | |
 | BACKUP |
 | backup | 172.24.1.99 | BACKUP-VM-TrueNAS-01 | Primary (VSphere Cluster) |
-| backup | 172.24.1.100 | BACKUP-VM-TrueNAS-02 | Secondary (XCP-Cluster|
+| backup | 172.24.1.100 | BACKUP-VM-TrueNAS-02 | Secondary (XCP-Cluster) |
 | NETWORKING |
 | network | 172.24.1.252 | PFsense gateway| gateway + dns forwarder |
