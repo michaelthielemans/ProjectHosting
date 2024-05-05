@@ -10,14 +10,25 @@ Verantwoordelijke : Janssen Niels
 | Verantwoordelijke | Janssen Niels |
 ## IP adressen
 
-- Primary: 172.24.1.99
-- Secondary: 172.24.1.99
+| Rol       | IP adres     | Cluster       |
+| --------- | ------------ | ------------- |
+| Primary   | 172.24.1.99  | VSphere       |
+| Secondary | 172.24.1.100 | Xen Orchestra |
 ## Credentials 
 
-| Username    |
-| ----------- |
-| dverbeek    |
-| jzeczkowski |
-| mthielemans |
-| njanssen    |
-| wheyns      |
+| Username    | NFS Share | Mount path                   | SFTP Share |
+| ----------- | --------- | ---------------------------- | ---------- |
+| dverbeek    | ✅         | /mnt/Main/Management/Dieter  | ✅          |
+| jzeczkowski | ✅         | /mnt/Main/Management/Jakub   | ✅          |
+| mthielemans | ✅         | /mnt/Main/Management/Michael | ✅          |
+| njanssen    | ✅         | /mnt/Main/Management/Wim     | ✅          |
+| wheyns      | ✅         | /mnt/Main/Management/Niels   | ✅          |
+
+## Specifications 
+
+| Rol       | Installation | Storage | RAM   | CPU | Version |
+| --------- | ------------ | ------- | ----- | --- | ------- |
+| Primary   | 32gb         | 2TB     | 64 GB | 2   | 24.04   |
+| Secondary | 32gb         | 2TB     | 64 GB | 2   | 24.04   |
+## Data Protection 
+
