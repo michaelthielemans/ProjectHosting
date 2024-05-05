@@ -64,18 +64,28 @@ Daarbovenop zijn er de volgende data protection voorzorgsmaatregelen genomen.
 
 ###### nfs-pvc.yaml
 ```apiVersion: v1```
+
 ```kind: PersistentVolumeClaim```
+
 ```metadata:```
+
 ```  name: nfs-pvc```
+
 ```spec:```
+
 ```  storageClassName: nfs```
+
 ```  accessModes:```
+
 ```    - ReadWriteMany```
+
 ```  resources:```
+
 ```    requests:```
+
 ```      storage: 1Gi```
 ###### nfs-pv.yaml
-```apiVersion: v1```
+```apiVersion: v1
 ```kind: PersistentVolume```
 ```metadata:```
 ```  name: nfs-pv```
