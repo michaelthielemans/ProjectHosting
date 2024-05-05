@@ -51,8 +51,9 @@ Daarbovenop zijn er de volgende data protection voorzorgsmaatregelen genomen.
 1. Install nfs-common package
 2. Mount nfs share
 
-```Sudo apt-get install nfs-common -y```
-```Sudo mount -t nfs 172.24.1.173:/mnt/Main/testshare /var/backups```
+```sudo apt-get install nfs-common -y```
+
+```sudo mount -t nfs 172.24.1.173:/mnt/Main/testshare /var/backups```
 
 ### Mounting NFS share Kubernetes
 
