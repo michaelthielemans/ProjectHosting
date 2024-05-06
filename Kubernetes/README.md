@@ -1,3 +1,4 @@
+![kubernetes](../images/kubernetes.png)
 # Test cluster
 - Masternode available at : 172.24.1.81
 - Helm is installed
