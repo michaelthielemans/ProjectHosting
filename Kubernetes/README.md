@@ -8,11 +8,15 @@
 # kubectl cli tool:
 kubectl is installed on the masternode
 ## using kubectl on your local machine
-1. Install kubectl cli tool
-2. copy the config file from the masternode to you own computer
+1. Install kubectl cli tool on your local machine
+2. copy the kubeclt config file from the masternode to you own computer
      -> the config file is ->  ~/.kube/config
+        this config file contains all the necessary settings and certificates so kubectl can make a connection with the master node.
 4. on linux/mac :
    ```
-   export KUBECONFIG/path/to/kubectl/config
+   export KUBECONFIG=/path/to/kubectl/config
    ```
-5. use kubectl without the need for ssh login to the masternode !!
+5. option without exporting the KUBECONFIG variable:
+   ```
+   kubectl --configfile /path/to/kubctl/config <your command>
+   ```
