@@ -1,4 +1,6 @@
 ![kubernetes](../images/kubernetes.png)
+
+
 # Test cluster
 - Masternode available at : 172.24.1.81
 - Helm is installed on masternode
@@ -7,14 +9,18 @@
 - currently 01 test-application deployed on the cluster
   -> test-webpage exposed at port 30000 on all nodes
   -> 172.24.1.81:30000
-  
+
+
+# Manifest files
+- Please drop your manifest files in the  /Kubernets/manifests directory
+
 # kubectl cli tool:
 kubectl is installed on the masternode
 ## using kubectl on your local machine
-1. Install kubectl cli tool on your local machine
+1. Download and install the kubectl-cli tool on your local machine
 2. copy the kubeclt config file from the masternode to you own computer
      -> the config file is ->  ~/.kube/config
-        this config file contains all the necessary settings and certificates so kubectl can make a connection with the master node.
+        this config file contains all the necessary settings and certificates so your lcoal kubectl can make a connection with the master node.
 4. on linux/mac :
    ```
    export KUBECONFIG=/path/to/kubectl/config
