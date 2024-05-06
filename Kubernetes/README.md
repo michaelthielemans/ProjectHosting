@@ -1,10 +1,13 @@
 ![kubernetes](../images/kubernetes.png)
 # Test cluster
 - Masternode available at : 172.24.1.81
-- Helm is installed
+- Helm is installed on masternode
 - Persistent volumes are tested and can be used.
 - Only NodePort service can be used -> ingress controller not yet installed
-
+- currently 01 test-application deployed on the cluster
+  -> test-webpage exposed at port 30000 on all nodes
+  -> 172.24.1.81:30000
+  
 # kubectl cli tool:
 kubectl is installed on the masternode
 ## using kubectl on your local machine
