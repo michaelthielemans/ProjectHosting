@@ -60,6 +60,8 @@ Daarbovenop zijn er de volgende data protection voorzorgsmaatregelen genomen.
 
 ```sudo mkdir /mnt/Apps```
 
+```sudo chmod 755 /mnt/Apps```
+
 ```sudo mount -t nfs 172.24.1.99:/mnt/Main/Apps /mnt/Apps```
 
 ### Mounting NFS share Kubernetes
