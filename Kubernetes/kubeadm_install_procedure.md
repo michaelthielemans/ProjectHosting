@@ -175,7 +175,7 @@ $ ip route show # Look for a line starting with "default via"
 ```
 ## Initializing your control-plane node
 ```
-sudo kubeadm init --apiserver-advertise-address=172.24.1.81 --pod-network-cidr=10.244.0.0/16
+sudo kubeadm init --apiserver-advertise-address=172.24.1.81 --skip-phases=addon/kube-proxy
 ```
 If you want to configure in HA you need to add the --control-plane-endpoint= parameter !
 You can skip specific addons by --skip-
@@ -222,7 +222,43 @@ the latest version of the cilium cli can be found at https://github.com/cilium/c
 cilium version --client
 ```
 
+## First check if each node has a Internal IP assigned
+
+Please ensure that kubelet’s --node-ip is set correctly on each worker if you have multiple interfaces. Cilium’s kube-proxy replacement may not work correctly otherwise. You can validate this by running kubectl get nodes -o wide to see whether each node has an InternalIP which is assigned to a device with the same name on each node.
+
+```
+kubectl get nodes -o wide
+```
+
+
+## For existing installations with kube-proxy running as a DaemonSet, remove it by using the following commands below.
+
+
+Be aware that removing kube-proxy will break existing service connections. It will also stop service related traffic until the Cilium replacement has been installed.
+```
+kubectl -n kube-system delete ds kube-proxy
+# Delete the configmap as well to avoid kube-proxy being reinstalled during a Kubeadm upgrade (works only for K8s 1.19 and newer)
+kubectl -n kube-system delete cm kube-proxy
+# Run on each node with root permissions:
+iptables-save | grep -v KUBE | iptables-restore
+```
+
+Copy First Line  Copy Commands  Copy All
+
+Download the Cilium release tarball and change to the kubernetes install directory:
+```
+curl -LO https://github.com/cilium/cilium/archive/main.tar.gz
+tar xzf main.tar.gz
+cd cilium-main/install/kubernetes
+```
+
 ## install cilium from the CLI
+
+
+
+
+
+
 ```
 cilium install --version 1.15.4
 ```
