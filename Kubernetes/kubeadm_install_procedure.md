@@ -85,7 +85,7 @@ sudo install -m 755 runc.amd64 /usr/local/sbin/runc
 ```
 sudo mkdir /etc/containerd
 sudo touch /etc/containerd/config.toml
-sudo chmod 777 config.toml
+sudo chmod 777 /etc/containerd/config.toml
 containerd config default > /etc/containerd/config.toml
 ```
 The systemd cgroup driver is recommended if you use cgroup v2.
