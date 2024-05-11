@@ -77,8 +77,6 @@ kubectl -n kube-system delete cm kube-proxy
 iptables-save | grep -v KUBE | iptables-restore
 ```
 
-Copy First Line  Copy Commands  Copy All
-
 Download the Cilium release tarball and change to the kubernetes install directory:
 ```
 curl -LO https://github.com/cilium/cilium/archive/main.tar.gz
@@ -86,12 +84,7 @@ tar xzf main.tar.gz
 cd cilium-main/install/kubernetes
 ```
 
-## install cilium from the CLI
-
-
-
-
-
+# install cilium from the CLI
 
 ```
 cilium install --version 1.15.4
