@@ -79,7 +79,7 @@ sudo systemctl enable --now containerd
 ```
 cd /usr/local
 sudo wget https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.amd64
-sudo vinstall -m 755 runc.amd64 /usr/local/sbin/runc
+sudo install -m 755 runc.amd64 /usr/local/sbin/runc
 ```
 ### adjustment of the config.toml file for systemd
 ```
