@@ -128,8 +128,8 @@ sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.1.tgz
     this is not needed when using kubeadm version higher then 1.28
 
 ## install kubeadm, kubectl, kubelet packages on ubuntu
-``` sudo apt-get update
-# apt-transport-https may be a dummy package; if so, you can skip that package
+```
+sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg
 ```
 
