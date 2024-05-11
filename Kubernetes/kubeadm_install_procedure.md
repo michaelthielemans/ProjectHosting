@@ -82,30 +82,34 @@ sudo wget https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.
 sudo install -m 755 runc.amd64 /usr/local/sbin/runc
 ```
 ### adjustment of the config.toml file for systemd
+
+#### Set generate the config file , set permissions
 ```
 sudo mkdir /etc/containerd
 sudo touch /etc/containerd/config.toml
 sudo chmod 777 /etc/containerd/config.toml
 containerd config default > /etc/containerd/config.toml
 ```
+The last command will generate the default settings and piped into the config.toml file
+
 The systemd cgroup driver is recommended if you use cgroup v2.
 --> rocky9 and ubuntu uses cgroup2fs
 the cgroup you use can be checked with   $ stat -fc %T /sys/fs/cgroup/
 
-The default configuration can be generated via (run as root)
-containerd config default
 
-Open the config.toml and adjust the settings
+#### adjust the config.toml and adjust the settings so it will use systemc as cgroup driver.
 ```
         [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
         ...
             [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
                 SystemdCgroup = true
 ```
-### adjust config file for sandbox image that is compatible wit the kubetrnetes version
+### If you user another version of kubernetes (not 1.29) check which sandbox image you need to use.
+Adjust /etc/containerd/config.toml config file for sandbox image that is compatible wit the kubetrnetes version
+```
         [plugins."io.containerd.grpc.v1.cri"]
             sandbox_image = "registry.k8s.io/pause:3.9"
-
+```
 ### restart container d
 ```
 $ sudo systemctl restart containerd
