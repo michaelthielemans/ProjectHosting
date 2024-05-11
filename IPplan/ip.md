@@ -23,7 +23,7 @@
 | test | 172.24.1.81 | TEST-VM-Masternode-01 | online |
 | test | 172.24.1.82 | TEST-VM-Workernode-01 | online |
 | test | 172.24.1.83 | TEST-VM-Workernode-02 | online |
-| test | 172.24.1.84 | ||
+| test | 172.24.1.84 | TEST-VM-TEMPLATE||
 | BACKUP |
 | backup | 172.24.1.99 | BACKUP-VM-TrueNAS-01 | Primary (VSphere Cluster) |
 | backup | 172.24.1.100 | BACKUP-VM-TrueNAS-02 | Secondary (XCP-Cluster) |
