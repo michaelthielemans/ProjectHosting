@@ -16,9 +16,9 @@
 | prod | 172.24.1.54 | PROD-VM-Workernode-02 | |
 | prod | 172.24.1.55 | PROD-VM-Workernode-03 | |
 | MANAGEMENT |
-| mgmt | 172.24.1.71 | MGMT-VM-Masternode-01 | |
-| mgmt | 172.24.1.72 | MGMT-VM-Workernode-01 | |
-| mgmt | 172.24.1.73 | MGMT-VM-Workernode-02 | |
+| mgmt | 172.24.1.71 | MGMT-VM-Masternode-01 | online |
+| mgmt | 172.24.1.72 | MGMT-VM-Workernode-01 | online |
+| mgmt | 172.24.1.73 | MGMT-VM-Workernode-02 | online |
 | TEST |
 | test | 172.24.1.81 | TEST-VM-Masternode-01 | online |
 | test | 172.24.1.82 | TEST-VM-Workernode-01 | online |
