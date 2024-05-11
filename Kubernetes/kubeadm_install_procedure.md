@@ -112,7 +112,7 @@ Adjust /etc/containerd/config.toml config file for sandbox image that is compati
 ```
 ### restart container d
 ```
-$ sudo systemctl restart containerd
+sudo systemctl restart containerd
 ```
 ## install CNI plugins
 ```
