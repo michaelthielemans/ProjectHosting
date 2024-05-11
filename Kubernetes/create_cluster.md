@@ -30,7 +30,18 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-## export the KUBECONFIG alias if you are the root user
+## Set the correct config file file the root user / sudo
+create a password for the root user, so you can login as root
+```
+sudo passwd root
+```
+switch to root user and copy the config file to the correct directory (/root/.kube/config)
+```
+su root
+mkdir /root/.kube
+cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+```
+optional: export the KUBECONFIG alias if you are the root user
 ```
 $ export KUBECONFIG=/etc/kubernetes/admin.conf
 ```
@@ -86,8 +97,13 @@ cd cilium-main/install/kubernetes
 
 # install cilium from the CLI
 
+## ⚠️ adjust the ownership of the /opt/cni/bin directory ON ALL THE NODES ⚠️
+during installation, cilium will create a couple of pods. the cilium-xxxx pods will pull some data from the /opt/cni/bin folder. by default this folder is not owned by root, change it to root
 ```
-cilium install --version 1.15.4
+sudo chown root:root /opt/cni/bin
+```
+```
+sudo cilium install --version 1.15.4
 ```
 check the installation
 ```
@@ -96,14 +112,12 @@ cilium connectivity test --single-node
 cilium connectivity test
 ```
 
-## adjust the ownership of the /opt/cni/bin directory
-during installation, cilium will create a couple of pods. the cilium-xxxx pods will pull some data from the /opt/cni/bin folder. by default this folder is not owned by root, change it to root
+Check if the kubeproxyreplacement is true -> this means that the default kube-proxy addon is completely replaced by cilium
 ```
-sudo chown root:root /opt/cni/bin
+kubectl -n kube-system exec ds/cilium -- cilium-dbg status | grep KubeProxyReplacement
 ```
-
-
-### install helm
+---------------------
+### installing cilium with helm
             $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
             $ chmod 700 get_helm.sh
             $ ./get_helm.sh
@@ -131,6 +145,23 @@ $ kubeadm token list
 ```
 REBOOT
 
+
+# enable hubble cilium
+```
+cilium hubble enable -ui
+```
+## Install the Hubble Client cli tool on a client pc
+```
+HUBBLE_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/hubble/master/stable.txt)
+HUBBLE_ARCH=amd64
+if [ "$(uname -m)" = "aarch64" ]; then HUBBLE_ARCH=arm64; fi
+curl -L --fail --remote-name-all https://github.com/cilium/hubble/releases/download/$HUBBLE_VERSION/hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
+sha256sum --check hubble-linux-${HUBBLE_ARCH}.tar.gz.sha256sum
+sudo tar xzvfC hubble-linux-${HUBBLE_ARCH}.tar.gz /usr/local/bin
+rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
+```
+
+
 # Troubleshooting
 
 kubeadm checks
@@ -141,32 +172,3 @@ kubeclt checks
 
 containerd checks
 $ ctr
-
-
-
-
-
-
-
-
-
-
-
-WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /etc/kubernetes/admin.conf
-WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /etc/kubernetes/admin.conf
-W0504 19:18:49.552081    4240 warnings.go:70] spec.template.metadata.annotations[container.apparmor.security.beta.kubernetes.io/mount-cgroup]: deprecated since v1.30; use the "appArmorProfile" field instead
-W0504 19:18:49.552112    4240 warnings.go:70] spec.template.metadata.annotations[container.apparmor.security.beta.kubernetes.io/apply-sysctl-overwrites]: deprecated since v1.30; use the "appArmorProfile" field instead
-W0504 19:18:49.552124    4240 warnings.go:70] spec.template.metadata.annotations[container.apparmor.security.beta.kubernetes.io/clean-cilium-state]: deprecated since v1.30; use the "appArmorProfile" field instead
-W0504 19:18:49.552133    4240 warnings.go:70] spec.template.metadata.annotations[container.apparmor.security.beta.kubernetes.io/cilium-agent]: deprecated since v1.30; use the "appArmorProfile" field instead
-NAME: cilium
-LAST DEPLOYED: Sat May  4 19:18:47 2024
-NAMESPACE: kube-system
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
-NOTES:
-You have successfully installed Cilium with Hubble.
-
-Your release version is 1.15.4.
-
-For any further help, visit https://docs.cilium.io/en/v1.15/gettinghelp
