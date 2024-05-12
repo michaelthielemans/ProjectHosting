@@ -16,17 +16,17 @@ Verantwoordelijke : Janssen Niels
 | Secondary | 172.24.1.100 | Xen Orchestra |
 ## Shares 
 
-| Rol         | Username    | NFS Share | Mount path                   | SFTP Share |     |
-| ----------- | ----------- | --------- | ---------------------------- | ---------- | --- |
-| Persoonlijk | dverbeek    | ✅         | /mnt/Main/Management/Dieter  | ✅          |     |
+| Rol         | Username     | NFS Share | Mount path                   | SFTP Share |     |
+| ----------- | ------------ | --------- | ---------------------------- | ---------- | --- |
+| Persoonlijk | dverbeek     | ✅         | /mnt/Main/Management/Dieter  | ✅          |     |
 | Persoonlijk | jrzeczkowski | ✅         | /mnt/Main/Management/Jakub   | ✅          |     |
-| Persoonlijk | mthielemans | ✅         | /mnt/Main/Management/Michael | ✅          |     |
-| Persoonlijk | njanssen    | ✅         | /mnt/Main/Management/Wim     | ✅          |     |
-| Persoonlijk | wheyns      | ✅         | /mnt/Main/Management/Niels   | ✅          |     |
-| Apps        | /           | ✅         | /mnt/Main/Apps               | ❌          |     |
-| Klant       |             | ✅         |                              | ✅          |     |
-| Klant       |             | ✅         |                              | ✅          |     |
-| Klant       |             | ✅         |                              | ✅          |     |
+| Persoonlijk | mthielemans  | ✅         | /mnt/Main/Management/Michael | ✅          |     |
+| Persoonlijk | njanssen     | ✅         | /mnt/Main/Management/Wim     | ✅          |     |
+| Persoonlijk | wheyns       | ✅         | /mnt/Main/Management/Niels   | ✅          |     |
+| Apps        | /            | ✅         | /mnt/Main/Apps               | ❌          |     |
+| Klant       |              | ✅         |                              | ✅          |     |
+| Klant       |              | ✅         |                              | ✅          |     |
+| Klant       |              | ✅         |                              | ✅          |     |
 
 ## Specifications 
 
