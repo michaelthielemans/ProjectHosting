@@ -11,7 +11,7 @@
 | 5.  |     | Install TrueNAS Scale         |
 
 
-## Minimum Hardware Requirements
+## 2. Minimum Hardware Requirements
 | Processor                                   | Memory      | Boot Device           | Storage                                                 |
 | ------------------------------------------- | ----------- | --------------------- | ------------------------------------------------------- |
 | 2-Core Intel 64-Bit or AMD x86_64 processor | 8 GB Memory | 16 GB SSD boot device | Two identically-sized devices for a single storage pool |
@@ -61,18 +61,31 @@ https://www.truenas.com/download-truenas-scale/
 | Virtual device node           | SCSI(0:1)                             |
 | Mode                          | Dependent                             |
 
+Selecteer Install / Upgrade
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/e9d9d57d-62ad-4475-803e-f7e37d1ffe69)
 
+Selecteer de voorziene schijf waar je TrueNAS op wil installeren 
+
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/1ce9bdea-d17c-442d-af77-7d9a7ae0952c)
+
+Selecteer "Yes" 
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/3a69f0ee-df1a-40e3-90d9-03709a36bb90)
 
+Selecteer Administrative user (Admin). Dit is de veiligere optie en zal de root user in de disabled state zetten, dit kan achteraf nog gewijzigd worden.
+
+![brave_ObKIrb4gvJ](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/21163132-0147-4819-bc1f-5f28b9ce7987)
+
+Vul nu het wachtwoord in dat je aan het Admin account wenst te koppelen. Dit zal ook het account zijn waarmee je straks op de WebInterface kan inloggen. 
+
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/1e19fb93-0850-4962-b4eb-d90bb6077367)
+
+Selecteer "Yes" tenzij je op een systeem werkt dat nog gebruikt maakt van Legacy BIOS boot.
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/3f26fae0-4bb0-40fb-a8c4-e6adefb2e487)
 
-
+Selecteer "OK"
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/cd37a133-23eb-48b5-b23e-02dadc3af485)
 
