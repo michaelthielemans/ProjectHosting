@@ -61,3 +61,11 @@ https://www.truenas.com/download-truenas-scale/
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/3f26fae0-4bb0-40fb-a8c4-e6adefb2e487)
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/cd37a133-23eb-48b5-b23e-02dadc3af485)
+
+Herstart het virtueel machine nu 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/9142902c-181a-4850-a590-30626c7e4f34)
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/37b6e2eb-36e7-4318-9608-58aa0b8b23c8)
+
