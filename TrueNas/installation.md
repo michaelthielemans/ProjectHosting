@@ -2,9 +2,11 @@
 
 ## 1. Table of Contents 
 
-| 1.  |     | Table of contents             |
+| Nr |     | Onderwerp         |
 | --- | --- | ----------------------------- |
+| 1.  |     | Table of Contents |
 | 2.  |     | Minimum Hardware Requirements |
+| 4.  |     | Procedure         |
 | 4.  |     | Download TrueNAS Scale        |
 | 5.  |     | Install TrueNAS Scale         |
 
@@ -14,7 +16,7 @@
 | ------------------------------------------- | ----------- | --------------------- | ------------------------------------------------------- |
 | 2-Core Intel 64-Bit or AMD x86_64 processor | 8 GB Memory | 16 GB SSD boot device | Two identically-sized devices for a single storage pool |
 
-## 2. Procedure
+## 3. Procedure
 
 1. Download TrueNAS Scale (ISO)
 2. Open VSphere of de hypervisor die je ter beschikking hebt
@@ -22,15 +24,15 @@
 4. Maak een nieuw virtueel machine aan met de specificaties aangegeven in hoofdstuk "Virtual Machine Overview" of een variatie hierop. 
 5. Installeer TrueNAS Scale 
 
-## 3. Download TrueNAS scale 
+## 4. Download TrueNAS scale 
 
 Ga naar de volgende link en download de laatste versie van TrueNAS scale 
 
 https://www.truenas.com/download-truenas-scale/
 
-## 4. Install TrueNAS scale
+## 5. Install TrueNAS scale
 
-### 4.1 Virtual Machine overview
+### 5.1 Virtual Machine overview
 
 | Virtual machine name          | New Virtual Machine                   |
 | ----------------------------- | ------------------------------------- |
