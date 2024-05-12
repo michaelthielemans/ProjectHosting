@@ -9,8 +9,8 @@
 | 4.  |     | Procedure         |
 | 4.  |     | Download TrueNAS Scale        |
 | 5.  |     | Install TrueNAS Scale         |
-| 5.1  |     | Install TrueNAS Scale         |
-| 5.2  |     | Install TrueNAS Scale         |
+| 5.1  |     | Virtual Machine overview         |
+| 5.2  |     | TrueNAS Installer         |
 | 6  |     | TrueNAS webinterface          |
 
 
