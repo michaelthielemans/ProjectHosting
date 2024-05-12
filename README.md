@@ -35,7 +35,7 @@
 
 
 # Conventions
-### ** attention NEVER EVER save login credentials or secrets on this repository.**
+### ** Attention NEVER EVER save login credentials or secrets on this repository.**
 
 ## Documentation
 - Write documentation in Markdown
@@ -45,6 +45,6 @@
 
 
 soorten webshops
-- small
-- medium
-- heavy -> meer resources -> meer replica's
+- Small
+- Medium
+- Heavy -> meer resources -> meer replica's
