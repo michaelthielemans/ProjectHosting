@@ -27,7 +27,7 @@
 | Backups | VSphere + TrueNAS | Niels | Michael |
 | Ticketing | FreeScout HelpDesk | Jakub |
 | Automation platform | ansible (+ puppet) | Michael |
-| Docker images / webstacks | Niels | |
+| Docker images / webstacks | Docker - LAMP | Niels |
 | Procedures and compliance| .. | .. |
 | Documentation | Github | ALL |
 | Monitoring | Prometheus  - Grafana | Wim | Michael |
