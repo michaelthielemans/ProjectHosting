@@ -51,6 +51,6 @@ https://www.truenas.com/download-truenas-scale/
 | Virtual device node           | SCSI(0:1)                             |
 | Mode                          | Dependent                             |
 
-
+![[Pasted image 20240512143819.png]]
 
 
