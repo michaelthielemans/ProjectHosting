@@ -104,6 +104,8 @@ Na het herstarten zal TrueNAS nu beschikbaar zijn via de webinterface verbonden 
 
 ## 6. TrueNAS WebInterface
 
+Surf naar het adres gekoppeld aan de TrueNAS VM om toegang te krijgen tot de WebInterface. 
+
 Nu kan je op de TrueNAS WebInterface inloggen met het Admin account & wachtwoord dat je zonet gecreëerd hebt in het installatieprocess. 
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/352f947e-5848-4a51-8802-885ec9630c2b)
