@@ -14,15 +14,23 @@
 | ------------------------------------------- | ----------- | --------------------- | ------------------------------------------------------- |
 | 2-Core Intel 64-Bit or AMD x86_64 processor | 8 GB Memory | 16 GB SSD boot device | Two identically-sized devices for a single storage pool |
 
-## Download TrueNAS scale 
+## 2. Procedure
+
+1. Download TrueNAS Scale (ISO)
+2. Open VSphere of de hypervisor die je ter beschikking hebt
+3. Upload de ISO 
+4. Maak een nieuw virtueel machine aan met de specificaties aangegeven in hoofdstuk "Virtual Machine Overview" of een variatie hierop. 
+5. Installeer TrueNAS Scale 
+
+## 3. Download TrueNAS scale 
 
 Ga naar de volgende link en download de laatste versie van TrueNAS scale 
 
 https://www.truenas.com/download-truenas-scale/
 
-## Install TrueNAS scale
+## 4. Install TrueNAS scale
 
-### Virtual Machine overview
+### 4.1 Virtual Machine overview
 
 | Virtual machine name          | New Virtual Machine                   |
 | ----------------------------- | ------------------------------------- |
@@ -51,6 +59,7 @@ https://www.truenas.com/download-truenas-scale/
 | Virtual device node           | SCSI(0:1)                             |
 | Mode                          | Dependent                             |
 
+
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/e9d9d57d-62ad-4475-803e-f7e37d1ffe69)
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/1ce9bdea-d17c-442d-af77-7d9a7ae0952c)
@@ -61,11 +70,15 @@ https://www.truenas.com/download-truenas-scale/
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/3f26fae0-4bb0-40fb-a8c4-e6adefb2e487)
 
+
+
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/cd37a133-23eb-48b5-b23e-02dadc3af485)
 
-Herstart het virtueel machine nu 
+Herstart het virtueel machine nu.
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/9142902c-181a-4850-a590-30626c7e4f34)
+
+Na het herstarten zal TrueNAS nu beschikbaar zijn via de webinterface verbonden aan het ip adres aangegeven op het virtueel machine. 
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/37b6e2eb-36e7-4318-9608-58aa0b8b23c8)
 
