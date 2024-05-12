@@ -53,5 +53,11 @@ https://www.truenas.com/download-truenas-scale/
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/e9d9d57d-62ad-4475-803e-f7e37d1ffe69)
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/1ce9bdea-d17c-442d-af77-7d9a7ae0952c)
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/3a69f0ee-df1a-40e3-90d9-03709a36bb90)
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/1e19fb93-0850-4962-b4eb-d90bb6077367)
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/3f26fae0-4bb0-40fb-a8c4-e6adefb2e487)
 
