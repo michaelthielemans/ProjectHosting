@@ -19,17 +19,17 @@
 | ---|---|---|---|
 | HyperVisor | VMWARE | Michael | Niels |
 | Cluster | Kubernetes | Michael | Niels |
-| Storage | truenass | Niels |
+| Storage | TrueNAS | Niels |
 | DNS | ...| .. |
 | Mailserver | ....| ..|
 | Firewall & VPN | iptables? |  Jakub  |
 | Security | WAZUH | Dieter | 
-| Backups | Proxmox + truenas | Niels | Michael |
+| Backups | VSphere + TrueNAS | Niels | Michael |
 | Ticketing | FreeScout HelpDesk | Jakub |
 | Automation platform | ansible (+ puppet) | Michael |
 | Docker images / webstacks | Niels | |
 | Procedures and compliance| .. | .. |
-| Documentation | github | ALL |
+| Documentation | Github | ALL |
 | Monitoring | Prometheus  - Grafana | Wim | Michael |
 | logging | ....| .. | .. |
 
