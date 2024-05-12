@@ -9,6 +9,9 @@
 | 4.  |     | Procedure         |
 | 4.  |     | Download TrueNAS Scale        |
 | 5.  |     | Install TrueNAS Scale         |
+| 5.1  |     | Install TrueNAS Scale         |
+| 5.2  |     | Install TrueNAS Scale         |
+| 6  |     | TrueNAS webinterface          |
 
 
 ## 2. Minimum Hardware Requirements
@@ -61,6 +64,8 @@ https://www.truenas.com/download-truenas-scale/
 | Virtual device node           | SCSI(0:1)                             |
 | Mode                          | Dependent                             |
 
+### 5.2 TrueNAS Installer 
+
 Selecteer Install / Upgrade
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/e9d9d57d-62ad-4475-803e-f7e37d1ffe69)
@@ -96,4 +101,10 @@ Herstart het virtueel machine nu.
 Na het herstarten zal TrueNAS nu beschikbaar zijn via de webinterface verbonden aan het ip adres aangegeven op het virtueel machine. 
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/37b6e2eb-36e7-4318-9608-58aa0b8b23c8)
+
+## 6. TrueNAS WebInterface
+
+Nu kan je op de TrueNAS WebInterface inloggen met het Admin account & wachtwoord dat je zonet gecreëerd hebt in het installatieprocess. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/352f947e-5848-4a51-8802-885ec9630c2b)
 
