@@ -2,8 +2,9 @@
 
 ## 1. Table of Contents 
 
-| [# 1. Table of Contents](#1.-table-of-contents)             |
+| Navigation |             |
 | -------------------------------------------------  |
+| [# 1. Table of Contents](#1.-table-of-contents)             |
 | [# 2. Minimum Hardware Requirements](#2.-minimum-hardware-requirements)  |
 | [#3. Procedure](#3.-procedure)                     |
 | [#4. Download TrueNAS scale](#4.-download-truenas-scale)       |
