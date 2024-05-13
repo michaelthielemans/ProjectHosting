@@ -2,15 +2,15 @@
 
 ## 1. Table of Contents 
 
-| [[#1. Table of Contents]]             |
+| [#1. Table of Contents]             |
 | ------------------------------------- |
-| [[#2. Minimum Hardware Requirements]] |
-| [[#3. Procedure]]                     |
-| [[#4. Download TrueNAS scale]]        |
-| [[#5. Install TrueNAS scale]]         |
-| [[#5.1 Virtual Machine overview]]     |
-| [[#5.2 TrueNAS Installer]]            |
-| [[#6. TrueNAS WebInterface]]          |
+| [#2. Minimum Hardware Requirements] |
+| [#3. Procedure]                     |
+| [#4. Download TrueNAS scale]       |
+| [#5. Install TrueNAS scale]         |
+| [#5.1 Virtual Machine overview]     |
+| [#5.2 TrueNAS Installer]           |
+| [#6. TrueNAS WebInterface]          |
 
 
 ## 2. Minimum Hardware Requirements
