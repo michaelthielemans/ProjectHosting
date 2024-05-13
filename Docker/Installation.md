@@ -12,3 +12,20 @@
 | [5.1 Virtual Machine overview](#51-virtual-machine-overview)     |
 | [5.2 TrueNAS Installer](#52-truenas-installer)           |
 | [6. TrueNAS WebInterface](#6-truenas-webinterface)         |
+
+
+## 2. Prerequisites
+
+Ondersteunde platformen (Linux) 
+
+| Platform | Supported |           
+| :-------------------------------------------------  |
+|     Ubuntu       | ✅ |
+|     Debian       | ✅ |
+|    Red Hat Enterprise Linux (RHEL)        | ✅ |
+|      Fedora     | ✅ |
+Platform	x86_64 / amd64
+	
+	
+	
+	
