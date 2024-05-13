@@ -2,7 +2,7 @@
 
 ## 1. Table of Contents 
 
-| Navigation |             |
+| Navigation |             
 | -------------------------------------------------  |
 | [# 1. Table of Contents](#1.-table-of-contents)             |
 | [# 2. Minimum Hardware Requirements](#2.-minimum-hardware-requirements)  |
