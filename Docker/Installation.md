@@ -19,12 +19,12 @@
 Ondersteunde platformen (Linux) 
 
 | Platform | Supported |           
-| :-------------------------------------------------  | |
+| :-----------  |
 |     Ubuntu       | ✅ |
 |     Debian       | ✅ |
 |    Red Hat Enterprise Linux (RHEL)        | ✅ |
 |      Fedora     | ✅ |
-Platform	x86_64 / amd64
+
 	
 	
 	
