@@ -19,7 +19,7 @@
 Ondersteunde platformen (Linux) 
 
 | Platform | Supported |           
-| :-------------------------------------------------  |
+| :-------------------------------------------------  | |
 |     Ubuntu       | ✅ |
 |     Debian       | ✅ |
 |    Red Hat Enterprise Linux (RHEL)        | ✅ |
