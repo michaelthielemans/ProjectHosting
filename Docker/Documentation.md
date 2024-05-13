@@ -1,4 +1,4 @@
-![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/5a90d928-8d43-4013-9bc2-ed6193ad178d)
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/6ce42726-73f1-466c-9075-a90863f076e0)
 
 
 
