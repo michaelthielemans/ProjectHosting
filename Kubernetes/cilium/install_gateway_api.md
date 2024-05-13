@@ -1,4 +1,4 @@
-1[gatewayap](https://gateway-api.sigs.k8s.io/images/logo/logo-text-horizontal.png)
+![gatewayap](https://gateway-api.sigs.k8s.io/images/logo/logo-text-horizontal.png)
 # Installing gateway api
 
 Gateway api uses specific CRD ( custom resource definitions) these are not installed on a kubernetes cluster by default.
