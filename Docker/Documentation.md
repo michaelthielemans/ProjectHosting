@@ -1,4 +1,5 @@
-![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/b9171291-9844-4fc3-8178-9db710d39e99)
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/78b22a9b-773b-4d16-a024-a06e2be783e2)
+
 
 ## 1. Table of Contents 
 
