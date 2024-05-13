@@ -2,7 +2,7 @@
 
 ## 1. Table of Contents 
 
-| [Table of Contents](#1. table of contents)             |
+| [# 1. Table of Contents](#1. table of contents)             |
 | ------------------------------------- |
 | [[##2. Minimum Hardware Requirements]] |
 | [#3. Procedure]                     |
