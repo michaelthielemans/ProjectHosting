@@ -2,9 +2,9 @@
 
 ## 1. Table of Contents 
 
-| [#1. Table of Contents]             |
+| #1. Table of Contents             |
 | ------------------------------------- |
-| [#2. Minimum Hardware Requirements] |
+| [[##2. Minimum Hardware Requirements]] |
 | [#3. Procedure]                     |
 | [#4. Download TrueNAS scale]       |
 | [#5. Install TrueNAS scale]         |
