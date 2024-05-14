@@ -1,4 +1,5 @@
-# Deploying the cilium pod network !
+# Deploying CNI - the cilium pod network !
+
 ## Install the Cilium CLI
 Installing cilium cni, hubble, ... can be done with cilium cli
 
@@ -46,20 +47,36 @@ curl -LO https://github.com/cilium/cilium/archive/main.tar.gz
 tar xzf main.tar.gz
 cd cilium-main/install/kubernetes
 ```
-
-# install cilium from the CLI
+-----
+# Install cilium from the CLI
 
 ## ⚠️ adjust the ownership of the /opt/cni/bin directory ON ALL THE NODES ⚠️
 during installation, cilium will create a couple of pods. the cilium-xxxx pods will pull some data from the /opt/cni/bin folder. by default this folder is not owned by root, change it to root
 ```
 sudo chown root:root /opt/cni/bin
 ```
+
+### install with
+- loadbalancer
+- loadbalancing enabled on interfaces eth0,net0
+- kubeproxyreplacement
+- externalIP enabled
+- 
+
 ```
-sudo cilium install --version 1.15.4
+sudo cilium install --version 1.15.4 \
+  --set kubeProxyReplacement="strict" \
+  --set l2announcements.enabled=true \
+  --set l2announcements.leaseDuration="3s" \
+  --set l2announcements.leaseRenewDeadline="1s" \
+  --set l2announcements.leaseRetryPeriod="500ms" \
+  --set devices="{eth0,net0}" \
+  --set externalIPs.enabled=true \
 ```
 check the installation
 ```
 cilium status --wait
+kubectl -n kube-system get pods --watch
 cilium connectivity test --single-node
 cilium connectivity test
 ```
@@ -69,31 +86,6 @@ Check if the kubeproxyreplacement is true -> this means that the default kube-pr
 kubectl -n kube-system exec ds/cilium -- cilium-dbg status | grep KubeProxyReplacement
 ```
 ---------------------
-### installing cilium with helm
-            $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-            $ chmod 700 get_helm.sh
-            $ ./get_helm.sh
-
-add the cilium helm repo and install cilium
-```
-helm repo add cilium https://helm.cilium.io/
-```
-```
-helm install cilium cilium/cilium --version 1.15.4 --namespace kube-system
-```
-check if cilium is successfully installed
-```
-kubectl -n kube-system get pods --watch
-```
-
-# adding nodes to the cluster
-```
-kubeadm join 172.24.1.81:6443 --token xxxxx --discovery-token-ca-cert-hash sha256:
-```
-if you cannot find the token you can list it
-```
-$ kubeadm token list
-```
 REBOOT
 
 
