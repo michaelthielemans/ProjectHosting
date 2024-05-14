@@ -4,6 +4,8 @@ You can install, configure , upgrade, delete cilium with the use of cilium-cli
 ## checking the status of cilium
 ```
 cilium status --wait
+```
+
 ## View and adjust the cilium configuration
 Check the cilium main configuration
 ```
