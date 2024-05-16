@@ -72,16 +72,25 @@ sudo bash wazuh-install.sh --start-cluster --ignore-check
 ````bash
 tar -axOf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt | grep -A 1 "admin"
 ````
+![user-pasw](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/c534e2f1-16f8-4d71-87fe-6ed83d6bd0fe)
+
+
+
+
 
 <br/>9.	Test de inlog gegevens
 ````bash
 sudo curl -k -u admin:<password> https:// 172.24.1.81:9200
 ````
+![logintest](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/e9ec901b-8042-4237-9b14-7752a2cd5b65)
 
 <br/>10.	Nodes bekijken
 ````bash
 curl -k -u admin:curl -k -u admin:<password> https://172.24.1.81:9200/_cat/nodes?v
 ````
+![nodes actief](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/65b73668-f35c-4f25-998b-4e44f681ae78)
+
+
 
 <br/>11.	 Wazuh server opstarten
 ````bash
