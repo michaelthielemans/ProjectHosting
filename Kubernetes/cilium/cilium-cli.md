@@ -20,3 +20,11 @@ cilium config set key value
 # for example
 cilium config set ipam cluster-pool
 ```
+
+
+
+
+## Troubleshooting and debugging
+```
+cilium sysdump
+```
