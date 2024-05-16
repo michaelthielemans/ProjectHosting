@@ -38,9 +38,59 @@ When localASN and peerASN are the same, iBGP peering is used. When localASN and 
 
 
 
-
 ### Check BGP peering
 
 ```
 cilium bgp peers
 ```
+
+
+# BGP configuration
+
+> cilium will create a Virtual IP based on your CiliumBGPPeeringPolicy and announce it to its BGP neighbour routers.
+
+
+## CiliumBGPPeeringPolicy manifest file:
+```
+apiVersion: cilium.io/v2alpha1
+kind: CiliumBGPPeeringPolicy
+metadata:
+  name: example-bgp-peering-policy
+  namespace: kube-system
+spec:
+  peers:
+    - peerAddress: "192.168.1.1"
+      peerASN: 65001
+      myASN: 65000
+  nodeSelector:
+    matchLabels:
+      kubernetes.io/hostname: "node1.example.com"
+      bgp-enabled: "true"
+  virtualRouters:
+    - asn: 65000
+      neighborConfigs:
+        - peerAddress: "192.168.1.1"
+          peerASN: 65001
+      serviceSelector:
+        matchLabels:
+          app: my-app
+---
+apiVersion: "cilium.io/v2alpha1"
+kind: CiliumBGPPeeringPolicy
+metadata:
+  name: rack0
+spec:
+  nodeSelector:
+    matchLabels:
+      rack: rack0
+  virtualRouters:
+  - localASN: 64512
+    exportPodCIDR: true # <-- enable PodCIDR advertisement
+    neighbors:
+    - peerAddress: '10.0.0.1/32'
+      peerASN: 64512
+```
+
+
+-  the nodeselector field can point to hostnames as wel as labels you have attached to nodes
+-  attach a label to a node  ` kubectl label nodes node1 bgp-enabled=true`
