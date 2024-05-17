@@ -6,6 +6,7 @@
   - Do you need to add all nodes to the neighbors list of the router? also the master nodes?
   - does each node need a router-id? is in fact each node a bgp enabled router?
   - BGP VIP , when using a IPpool does cilium choose a VIP from that pool
+  - Host network mode : available since v1.16 -> can it be used together with loadbalancer mode?
 3. Is a service like nodeport/clusterIP a configuration that is applied to the kube-proxy daemon?
 4. Can you point a gateway API directly to a single app/pod or better always create a clusterIP service as a endpoint?
 5. What is a cilium agent? Are those the cilium pods? What is its job
