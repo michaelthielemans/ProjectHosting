@@ -1,6 +1,5 @@
 # Version Control System
-- github
-  Het team is reeds vertrouwd met het github platform
+👍 github
 
 # Taken en Planning tool
 - github projects
@@ -11,15 +10,15 @@
 De school stelt ons on-premise server infrastructuur ter beschikking.
 
 # Hypervisor:
-- VMWare met vSphere
-- XCP-NG Is een opensource project
+👍 VMWare met vSphere
+👎 XCP-NG Is een opensource project
 
 ## Which operating system we will use?
 - Debian gebaseerde distributie
-  Het team heeft het meest ervaring met debian distributies
+👍 We went for UBUNTU -> happy with it, its not an exotic distro so easy to find documentation = important
 
 ## kubernetes deployment method?
-- kubeAdm
+👍 kubeAdm
   Dit is de meest compacte en toch simpele manier om een cluster op te bouwen. Weinig extra complexiteit of 'overhead'
 
 ## Storage for the cluster:
@@ -38,8 +37,8 @@ De school stelt ons on-premise server infrastructuur ter beschikking.
   zeer veelzijdige configuratie tool, van servers tot netwerk apparatuur.
 
 ## Backups
-- vmware vSphere DataProtection -> extra licence? do we have this?
-- TrueNas
+👎 vmware vSphere DataProtection -> extra licence? not available for us -> 3th party product can be expensive
+👍 TrueNas
     we maken reeds gebruik van trueNas dus geen extra software nodig om backups te maken
 
 ## Antivirus
@@ -54,7 +53,8 @@ De school stelt ons on-premise server infrastructuur ter beschikking.
   opensource, overzichtelijk dashboard
 
 ## password management and secretes, certificates and key vault
-- hashicorp vault
+🤔 hashicorp vault
+😃 kubernetes secrets -> keep it stupid keep it simple, provided all we needed.
 - passbolt for credential sharing
   -> + encrypted backups locally
 
