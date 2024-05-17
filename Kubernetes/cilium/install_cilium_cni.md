@@ -56,30 +56,53 @@ during installation, cilium will create a couple of pods. the cilium-xxxx pods w
 sudo chown root:root /opt/cni/bin
 ```
 
-### install with
-- loadbalancer
+### install Cilium CNI with
+- the default kubeproxy replaced with cilium
 - loadbalancing enabled on interfaces eth0,net0
 - kubeproxyreplacement
 - externalIP enabled
-- 
+- internal clusternetwork encrypted
+
 
 ```
-sudo cilium install --version 1.15.4 \
-  --set kubeProxyReplacement="strict" \
+git clone git@github.com:cilium/cilium.git
+cd cilium directory
+```
+```
+sudo cilium install --version 1.16.0-pre2 \
+  --chart-directory ./install/kubernetes/cilium \
+  --set kubeProxyReplacement="true" \
   --set l2announcements.enabled=true \
   --set l2announcements.leaseDuration="3s" \
   --set l2announcements.leaseRenewDeadline="1s" \
   --set l2announcements.leaseRetryPeriod="500ms" \
-  --set devices="{eth0,net0}" \
   --set externalIPs.enabled=true \
+  --set encryption.enabled=true \
+  --set encryption.type=wireguard \
+  --set devices=ens33 \
 ```
-check the installation
+
+### With helm (not complete check official documentation)
+```
+helm install cilium ./cilium \
+  --namespace kube-system \
+  --set encryption.enabled=true \
+  --set encryption.type=wireguard \
+```
+
+### Validate the installation
 ```
 cilium status --wait
 kubectl -n kube-system get pods --watch
+
 cilium connectivity test --single-node
 cilium connectivity test
 ```
+#### validating encryption
+>exec into the cilium pod
+`kubectl -n kube-system exec -ti ds/cilium -- bash`
+>Once inside the pod run:
+`cilium-dbg status | grep Encryption`
 
 Check if the kubeproxyreplacement is true -> this means that the default kube-proxy addon is completely replaced by cilium
 ```
