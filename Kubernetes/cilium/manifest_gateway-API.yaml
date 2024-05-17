@@ -13,6 +13,20 @@ spec:
         from: Same
         # bepaald welke namespaces zijn toegelaten. in de HTTPRoute part of the gateway api  you can define the namespace.
         # Same betekend dat route is toegelaten als de gateway in dezelfde namespace zit als de service
+
+---
+# This is a httproute for routing to a service based on the FQDN request.
+
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: httproute-example
+spec:
+  hostnames:
+  - my.example.com
+
+
+
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
