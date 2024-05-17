@@ -80,6 +80,7 @@ sudo cilium install --version 1.16.0-pre2 \
   --set encryption.enabled=true \
   --set encryption.type=wireguard \
   --set devices=ens33 \
+  --set gatewayAPI.enabled=true \
 ```
 
 ### With helm (not complete check official documentation)
