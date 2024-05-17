@@ -12,6 +12,10 @@ Is the Gateway programmed?
 
 A programmed Gateway means that Cilium prepared a configuration for it.
 If the Programmed true indicator is missing, make sure that Gateway API is enabled in the Cilium configuration.
+> how to enable the gateway api
+> ```
+> cilium upgrade --version x.xx. --set gatewayAPI.enabled=true
+> ```
 Does the gateway have an address?
 You can check the service with kubectl get service. If the gateway has an address, it means that a LoadBalancer service is assigned to the gateway. If no IP appears, you might be missing a LoadBalancer implementation.
 
