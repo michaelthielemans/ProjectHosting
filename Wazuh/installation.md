@@ -32,6 +32,9 @@ nodes:
     - name: wazuh-2
       ip: "172.24.1.82"
       node_type: worker
+    - name: wazuh-3
+      ip: "172.24.1.83"
+      node_type: worker
 
   # Wazuh dashboard nodes
   dashboard:
@@ -96,6 +99,7 @@ curl -k -u admin:curl -k -u admin:<password> https://172.24.1.81:9200/_cat/nodes
 ````bash
 sudo bash wazuh-install.sh --wazuh-server wazuh-1 --ignore-check
 sudo bash wazuh-install.sh --wazuh-server wazuh-2 --ignore-check
+sudo bash wazuh-install.sh --wazuh-server wazuh-3 --ignore-check
 ````
 
 <br/>12.	Wazuh dashboard opstarten
