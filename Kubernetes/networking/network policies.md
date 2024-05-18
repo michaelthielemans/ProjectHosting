@@ -1,12 +1,12 @@
-# Network policies
+# Network Policies
 
-Define rules how network traffic should behave.
+Define rules on how network traffic should behave.
 
-> When using cilium cni you can use cilium specific network policies , these have more finegrained rules
+> When using Cilium CNI, you can use Cilium-specific network policies, which have more fine-grained rules.
 
+## Out-of-the-Box Kubernetes Network Policy Manifest File
 
-## Out-of-the-box kubernetes Network policy manifest file
-```
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -26,17 +26,20 @@ spec:
 ```
 
 ### Explanation
-- apiVersion:  networking.k8s.io/v1: Specifies the API version.
-- kind: NetworkPolicy: Specifies that this is a NetworkPolicy resource.
-- metadata: Contains the name and namespace of the NetworkPolicy.
-- name: The name of the NetworkPolicy (allow-internal-traffic).
-- namespace: The namespace where the policy is applied (klant1).
-- spec: Defines the specifications of the NetworkPolicy.
-- podSelector: {}: This applies to all pods in the klant1 namespace.
-- policyTypes: Specifies the types of policies being applied. Here, both ingress and egress policies are defined.
-- ingress: Specifies the ingress rules.
-- from: Defines the sources of allowed ingress traffic.
-- podSelector: {}: Allows traffic from any pod within the same namespace.
-- egress: Specifies the egress rules.
-- to: Defines the destinations of allowed egress traffic.
-- podSelector: {}: Allows traffic to any pod within the same namespace.
+
+- **apiVersion: networking.k8s.io/v1**: Specifies the API version.
+- **kind: NetworkPolicy**: Specifies that this is a NetworkPolicy resource.
+- **metadata**: Contains the name and namespace of the NetworkPolicy.
+  - **name**: The name of the NetworkPolicy (`allow-internal-traffic`).
+  - **namespace**: The namespace where the policy is applied (`klant1`).
+- **spec**: Defines the specifications of the NetworkPolicy.
+  - **podSelector: {}**: This applies to all pods in the `klant1` namespace.
+  - **policyTypes**: Specifies the types of policies being applied. Here, both ingress and egress policies are defined.
+    - **Ingress**
+    - **Egress**
+  - **ingress**: Specifies the ingress rules.
+    - **from**: Defines the sources of allowed ingress traffic.
+      - **podSelector: {}**: Allows traffic from any pod within the same namespace.
+  - **egress**: Specifies the egress rules.
+    - **to**: Defines the destinations of allowed egress traffic.
+      - **podSelector: {}**: Allows traffic to any pod within the same namespace.
