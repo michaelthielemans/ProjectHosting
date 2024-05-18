@@ -1,31 +1,29 @@
 ![kubernetes](../images/kubernetes.png)
 
+# Test Cluster
 
-# Test cluster
-- Masternode available at : 172.24.1.81
-- Helm is installed on masternode
-- Persistent volumes are tested and can be used.
-- Only NodePort service can be used -> ingress controller not yet installed
-- currently 01 test-application deployed on the cluster
-  -> test-webpage exposed at port 30000 on all nodes
-  -> 172.24.1.81:30000
+- **Masternode beschikbaar op**: 172.24.1.81
+- **Helm is geïnstalleerd op de masternode**
+- **Persistent volumes zijn getest en kunnen gebruikt worden**
+- **Alleen NodePort-service kan gebruikt worden** (Ingress controller nog niet geïnstalleerd)
 
+# Manifest Files
 
-# Manifest files
-- Please drop your manifest files in the  /Kubernets/manifests directory
+- Plaats je manifest bestanden in de map `/Kubernetes/manifests`
 
-# kubectl cli tool:
-kubectl is installed on the masternode
-## using kubectl on your local machine
-1. Download and install the kubectl-cli tool on your local machine
-2. copy the kubeclt config file from the masternode to you own computer
-     -> the config file is ->  ~/.kube/config
-        this config file contains all the necessary settings and certificates so your lcoal kubectl can make a connection with the master node.
-4. on linux/mac :
-   ```
+# kubectl CLI Tool
+
+kubectl is geïnstalleerd op de masternode
+
+## Gebruik van kubectl op je lokale machine
+
+1. **Download en installeer de kubectl-cli tool op je lokale machine**
+2. **Kopieer het kubectl-configuratiebestand van de masternode naar je eigen computer**
+   - Het configuratiebestand bevindt zich op: `~/.kube/config`
+   - Dit configuratiebestand bevat alle benodigde instellingen en certificaten zodat je lokale kubectl verbinding kan maken met de masternode.
+3. **Op Linux/macOS**:
+   ```bash
    export KUBECONFIG=/path/to/kubectl/config
-   ```
-5. option without exporting the KUBECONFIG variable:
-   ```
+4. **Option without exporting the KUBECONFIG variable:**:
+   ```bash
    kubectl --configfile /path/to/kubctl/config <your command>
-   ```
