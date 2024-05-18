@@ -1,10 +1,12 @@
-# Hi this is, HostHive hosting
+# Hi, this is HostHive Hosting
 
-[![OurWebsite](https://img.shields.io/static/v1?label=Our&message=Website&color=blue)](https://projecthosting/)
-- [IP plan](IPplan/ip.md)
+[![Our Website](https://img.shields.io/static/v1?label=Our&message=Website&color=blue)](http://172.24.1.81:30080)
+
+## Quick Links
+- [IP Plan](IPplan/ip.md)
 - [Conventions](#conventions)
 
-# OUR TEAM
+# Our Team
 
 - Dieter Verbeek
 - Jakub Rzeczkowski
@@ -12,39 +14,33 @@
 - Niels Janssen
 - Wim Heyns
 
+# Responsibility Silos
 
-# Responsibility silos
-
-| **Silo** | **Technology** | **Lead** | **Support** |
-| ---|---|---|---|
-| HyperVisor | VMWARE | Michael | Niels |
-| Cluster | Kubernetes | Michael | Niels |
-| Storage | TrueNAS | Niels |
-| DNS | ...| .. |
-| Mailserver | ....| ..|
-| Firewall & VPN | iptables? |  Jakub  |
-| Security | WAZUH | Dieter | 
-| Backups | VSphere + TrueNAS | Niels | Michael |
-| Ticketing | FreeScout HelpDesk | Jakub |
-| Automation platform | ansible (+ puppet) | Michael |
-| Docker images / webstacks | Docker - LAMP | Niels |
-| Procedures and compliance| .. | .. |
-| Documentation | Github | ALL |
-| Monitoring | Prometheus  - Grafana | Wim | Michael |
-| logging | ....| .. | .. |
-
+| **Silo**               | **Technology**           | **Lead**  | **Support** |
+|------------------------|--------------------------|-----------|-------------|
+| HyperVisor             | VMWARE                   | Michael   | Niels       |
+| Cluster                | Kubernetes               | Michael   | Niels       |
+| Storage                | TrueNAS                  | Niels     |             |
+| DNS                    | ...                      | ...       |             |
+| Mailserver             | ...                      | ...       |             |
+| Security               | WAZUH                    | Dieter    |             |
+| Backups                | VSphere + TrueNAS        | Niels     | Michael     |
+| Ticketing              | FreeScout HelpDesk       | Jakub     |             |
+| Automation Platform    | ansible (+ puppet)       | Michael   |             |
+| Docker Images / Webstacks | Docker - LAMP        | Niels     |             |
+| Procedures and Compliance | ...                  | ...       |             |
+| Documentation          | Github                   | ALL       |             |
+| Monitoring             | Prometheus - Grafana     | Wim       | Michael     |
+| Logging                | ...                      | ...       | ...         |
 
 # Conventions
-### ** Attention NEVER EVER save login credentials or secrets on this repository.**
+
+### **Attention: NEVER EVER save login credentials or secrets in this repository.**
 
 ## Documentation
 - Write documentation in Markdown
 
-
-
-
-
-soorten webshops
+## Types of Webshops
 - Small
 - Medium
-- Heavy -> meer resources -> meer replica's
+- Heavy -> more resources -> more replicas
