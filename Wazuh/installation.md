@@ -21,8 +21,6 @@ nodes:
       ip: "172.24.1.81"
     - name: wazuh-2
       ip: "172.24.1.82"
-    - name: wazuh-3
-      ip: "172.24.1.83"
 
   # Wazuh server nodes
   server:
@@ -32,9 +30,7 @@ nodes:
     - name: wazuh-2
       ip: "172.24.1.82"
       node_type: worker
-    - name: wazuh-3
-      ip: "172.24.1.83"
-      node_type: worker
+
 
   # Wazuh dashboard nodes
   dashboard:
@@ -49,24 +45,24 @@ nodes:
 sudo bash wazuh-install.sh --generate-config-files --ignore-check
 ````
 
-<br/>4. Voer dit commando uit op alle andere nodes om het gegenereerde tar-bestand over te zetten naar andere nodes
-````bash
-sudo scp master@test-vm-masternode-01:/home/master/wazuh/wazuh-install-files.tar ~/wazuh/
-````
-
-<br/>5.	Verander de permissies op alle nodes
+<br/>4.	Verander de permissies op alle nodes
 ````bash
 sudo chmod 744 wazuh-install-files.tar
+````
+
+<br/>5. Voer deze commandos uit op alle andere nodes om het gegenereerde tar-bestand over te zetten naar andere nodes
+````bash
+sudo scp master@<IP>:/home/master/wazuh/wazuh-install-files.tar ~/wazuh/
+sudo curl -sS https://packages.wazuh.com/4.7/wazuh-install.sh -o wazuh-install.sh
 ````
 
 <br/>6.	Activeer de indexers (Op alle indexer nodes)
 ````bash
 sudo bash wazuh-install.sh --wazuh-indexer wazuh-1 --ignore-check
 sudo bash wazuh-install.sh --wazuh-indexer wazuh-2 --ignore-check
-sudo bash wazuh-install.sh --wazuh-indexer wazuh-3 --ignore-check
 ````
 
-<br/>7.	Activeer de cluster (Op de master alleen)
+<br/>7.	Activeer de cluster (Op de master)
 ````bash
 sudo bash wazuh-install.sh --start-cluster --ignore-check
 ````
@@ -76,8 +72,6 @@ sudo bash wazuh-install.sh --start-cluster --ignore-check
 tar -axOf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt | grep -A 1 "admin"
 ````
 ![user-pasw](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/c534e2f1-16f8-4d71-87fe-6ed83d6bd0fe)
-
-
 
 
 
@@ -99,7 +93,6 @@ curl -k -u admin:curl -k -u admin:<password> https://172.24.1.81:9200/_cat/nodes
 ````bash
 sudo bash wazuh-install.sh --wazuh-server wazuh-1 --ignore-check
 sudo bash wazuh-install.sh --wazuh-server wazuh-2 --ignore-check
-sudo bash wazuh-install.sh --wazuh-server wazuh-3 --ignore-check
 ````
 
 <br/>12.	Wazuh dashboard opstarten
