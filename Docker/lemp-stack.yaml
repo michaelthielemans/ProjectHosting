@@ -20,8 +20,8 @@ spec:
     - hard
     - nfsvers=4.1
   nfs:
-    path: /mnt/Main/Share/Manifests # Update this to your actual NFS path
-    server: 10.40.20.50
+    path: /mnt/Main/Share/Manifests # Verander dit naar jouw nfs path
+    server: 172.24.1.99
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -127,7 +127,7 @@ metadata:
 spec:
   selector:
     app: adminer
-  type: NodePort  # Change type to NodePort
+  type: NodePort  
   ports:
     - protocol: TCP
       port: 8080
