@@ -87,6 +87,7 @@ metadata:
 spec:
   selector:
     app: nginx
+  type: NodePort  # Change type to NodePort
   ports:
     - protocol: TCP
       port: 80
@@ -126,6 +127,7 @@ metadata:
 spec:
   selector:
     app: adminer
+  type: NodePort  # Change type to NodePort
   ports:
     - protocol: TCP
       port: 8080
@@ -156,6 +158,15 @@ spec:
       containers:
       - name: nginx
         image: nginx:latest
+        env:
+          - name: WORDPRESS_DB_HOST
+            value: mariadb # Updated value
+          - name: WORDPRESS_DB_USER
+            value: db-user
+          - name: WORDPRESS_DB_PASSWORD
+            value: yGzZqJKD4YzZMRtskmopQa
+          - name: WORDPRESS_DB_NAME
+            value: wordpress-db
         ports:
         - containerPort: 80
         volumeMounts:
@@ -193,7 +204,7 @@ spec:
     spec:
       containers:
       - name: php-fpm
-        image: php:fpm
+        image: wordpress:php7.4-fpm
         ports:
         - containerPort: 9000
         volumeMounts:
@@ -225,8 +236,14 @@ spec:
         ports:
         - containerPort: 3306
         env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: root_password  # Change this to a strong password
+          - name: MYSQL_ROOT_PASSWORD
+            value: HDt24a7W2kow6XQsxequyR
+          - name: MYSQL_DATABASE
+            value: wordpress-db
+          - name: MYSQL_USER
+            value: db-user
+          - name: MYSQL_PASSWORD
+            value: yGzZqJKD4YzZMRtskmopQa
         volumeMounts:
         - name: mariadb-storage
           mountPath: /var/lib/mysql
