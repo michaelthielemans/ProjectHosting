@@ -4,8 +4,7 @@
 2. [Taakverdeling](#taakverdeling)
 3. [Samenwerkingsoverzicht](#samenwerkingsoverzicht)
 4. [Uitgebreide Samenvatting van de Functies/Mogelijkheden](#uitgebreide-samenvatting-van-de-functiesmogelijkheden)
-5. [Beveiligingsbewaking](#beveiligingsbewaking)
-6. [Bronnen](#bronnen)
+5. [Bronnen](#bronnen)
 
 
 
