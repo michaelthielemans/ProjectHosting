@@ -18,32 +18,33 @@ nodes:
   # Wazuh indexer nodes
   indexer:
     - name: wazuh-1
-      ip: "172.24.1.81"
+      ip: "172.24.1.104"
     - name: wazuh-2
-      ip: "172.24.1.82"
+      ip: "172.24.1.107"
 
   # Wazuh server nodes
   server:
     - name: wazuh-1
-      ip: "172.24.1.81"
+      ip: "172.24.1.104"
       node_type: master
     - name: wazuh-2
-      ip: "172.24.1.82"
+      ip: "172.24.1.107"
       node_type: worker
 
 
   # Wazuh dashboard nodes
   dashboard:
     - name: wazuh-1
-      ip: "172.24.1.81"
+      ip: "172.24.1.104"
     - name: wazuh-2
-      ip: "172.24.1.82"
+      ip: "172.24.1.107"
 ````
 
 <br/>3. Genereer het .tar Configuratiebestanden
 ````bash
 sudo bash wazuh-install.sh --generate-config-files --ignore-check
 ````
+![conf file](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/019ebc10-5d38-44b5-af49-55c13e7480d5)
 
 <br/>4.	Verander de permissies op alle nodes
 ````bash
@@ -61,11 +62,13 @@ sudo curl -sS https://packages.wazuh.com/4.7/wazuh-install.sh -o wazuh-install.s
 sudo bash wazuh-install.sh --wazuh-indexer wazuh-1 --ignore-check
 sudo bash wazuh-install.sh --wazuh-indexer wazuh-2 --ignore-check
 ````
+![indexer install](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/e11ea885-27f9-4e94-86b4-5de27f3f7877)
 
 <br/>7.	Activeer de cluster (Op de master)
 ````bash
 sudo bash wazuh-install.sh --start-cluster --ignore-check
 ````
+![cluster](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/d8f44f53-80c4-461e-949c-7e670d0f88f1)
 
 <br/>8.	Haal de inlog gegevens uit de .tar file
 ````bash
@@ -77,13 +80,13 @@ tar -axOf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt | grep
 
 <br/>9.	Test de inlog gegevens
 ````bash
-sudo curl -k -u admin:<password> https:// 172.24.1.81:9200
+sudo curl -k -u admin:OB5p*9rB2aP*sjlEnkqauI3ZvPizqj6Z https://172.24.1.104:9200
 ````
 ![logintest](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/e9ec901b-8042-4237-9b14-7752a2cd5b65)
 
 <br/>10.	Nodes bekijken
 ````bash
-curl -k -u admin:curl -k -u admin:<password> https://172.24.1.81:9200/_cat/nodes?v
+curl -k -u admin:curl -k -u admin:OB5p*9rB2aP*sjlEnkqauI3ZvPizqj6Z https://172.24.1.104:9200/_cat/nodes?v
 ````
 ![nodes actief](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/65b73668-f35c-4f25-998b-4e44f681ae78)
 
@@ -94,12 +97,14 @@ curl -k -u admin:curl -k -u admin:<password> https://172.24.1.81:9200/_cat/nodes
 sudo bash wazuh-install.sh --wazuh-server wazuh-1 --ignore-check
 sudo bash wazuh-install.sh --wazuh-server wazuh-2 --ignore-check
 ````
+![server start](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/01f723dd-9340-48aa-b4a4-ca6816210fa5)
 
 <br/>12.	Wazuh dashboard opstarten
 ````bash
 sudo bash wazuh-install.sh --wazuh-dashboard wazuh-1 --ignore-check
 sudo bash wazuh-install.sh --wazuh-dashboard wazuh-2 --ignore-check
 ````
+![install dash](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/73f509ac-9ae9-4fe9-a403-8aac3d5a8a07)
 
 <br/>Eventueel andere port-number
 ````bash
