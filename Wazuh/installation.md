@@ -2,7 +2,7 @@
 ![wazuh-logo-main-02](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/64aa9a11-f322-4818-909e-62e68ac4a955)
 
 
-Wazuh Installatiehandleiding voor het opzetten van een Wazuh-cluster met één master-node en twee worker-nodes. (2 servers / 2 indexers / 2 dashboards)
+Wazuh Installatiehandleiding voor het opzetten van een Wazuh-cluster met 1 master-node en 1 worker-node. (2 servers / 2 indexers / 2 dashboards)
 
 <br/>1. Maak de map en download bestanden
 ````bash
