@@ -28,6 +28,7 @@
 | mgmt            | 172.24.1.71  | MGMT-VM-Masternode-01    | online                                         |
 | mgmt            | 172.24.1.72  | MGMT-VM-Workernode-01    | online                                         |
 | mgmt            | 172.24.1.73  | MGMT-VM-Workernode-02    | online                                         |
+| mgmt            | 172.24.1.75  | MGMT-VM-Ansible          | online                                         |
 
 ## TEST
 
