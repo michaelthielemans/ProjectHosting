@@ -9,7 +9,7 @@
 
 
 
-# Hardware recommendations
+# <br/>Hardware recommendations:
 ![dash](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/440739fc-64f6-4339-9e9a-fe8ac0ab35a9)<br/><br/>
 ![server](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/d9a07ac3-50cf-4497-9469-baee58444962)<br/><br/>
 ![index](https://github.com/michaelthielemans/ProjectHosting/assets/118989454/b37d1df5-4c33-49a0-83d9-99835563c4d2)<br/><br/>
@@ -18,7 +18,7 @@
 
 
 
-# Taakverdeling
+# <br/>Taakverdeling:
 
 ### <u>Wazuh Manager:</u>
 
