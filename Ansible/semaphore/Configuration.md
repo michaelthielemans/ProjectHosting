@@ -54,7 +54,7 @@ add the following line to the file
 4. add a list of ip's
 
 ### 4. Connect a repository
-1. Create a new github repo and copy the https:// link
+1. Create a new github repo and copy the https:// link [https://github.com/michaelthielemans/ansible/tree/main/playbooks](https://github.com/michaelthielemans/ansible/tree/main/playbooks)
 2. paste the link
 3. Branch -> main
 4. access key => none if the repo is public
