@@ -1,7 +1,5 @@
 # Ansible automation platform
 
-AWX can only be installed on a kubernetes cluster!! 
-
 ## Architecture
 
 
