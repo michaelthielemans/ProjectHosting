@@ -2,8 +2,7 @@
 
 ### Number of control plane nodes
 Best practice is to use 3 or 5 controller nodes.
-Why: etcd is a datastore dat will replicate data based on quora. If you have a even number of control plane nodes chances are that you have
-a split brain scenario. Etdc will make decisions based on 50% + 1 so it knows which instance of the datastore it needs to use.
+Why: etcd is a datastore dat will replicate data based on quora. If you have a even number of control plane nodes chances are that you have a split brain scenario. Etcd will make decisions based on 50% + 1 majority. 
 
 ### HA control plane architecture
 
@@ -20,18 +19,18 @@ KUBE-VIP makes use of a static pod on each node
 ------
 ## Prerequisites
 Prepare the nodes like standard nodes
-[prepare-node](../Prepare_node_for_kubernets.md)
+[prepare-node](Prepare_node_for_kubernets.md)
 
 ## Procedure: HA Cluster initialization with kube-vip
 
-1. Generate a kube-vip manifest file and paste it in manifest directory for static pods /etc/kubernetes/manifests/ (see the generating a manifest section below).
+1. Generate a kube-vip manifest file and paste it in manifest directory for static pods -> /etc/kubernetes/manifests/
 2. Run kubeadm init with the --control-plane-endpoint flag using the VIP address provided when generating the static Pod manifest.
 3. During the kube init phase the kubelet will parse and execute all manifests, including the kube-vip manifest generated in step one and the other control plane components including kube-apiserver.
 4. kube-vip starts and advertises the VIP address.
 5. The kubelet on this first control plane will connect to the VIP advertised in the previous step.
 6. kubeadm init finishes successfully on the first control plane.
-7. Using the output from the kubeadm init command on the first control plane, run the kubeadm join command on the remainder of the control planes.
-8. Copy the generated kube-vip manifest to the remainder of the control planes and place in their static Pods manifest directory (default of /etc/kubernetes/manifests/)
+7. Using the output from the kubeadm init command on the first control plane, run the kubeadm join command on the remainder of the control plane nodes.
+8. Copy the generated kube-vip manifest to the remainder of the control plane nodes and place in their static Pods manifest directory (default of /etc/kubernetes/manifests/)
 
 #### 1. Generate the manifest file for kube-vip
 Set the VIP virtual IP that will be used on the control-plane and the active interface on the control nodes:
