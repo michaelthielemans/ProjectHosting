@@ -1,3 +1,4 @@
+#documentation #kubernetes #cilium 
 # cilium cli howto
 You can install, configure , upgrade, delete cilium with the use of cilium-cli
 

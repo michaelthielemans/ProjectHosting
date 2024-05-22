@@ -1,3 +1,4 @@
+#documentation #kubernetes #cilium 
 # Check the Gateway resource
 
 ```
@@ -55,8 +56,8 @@ kubectl describe gateway <name>
 ```
 
 >You can see the general status of the gateway as well as the status of the configured listeners.
-Listener status displays the number of routes successfully attached to the listener.
-You can see status conditions for both gateway and listener:
+>Listener status displays the number of routes successfully attached to the listener.
+>You can see status conditions for both gateway and listener:
 
 - Accepted: the Gateway configuration was accepted.
 - Programmed: the Gateway configuration was programmed into Envoy.

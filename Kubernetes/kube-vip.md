@@ -47,10 +47,11 @@ Define the 'kube-vip' alias for later use:
 ```
 alias kube-vip="ctr image pull ghcr.io/kube-vip/kube-vip:$KVVERSION; ctr run --rm --net-host ghcr.io/kube-vip/kube-vip:$KVVERSION vip /kube-vip"
 ```
->Note: When running these commands on a to-be control plane node, sudo access may be required along with pre-creation of the /etc/kubernetes/manifests/ directory.
+>[!attention] Note: When running these commands on a to-be control plane node, sudo access may be required along with pre-creation of the /etc/kubernetes/manifests/ directory.
 
 
-for arp type loadbalancing use following command:
+For arp type load-balancing use following command:
+
 ```
 kube-vip manifest pod \
     --interface $INTERFACE \
@@ -59,8 +60,10 @@ kube-vip manifest pod \
     --services \
     --arp \
     --leaderElection | tee /etc/kubernetes/manifests/kube-vip.yaml
-1. run kubeadm with the parameters
-   ```
-   kubeadm init --control-plane-endpoint <VIP address> : <port> --upload-certs
-   ```
-   --upload-certs flag is used to auto upload the certificates that should be shared across the control-plane instances in the cluster.
+```
+
+Run kubeadm with the parameters
+```
+kubeadm init --control-plane-endpoint <VIP address> : <port> --upload-certs
+```
+  > --upload-certs flag is used to auto upload the certificates that should be shared across the control-plane instances in the cluster.

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docker/Documentation.md",
+                "file": "Kubernetes/kube-vip.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "kube-vip",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Docker/Documentation.md",
+                "file": "Kubernetes/kube-vip.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Docker/Documentation.md",
+                "file": "Kubernetes/kube-vip.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -114,7 +115,7 @@
             "state": {
               "type": "tag",
               "state": {
-                "sortOrder": "frequency",
+                "sortOrder": "alphabetical",
                 "useHierarchy": true
               }
             }
@@ -125,16 +126,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Docker/Documentation.md"
+                "file": "Kubernetes/kube-vip.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -148,6 +149,32 @@
   },
   "active": "4a4e033ab134929f",
   "lastOpenFiles": [
+    "Kubernetes/cilium/gateway-api_configuration.md",
+    "Kubernetes/cilium/cilium-cli.md",
+    "Kubernetes/cilium/cilium_architecturei.md",
+    "design/TechnologyConsiderations.md",
+    "Ansible/semaphore/README.md",
+    "Ansible/semaphore/Configuration.md",
+    "Ansible/semaphore/Installation.md",
+    "Kubernetes/kube-vip.md",
+    "Untitled.md",
+    "Wazuh/login-dash.md",
+    "Wazuh/images/rules.PNG",
+    "Wazuh/images/overwiew wazuh.PNG",
+    "Wazuh/images/logging.PNG",
+    "Wazuh/images/README.md",
+    "Wazuh/images",
+    "Wazuh/create-agent.md",
+    "Kubernetes/helm/helm.md",
+    "Kubernetes/helm",
+    "Kubernetes/Kubectl Cheat-Sheet.md",
+    "Docker/lemp-stack.yaml",
+    "Ansible/semaphore/docker-compose.yml",
+    "Ansible/semaphore",
+    "README.md",
+    "IPplan/ip.md",
+    "Ansible/AWX.md",
+    "Docker/Documentation.md",
     "TrueNas/Documentation.md",
     "TrueNas/installation.md",
     "TrueNas/Readme.md"

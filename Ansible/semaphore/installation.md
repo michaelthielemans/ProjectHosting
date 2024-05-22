@@ -1,3 +1,4 @@
+#documentation 
 # Semaphore installation guide with docker compose
 
 > copy the compose file to the host where you want to install semaphore
