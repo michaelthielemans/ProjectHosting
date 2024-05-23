@@ -64,10 +64,13 @@ sudo chown root:root /opt/cni/bin
 - internal clusternetwork encrypted
 
 
+> This is for cloning the cilium git repo to you local disk, this not not needed if you already downloaded the files with curl to download and extract the tar release.
 ```
 git clone git@github.com:cilium/cilium.git
 cd cilium directory
 ```
+
+
 ```
 sudo cilium install --version 1.16.0-pre2 \
   --chart-directory ./install/kubernetes/cilium \

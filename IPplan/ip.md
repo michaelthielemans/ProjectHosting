@@ -13,13 +13,14 @@
 
 ## PRODUCTION
 
-| **Environment** | **IP** | **Machine**               | **Comment**                                    |
-|-----------------|--------|---------------------------|------------------------------------------------|
-| prod            | 172.24.1.51  | PROD-VM-Masternode-01    | online                                         |
-| prod            | 172.24.1.52  | PROD-VM-Masternode-02    | online                                         |
-| prod            | 172.24.1.53  | PROD-VM-Workernode-01    | online                                         |
-| prod            | 172.24.1.54  | PROD-VM-Workernode-02    | online                                         |
-| prod            | 172.24.1.55  | PROD-VM-Workernode-03    | online                                         |
+| **Environment** | **IP**      | **Machine**           | **Comment** |
+| --------------- | ----------- | --------------------- | ----------- |
+| prod            | 172.24.1.51 | PROD-VM-Masternode-01 | online      |
+| prod            | 172.24.1.52 | PROD-VM-Masternode-02 | online      |
+| prod            | 172.24.1.53 | PROD-VM-Workernode-01 | online      |
+| prod            | 172.24.1.54 | PROD-VM-Workernode-02 | online      |
+| prod            | 172.24.1.55 | PROD-VM-Workernode-03 | online      |
+| prod            | 172.24.1.60 | KubeVip ClusterIP     |             |
 
 ## MANAGEMENT
 

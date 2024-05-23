@@ -13,7 +13,31 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kubernetes/kube-vip.md",
+                "file": "Kubernetes/Prepare_node_for_kubernetes.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "93cec05429c066df",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kubernetes/cilium/install_cilium_cni.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "835ee629d996117a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kubernetes/Prepare_node_for_kubernetes.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +72,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "kube-vip",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,8 +89,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -86,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Kubernetes/kube-vip.md",
+                "file": "Kubernetes/Prepare_node_for_kubernetes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Kubernetes/kube-vip.md",
+                "file": "Kubernetes/Prepare_node_for_kubernetes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Kubernetes/kube-vip.md"
+                "file": "Kubernetes/Prepare_node_for_kubernetes.md"
               }
             }
           }
@@ -135,7 +158,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -149,15 +173,21 @@
   },
   "active": "4a4e033ab134929f",
   "lastOpenFiles": [
+    "Kubernetes/Join nodes to production.md",
+    "Kubernetes/create_cluster.md",
+    "Kubernetes/kube-vip.md",
+    "Untitled.md",
+    "Untitled 1.md",
+    "Kubernetes/cilium/install_cilium_cni.md",
     "Kubernetes/cilium/gateway-api_configuration.md",
     "Kubernetes/cilium/cilium-cli.md",
-    "Kubernetes/cilium/cilium_architecturei.md",
+    "Kubernetes/cilium/cilium_architecture.md",
+    "Kubernetes/Prepare_node_for_kubernetes.md",
+    "IPplan/ip.md",
     "design/TechnologyConsiderations.md",
     "Ansible/semaphore/README.md",
     "Ansible/semaphore/Configuration.md",
     "Ansible/semaphore/Installation.md",
-    "Kubernetes/kube-vip.md",
-    "Untitled.md",
     "Wazuh/login-dash.md",
     "Wazuh/images/rules.PNG",
     "Wazuh/images/overwiew wazuh.PNG",
@@ -172,7 +202,6 @@
     "Ansible/semaphore/docker-compose.yml",
     "Ansible/semaphore",
     "README.md",
-    "IPplan/ip.md",
     "Ansible/AWX.md",
     "Docker/Documentation.md",
     "TrueNas/Documentation.md",

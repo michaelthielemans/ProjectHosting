@@ -1,5 +1,3 @@
-
-
 # Create or join a Kubernetes cluster
 -----------
 
@@ -9,7 +7,7 @@ $ ip route show # Look for a line starting with "default via"
 ```
 ## Initializing your control-plane node
 ```
-sudo kubeadm init --apiserver-advertise-address=172.24.1.81 --skip-phases=addon/kube-proxy
+sudo kubeadm init 
 ```
 If you want to configure in HA you need to add the --control-plane-endpoint= parameter !
 You can skip specific addons by --skip-

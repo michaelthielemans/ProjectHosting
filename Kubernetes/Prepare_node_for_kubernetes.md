@@ -127,6 +127,12 @@ sudo chown root:root cni/bin
 sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.1.tgz
 ```
 ❗ Check the permissions on the bin folder inside the cni directory! should be root:root 755 ❗
+Do this on every node !!! Solve it it by :
+```
+cd /opt/cni
+sudo chown -R root:root bin
+```
+
 ## manually configure the cgroup driver for kubelet.
     Kubeadm will use the systemd cgroup driver, from
     this is not needed when using kubeadm version higher then 1.28

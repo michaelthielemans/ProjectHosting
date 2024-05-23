@@ -31,10 +31,11 @@ Prepare the nodes like standard nodes
 6. kubeadm init finishes successfully on the first control plane.
 7. Using the output from the kubeadm init command on the first control plane, run the kubeadm join command on the remainder of the control plane nodes.
 8. Copy the generated kube-vip manifest to the remainder of the control plane nodes and place in their static Pods manifest directory (default of /etc/kubernetes/manifests/)
+	>you can check the result by running kubectl get pods -n kube-system
 
 #### 1. Generate the manifest file for kube-vip
 Set the VIP virtual IP that will be used on the control-plane and the active interface on the control nodes:
-` export VIP=<ip-address>`
+` export VIP=172.24.1.60`
 ` export INTERFACE=ens33`
 
 Check the latest version of kube-vip on [release-tag](https://github.com/kube-vip/kube-vip/releases)
@@ -43,14 +44,17 @@ and export that version
 
 Define the 'kube-vip' alias for later use:
 >this command only works with the Containerd CRI
+
+>[!warning] make sure to switch to root user before creating the alias!! otherwise you cannot run the alias with sudo privileges
 ```
 alias kube-vip="ctr image pull ghcr.io/kube-vip/kube-vip:$KVVERSION; ctr run --rm --net-host ghcr.io/kube-vip/kube-vip:$KVVERSION vip /kube-vip"
 ```
+
 >[!attention] Note: When running these commands on a to-be control plane node, sudo access may be required along with pre-creation of the /etc/kubernetes/manifests/ directory.
 
 
-For arp type load-balancing use following command:
-
+##### For arp type load-balancing use following command:
+>[!warning] run this command as a root user
 ```
 kube-vip manifest pod \
     --interface $INTERFACE \
@@ -61,8 +65,45 @@ kube-vip manifest pod \
     --leaderElection | tee /etc/kubernetes/manifests/kube-vip.yaml
 ```
 
+The official documentation will tell you to run the kubeadm init command. -> this will result in a failure!! Because the kubeadm init cannot start all the static pods. kubeadm will try to establish a connection to the 'control-plane-endpoint' ip for communicating with the kubelet, it is the kubelet who will start all the static pods. The thing is that the kube-vip is not running at the moment so the VIP where the kubeadm is trying to connect to is not available. 
+This can be solved by adding a line to the /etc/hosts file.  give it a new dns name and point it to the ip address of the masternode (not the VIP address) . Use this dns name in the --control-plane-endpoint parameter. later adjust the hosts file again and point to the VIP.
+
+
+
+>[!attention] The IP address or dns name you have defined as api-endpoint ( for VIP or not VIP) is linked to the certificate you need to connect to the api-server. so be aware that once you added a dns name you cannot connect to it directly to ip.
+
+>[!attention] Also do not forget to
+>```
+>modprobe br_netfilter
+>```
+
+
+
 Run kubeadm with the parameters
 ```
-kubeadm init --control-plane-endpoint <VIP address> : <port> --upload-certs
+kubeadm init --control-plane-endpoint dns-name --upload-certs --skip-phases=addon/kube-proxy
 ```
   > --upload-certs flag is used to auto upload the certificates that should be shared across the control-plane instances in the cluster.
+
+
+
+
+
+
+
+## commands summary
+```bash
+
+export VIP=172.24.1.60
+export INTERFACE=ens33
+export KVVERSION=v0.8.0
+alias kube-vip="ctr image pull ghcr.io/kube-vip/kube-vip:$KVVERSION; ctr run --rm --net-host ghcr.io/kube-vip/kube-vip:$KVVERSION vip /kube-vip"
+
+kube-vip manifest pod \
+    --interface $INTERFACE \
+    --address $VIP \
+    --controlplane \
+    --services \
+    --arp \
+    --leaderElection | tee /etc/kubernetes/manifests/kube-vip.yaml
+```
