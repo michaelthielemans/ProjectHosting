@@ -1,4 +1,10 @@
+#kubernetes #cilium #documentation 
 # Deploying CNI - the cilium pod network !
+| Navigation                                         |
+| -------------------------------------------------- |
+| [[#Install the Cilium CLI]]                        |
+| [[#Check if each node has a Internal IP assigned]] |
+|                                                    |
 
 ## Install the Cilium CLI
 Installing cilium cni, hubble, ... can be done with cilium cli
@@ -20,7 +26,7 @@ the latest version of the cilium cli can be found at https://github.com/cilium/c
 cilium version --client
 ```
 
-## First check if each node has a Internal IP assigned
+## Check if each node has a Internal IP assigned
 
 Please ensure that kubelet’s --node-ip is set correctly on each worker if you have multiple interfaces. Cilium’s kube-proxy replacement may not work correctly otherwise. You can validate this by running kubectl get nodes -o wide to see whether each node has an InternalIP which is assigned to a device with the same name on each node.
 
@@ -28,10 +34,10 @@ Please ensure that kubelet’s --node-ip is set correctly on each worker if you 
 kubectl get nodes -o wide
 ```
 
+## !-ONLY-! for existing installations with kube-proxy running as a DaemonSet
 
-## For existing installations with kube-proxy running as a DaemonSet, remove it by using the following commands below.
-
-
+If you initialized the new cluster with the default addons, kube-proxy will be enabled and running. Cilium can replace this addon with a eBPF based alternative.
+Remove it by using the following commands below.
 Be aware that removing kube-proxy will break existing service connections. It will also stop service related traffic until the Cilium replacement has been installed.
 ```
 kubectl -n kube-system delete ds kube-proxy
@@ -41,14 +47,16 @@ kubectl -n kube-system delete cm kube-proxy
 iptables-save | grep -v KUBE | iptables-restore
 ```
 
-Download the Cilium release tarball and change to the kubernetes install directory:
+## Download and extract the Cilium release
+
+When you use this method you don't need to install it with helm. This is the cli based installation method.
+The command below will download the tarball and change to the cilium install directory:
 ```
 curl -LO https://github.com/cilium/cilium/archive/main.tar.gz
 tar xzf main.tar.gz
 cd cilium-main/install/kubernetes
 ```
------
-# Install cilium from the CLI
+## Install cilium from the CLI
 
 ## ⚠️ adjust the ownership of the /opt/cni/bin directory ON ALL THE NODES ⚠️
 during installation, cilium will create a couple of pods. the cilium-xxxx pods will pull some data from the /opt/cni/bin folder. by default this folder is not owned by root, change it to root

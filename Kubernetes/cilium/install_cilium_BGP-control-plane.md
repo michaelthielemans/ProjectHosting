@@ -1,3 +1,6 @@
+#kubernetes #cilium #documentation 
+
+>[!warning] -- BGP IS NOT USED IN OUR ENVIRONMENT --
 # Cilium BGP Control Plane - with cilium version 1.16-pre.2
 
 ## Install with HELM
