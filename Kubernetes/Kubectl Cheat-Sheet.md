@@ -82,3 +82,11 @@
 | `kubectl delete namespace <name>` | Delete a namespace |
 | `kubectl get namespace <name>` | Get details of a namespace |
 | `kubectl describe namespace <name>` | Describe a namespace |
+
+
+
+# Kubeadm 
+
+| command | description |
+|----|----|
+| kubeadm token create | create a new token for joining a new node to the cluster |
