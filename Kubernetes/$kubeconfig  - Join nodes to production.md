@@ -10,5 +10,5 @@ As a safeguard, uploaded-certs will be deleted in two hours; If necessary, you c
 
 Then you can join any number of worker nodes by running the following on each as root:
 
-kubeadm join api-server:6443 --token lijweq.k10w05qneredea51 \
+kubeadm join api-server:6443 --token t8rr62.8mzpoeavljz332ue \
 	--discovery-token-ca-cert-hash sha256:117a8b6ae7d3b01b3c4959e7d205cc8d924be37a8ce8142e4a2a550d5db5fdaf
