@@ -3,7 +3,9 @@
 
 
 |[Installation](Ansible/semaphore/Installation.md) |
+|-----|
 | [Configure sempaphore](Configuration.md) |
+
 Interface is available at [http://172.24.1.75:3000](http://172.24.1.75:3000)
 
 In the interface you can manage Tasks, inventories, keys, repositories ( local or git)
