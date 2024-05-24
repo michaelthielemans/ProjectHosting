@@ -4,7 +4,7 @@
 
 |[Installation](Ansible/semaphore/Installation.md) |
 |-----|
-| [Configure sempaphore](Configuration.md) |
+| [Configure semaphore](Configuration.md) |
 
 Interface is available at [http://172.24.1.75:3000](http://172.24.1.75:3000)
 
