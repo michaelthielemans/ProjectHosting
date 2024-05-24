@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "60e583dc016a6450",
+        "id": "4a6d3c8e71b2665d",
         "type": "tabs",
         "children": [
           {
-            "id": "42fa0ae85ba4461d",
+            "id": "fd016b7ebd952e2f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kubernetes/create_cluster.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "86b3bb51067470f7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Kubernetes/cilium/cilium-cli.md",
+                "file": "Kubernetes/helm/helm.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Kubernetes/cilium/cilium-cli.md",
+                "file": "Kubernetes/helm/helm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Kubernetes/cilium/cilium-cli.md",
+                "file": "Kubernetes/helm/helm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Kubernetes/cilium/cilium-cli.md"
+                "file": "Kubernetes/helm/helm.md"
               }
             }
           }
@@ -160,16 +147,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "86b3bb51067470f7",
+  "active": "fd016b7ebd952e2f",
   "lastOpenFiles": [
-    "Kubernetes/cilium/cilium_architecture.md",
     "Kubernetes/cilium/install_gateway_api.md",
+    "Kubernetes/create_cluster.md",
+    "Kubernetes/cilium/cilium-cli.md",
+    "Kubernetes/cilium/cilium_architecture.md",
     "Kubernetes/cilium/install_cilium_cni.md",
     "Kubernetes/cilium/install_cilium_BGP-control-plane.md",
     "Kubernetes/cilium/gateway-api_configuration.md",
-    "Kubernetes/cilium/cilium-cli.md",
     "Kubernetes/$kubeconfig  - Join nodes to production.md",
-    "Kubernetes/create_cluster.md",
     "Kubernetes/cilium/troubleshooting.md",
     "Kubernetes/Prepare_node_for_kubernetes.md",
     "TrueNas/installation.md",
