@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docker/Documentation.md",
+                "file": "Docker/Installation.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Docker/Documentation.md",
+                "file": "Docker/Installation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Docker/Documentation.md",
+                "file": "Docker/Installation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Docker/Documentation.md"
+                "file": "Docker/Installation.md"
               }
             }
           }
@@ -148,8 +148,12 @@
   },
   "active": "4a4e033ab134929f",
   "lastOpenFiles": [
-    "TrueNas/Documentation.md",
+    "Docker/Documentation.md",
     "TrueNas/installation.md",
+    "Docker/Installation.md",
+    "Docker/Readme.md",
+    "TrueNas/documentation.md",
+    "TrueNas/Documentation.md",
     "TrueNas/Readme.md"
   ]
 }
