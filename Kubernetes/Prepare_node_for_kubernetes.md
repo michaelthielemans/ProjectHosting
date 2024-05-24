@@ -1,13 +1,36 @@
+#Kubernetes 
 # How-To for preparing a node (master or worker) before creating or joining a cluster
 ----------
+| Navigation |
+|-----|
+| [[#Considerations before starting the installation]] | 
+| [[#Preparations]] |
+| [[#Packet forwarding]] |
+| [[#Download and extract containerd]] |
+| [[#Install CNI plugins]] |
+| [[#Install kubeadm, kubectl, kubelet packages on ubuntu]] |
 
+## Considerations before starting the installation
 
-#VERY important! Be aware of the version matrix of all the different components
+#### VERY important! Be aware of the version matrix of all the different components
 K8s 1.29 - compatible with - cilium 1.15.4
 K8s 1.30 - not yet compatible with - cilium
+Also double check the version compatibility between other components like the containerd CRI.
+### Virtual machine provisioning
+- cpu : can always be changed later on if needed (needs a reboot)
+	- masternode: 4 cores is sufficient
+	- workernode: 4 cores or more depending on the workload
+- memory:  can always be changed later on if needed (needs a reboot)
+	- masternode: min 4 Gig 
+	- workernode: min 4 gig
+- Storage: Provision enough storage beforehand, expanding volumes can be cumbersome.
+	- Masternode: 50 Gig for /root partition
+	- Workernode: 250 Gig depending on the amount of images that will be used on the cluster. When 
+	> Think about using LVM managed volumes to install you OS on, this will enable you to enlarge volumes easily later on.
+	> Containerd will store images in /var/lib/containerd/  -> this can be changed in the toml file /etc/containerd/config.toml  
+	> [check official documentation](https://kubernetes.io/blog/2024/01/23/kubernetes-separate-image-filesystem/#:~:text=This%20can%20be%20located%20as,%2Fvar%2Flib%2Fcontainerd%20.)
+## Preparations
 
-# Installing kubernetes with kubeadm on UBUNTU
--------------------------
 - Set static ip address
 - Set the hostname correct
 - Edit the hosts file
@@ -39,7 +62,7 @@ sudo apt install nfs-common
 
 ### Reboot the machine
 
-## Installing containerd
+## Packet forwarding
 ### Enable IPv4 packet forwarding
 sysctl params required by setup, params persist across reboots
 ```
@@ -63,7 +86,7 @@ sudo modprobe br_netfilter
 ```
 
 
-## download and extract containerd   
+## Download and extract containerd   
 ### download and extract from official binaries
 in dir /usr/local
 ```
@@ -118,7 +141,7 @@ Adjust /etc/containerd/config.toml config file for sandbox image that is compati
 ```
 sudo systemctl restart containerd
 ```
-## install CNI plugins
+## Install CNI plugins
 ```
 cd /opt
 sudo wget https://github.com/containernetworking/plugins/releases/download/v1.4.1/cni-plugins-linux-amd64-v1.4.1.tgz
@@ -127,11 +150,17 @@ sudo chown root:root cni/bin
 sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.1.tgz
 ```
 ❗ Check the permissions on the bin folder inside the cni directory! should be root:root 755 ❗
-## manually configure the cgroup driver for kubelet.
+Do this on every node !!! Solve it it by :
+```
+cd /opt/cni
+sudo chown -R root:root bin
+```
+
+## (optionally) manually configure the cgroup driver for kubelet.
     Kubeadm will use the systemd cgroup driver, from
     this is not needed when using kubeadm version higher then 1.28
 
-## install kubeadm, kubectl, kubelet packages on ubuntu
+## Install kubeadm, kubectl, kubelet packages on ubuntu
 ```
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg
