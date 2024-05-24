@@ -1,0 +1,64 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt
+  namespace: default
+spec:
+  acme:
+    solvers:
+      - http01:
+          gatewayHTTPRoute:
+            parentRefs:
+              - name: <specify here the name of the gateway you want to use>
+                namespace: <specify here the name of the namespace you want to use>
+                kind: Gateway
+---
+# Create a specific gateway for the http01 or you can also reuse the existing gateway (make sure it is listening on port 80)
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: cilium
+  namespace: customers
+spec:
+  gatewayClassName: <checkgatewayclass>
+  listeners:
+  - name: http
+    protocol: HTTP
+    port: 80
+    allowedRoutes:
+        namespaces:
+          from: All
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: example-tls
+  namespace: default
+spec:
+  issuerRef:
+    name: letsencrypt
+  dnsNames:
+  - example.net
+---
+# This is an example manifest, when applying the above issuer manifest this HTTP
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: cm-acme-http-solver-gdhvg
+  namespace: default
+spec:
+  parentRefs:
+    - name: traefik
+      namespace: traefik
+      kind: Gateway
+  hostnames:
+  - example.net
+  rules:
+  - backendRefs:
+    - port: 8089
+      name: cm-acme-http-solver-gdhvg
+      weight: 1
+    matches:
+    - path:
+        type: Exact
+        value: /.well-known/acme-challenge/YadC4gaAzqEPU1Yea0D2MrzvNRWiBCtUizCtpiRQZqI
