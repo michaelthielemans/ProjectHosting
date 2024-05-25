@@ -101,7 +101,7 @@ Edit de Grafana service.
 
 ### Stap 7: Import Grafana Dashboards
 
-1. In Grafana, navigeer ,aar **Create** > **Import**.
+1. In Grafana, navigeer naar **Create** > **Import**.
 2. Voeg een dashboard ID toe and click **Load**.
 
 ### Stap 8: Verify Monitoring Setup
