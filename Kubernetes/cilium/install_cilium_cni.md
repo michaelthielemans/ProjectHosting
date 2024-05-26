@@ -3,7 +3,7 @@
 | Navigation                                         |
 | -------------------------------------------------- |
 | [[#Install the Cilium CLI]]                        |
-| [[#Check if each node has a Internal IP assigned]] |
+| [https://github.com/michaelthielemans/ProjectHosting/blob/main/Kubernetes/cilium/install_cilium_cni.md#check-if-each-node-has-a-internal-ip-assigned] |
 |                                                    |
 
 ## Install the Cilium CLI
