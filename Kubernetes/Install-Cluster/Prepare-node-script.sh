@@ -45,8 +45,8 @@ sudo systemctl restart containerd
 cd /opt
 sudo wget https://github.com/containernetworking/plugins/releases/download/v1.4.1/cni-plugins-linux-amd64-v1.4.1.tgz
 sudo mkdir -p /opt/cni/bin
-sudo chown root:root cni/bin
 sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.1.tgz
+sudo chown -R root:root cni/bin
 
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg
