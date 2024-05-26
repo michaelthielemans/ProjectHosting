@@ -20,7 +20,9 @@
 | prod            | 172.24.1.53 | PROD-VM-Workernode-01 | online      |
 | prod            | 172.24.1.54 | PROD-VM-Workernode-02 | online      |
 | prod            | 172.24.1.55 | PROD-VM-Workernode-03 | online      |
-| prod            | 172.24.1.60 | KubeVip ClusterIP     |             |
+| prod            | 172.24.1.60 | KubeVip ClusterIP     | online      |
+| prod            | 172.24.1.61 | Production Gateway    | online      |
+| prod            | 172.24.1.62 | Production Gateway (spare)| online      |
 
 ## MANAGEMENT
 
