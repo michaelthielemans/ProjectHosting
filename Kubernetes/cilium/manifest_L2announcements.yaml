@@ -1,3 +1,23 @@
+# example
+apiVersion: "cilium.io/v2alpha1"
+kind: CiliumL2AnnouncementPolicy
+metadata:
+  name: policy1 # naam van de L2announcement
+spec:
+  serviceSelector:
+    matchLabels: {}
+  nodeSelector: # selecteer op welke node
+    matchExpressions:
+      - key: node-role.kubernetes.io/control-plane # Selecteer de control-plane nodes
+        operator: DoesNotExist   # niet op de control plane nodes
+  interfaces:
+  - ^ens[0-9]+    # how to find the correct  interfaces?
+  externalIPs: true   # laat to dat je zelf een extern IP toewijzen
+  loadBalancerIPs: true   #  laat toe dat gateway api dit kan gebruiken????
+
+
+---
+
 apiVersion: "cilium.io/v2alpha1"
 kind: CiliumL2AnnouncementPolicy
 metadata:
@@ -10,6 +30,6 @@ spec:
       - key: node-role.kubernetes.io/control-plane
         operator: DoesNotExist
   interfaces:
-  - ^ens[0-9]+    # how to find the correct  interfaces?
-  externalIPs: true   # ???
-  loadBalancerIPs: true   #  laat toe dat gateway api dit kan gebruiken????
+  - ens33
+  externalIPs: true
+  loadBalancerIPs: true
