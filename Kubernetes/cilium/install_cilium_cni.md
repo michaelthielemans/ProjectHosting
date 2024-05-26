@@ -2,7 +2,7 @@
 # Deploying CNI - the cilium pod network !
 | Navigation                                         |
 | -------------------------------------------------- |
-| [Install the Cilium CLI]()                        |
+| [Install the Cilium CLI](https://github.com/michaelthielemans/ProjectHosting/blob/main/Kubernetes/cilium/install_cilium_cni.md#install-the-cilium-cli)|
 | [Check if Internal IP is assaigned](https://github.com/michaelthielemans/ProjectHosting/blob/main/Kubernetes/cilium/install_cilium_cni.md#check-if-each-node-has-a-internal-ip-assigned) |
 |                                                    |
 
