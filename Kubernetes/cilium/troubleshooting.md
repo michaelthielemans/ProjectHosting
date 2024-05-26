@@ -1,7 +1,6 @@
+### Gateway api and clusterIP
+When working with gateway API always point to a ClusterIP service. Even when there is only one pod you want to reach.
 
-
-
-```
 ```
 ### l2announcements
 ```
@@ -13,20 +12,6 @@ kubectl describe ciliuml2announcementpolicies.cilium.io
 kubectl get ciliumloadbalancerippools.cilium.io -o wide
 kubectl describe ciliumloadbalancerippools.cilium.io
 ```
-
-
-
-
-
-
-# cilium questions
-Can you point a gateway API directly to a single app/pod or better always create a clusterIP service as a endpoint?
-ja altijd een cluster IP service aanmaken -> daarop kan worden ingehaakt met gateway api.
-
-
-
-storage inside the cluster
-ebs van amazon.
 
 ## deployments:
 limit: hard limit
