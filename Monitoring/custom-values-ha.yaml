@@ -1,0 +1,6 @@
+prometheus:
+  prometheusSpec:
+    replicas: 2
+
+grafana:
+  replicas: 2
