@@ -95,3 +95,12 @@ Met het commando : kubectl logs -n <namespace> <cloudflare-pod> kunnen we zien a
 onderaan de screenshot zien we als de tunnel verbinding correct geregistreerd is. 
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/5e273182-6923-4f05-9d0f-bcecf74d5327)
+
+ ## 6. Link the cloudflare zero trust tunnel to the service you wish to host
+
+ Navigeer op de cloudflare website naar Zero Trust -> Network -> Tunnels -> to-thomasmore -> Configure
+
+ Klik nu op "Public Hostname" en vervolgens op "Add a public hostname"
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/0ebdfa21-e326-42ea-8095-4512947ff417)
+
