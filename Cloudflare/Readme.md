@@ -116,4 +116,4 @@ Achterliggend wordt er nu een CNAME record aangemaakt die "klant1.bloedlinks.app
 Om de volledige keten te testen surfen we nu naar klant1.bloedlinks.app
 Hier worden we begroet door de met https beveiligde wordpress initiatie pagina gehost via de Zero Trust tunnel. 
 
-![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/75f3cfdf-4c25-4b48-80b7-ba9fbb702dab)
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/446b6e90-870e-4497-96ee-21a129032332)
