@@ -67,11 +67,18 @@ Met het "cloudflared tunnel list" commando kan je nu verifiëren dat je login we
 
 Vervolgens moet het volgende aangepast worden in de [cloudflare manifest file](/Cloudflare/cloudflare-deployment.yaml):
 
-1. De naam van de tunnel
+1. De naam van de tunnel 
 2. De naam van de tunnel credentials file
 3. De hostname(s) waarop we de service(s) willen exposen
 4. Welke service(s) we willen exposen op onze cluster
 5. De tunnel token
+
+Voer het commando cloudflared tunnel list command uit en kopiëer het <ID> van de tunnel die je daarnet aangemaakt hebt. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/62b60d50-1550-48cb-83af-61e00660e140)
+
+
+
 
 
 
