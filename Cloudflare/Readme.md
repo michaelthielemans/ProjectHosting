@@ -9,9 +9,8 @@
 | [3. Procedure](#3-procedure)                     |
 | [4. Register domain name @ Cloudflare](#4-download-truenas-scale)       |
 | [5. Set up a cloudflare zero trust tunnel](#5-install-truenas-scale)         |
-| [5.1 Virtual Machine overview](#51-virtual-machine-overview)     |
-| [5.2 TrueNAS Installer](#52-truenas-installer)           |
-| [6. TrueNAS WebInterface](#6-truenas-webinterface)         |
+| [6. Link the cloudflare zero trust tunnel to the service you wish to host](#6-Link-the-cloudflare-zero-trust-tunnel-to-the-service-you-wish-to-host)     |
+| [7. Test the hosted service](#52-Test-the-hosted-service)           |
 
 ## 2. Overview
 
@@ -104,3 +103,17 @@ onderaan de screenshot zien we als de tunnel verbinding correct geregistreerd is
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/0ebdfa21-e326-42ea-8095-4512947ff417)
 
+Vul nu de parameters in die van toepasing zijn voor de service en hostname die je wil exposen via de 2ero Trust tunnel en druk op "Save hostname"
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/28a9d76e-8146-4264-95bd-fcf63df81c42)
+
+Achterliggend wordt er nu een CNAME record aangemaakt die "klant1.bloedlinks.app" koppelt aan de nginx service die gehost wordt via de Zero Trust tunnel.
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/10a990fa-4d5c-4a49-83d1-7c9d5fe9c963)
+
+## 7. Test the hosted service
+
+Om de volledige keten te testen surfen we nu naar klant1.bloedlinks.app
+Hier worden we begroet door de met https beveiligde wordpress initiatie pagina gehost via de Zero Trust tunnel. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/75f3cfdf-4c25-4b48-80b7-ba9fbb702dab)
