@@ -67,32 +67,31 @@ Met het "cloudflared tunnel list" commando kan je nu verifiëren dat je login we
 
 Vervolgens moet het volgende aangepast worden in de [cloudflare manifest file](/Cloudflare/cloudflare-deployment.yaml):
 
-1. De naam van de tunnel 
-2. De naam van de tunnel credentials file
-3. De hostname(s) waarop we de service(s) willen exposen
+1. De naam van de tunnel = <Tunnel ID>
+2. De naam van de tunnel credentials file = <Tunnel ID>.json
+3. De hostname(s) waarop we de service(s) willen exposen 
 4. Welke service(s) we willen exposen op onze cluster
 5. De tunnel token
 
 Voer het commando cloudflared tunnel list command uit en kopiëer het <ID> van de tunnel die je daarnet aangemaakt hebt. 
+In de volgende screenshot wordt stap 1 t.e.m. 4 behandeld. 
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/62b60d50-1550-48cb-83af-61e00660e140)
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/354cb734-5ee9-4b7f-869f-db5d191fbc46)
 
+Nu moet alleen nog de tunnel token toegevoegd worden aan de cloudflare manifest file. 
+Om de tunnel token te verkrijgen moeten we het volgende commando uitvoeren: 
 
+cloudflared tunnel token <Tunnel ID>
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/83e5faf0-5243-4ff6-9eed-e7b72b79393c)
 
+Vervolgens plakken we de <Tunnel Token> onder het Tunnel Token veld.
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/a60c54ff-84ba-4054-ab1d-3cac5c8d3632)
 
+Met het commando : kubectl logs -n <namespace> <cloudflare-pod> kunnen we zien als de deployment naar behoren werkt. 
+onderaan de screenshot zien we als de tunnel verbinding correct geregistreerd is. 
 
-
-
-
-
-
-
-
-
-
-
-
-
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/5e273182-6923-4f05-9d0f-bcecf74d5327)
