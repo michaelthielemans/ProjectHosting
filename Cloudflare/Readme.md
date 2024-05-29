@@ -65,7 +65,7 @@ Met het "cloudflared tunnel list" commando kan je nu verifiëren dat je login we
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/c4aa73fe-5cd0-491d-a7b9-026638288271)
 
-Vervolgens moet het volgende aangepast worden in de [cloudflare manifest file](/cloudflare-deployment.yaml):
+Vervolgens moet het volgende aangepast worden in de [cloudflare manifest file](Cloudflare/cloudflare-deployment.yaml):
 
 1. De naam van de tunnel
 2. De naam van de tunnel credentials file
