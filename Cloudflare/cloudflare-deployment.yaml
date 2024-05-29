@@ -2,14 +2,14 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cloudflare-config
-  namespace: lemp-stack
+  namespace: ns-klanten
 data:
   config.yaml: |
     tunnel: 3bb358bc-d87a-438c-9022-3b44717142d1
     credentials-file: /etc/cloudflared/3bb358bc-d87a-438c-9022-3b44717142d1.json
     ingress:
       - hostname: test.bloedlinks.app
-        service: http://nginx.lemp-stack.svc.cluster.local:80
+        service: http://nginx.ns-klanten.svc.cluster.local:80
       - service: http_status:404
 
     originRequest:
@@ -24,7 +24,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloudflared
-  namespace: lemp-stack
+  namespace: ns-klanten
 spec:
   replicas: 1
   selector:
