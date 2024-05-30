@@ -12,6 +12,7 @@ spec:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
   nfs:
     path: /mnt/Main/Apps/Vaultwarden
     server: 172.24.1.99
@@ -90,6 +91,11 @@ spec:
         env:
         - name: DATABASE_URL
           value: "postgresql://vaultwarden:strongpassword@vaultwarden-postgres:5432/vaultwarden"
+        - name: ADMIN_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: vaultwarden-secret
+              key: ADMIN_TOKEN
         ports:
         - containerPort: 80
         volumeMounts:
