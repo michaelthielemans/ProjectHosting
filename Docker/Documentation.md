@@ -1,6 +1,8 @@
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/6ce42726-73f1-466c-9075-a90863f076e0)
 
+Beheerder : Janssen Niels
 
+Verantwoordelijke : Janssen Niels
 
 ## 1. Table of Contents 
 
