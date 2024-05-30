@@ -57,9 +57,19 @@ pas de file vervolgens toe
 
 ### 5.2 Deploy Cloudflare
 
+Pas de volgende bestanden aan waar nodig en deploy ze vervolgens.
+
 [Cloudflare-management-secret file](/Cloudflare/namespace-management/cloudflare-management-secret.yaml)
+
 [Cloudflare-management-deployment file](/Cloudflare/namespace-management/cloudflare-management.yaml)
+
+```kubectl apply -f cloudflare-management-secret.yaml ```
+```kubectl apply -f cloudflare-management.yaml ```
+
 ### 5.3 Deploy Vaultwarden
+
+
+
 ### 5.4 Cloudflare Application security 
 ### 5.5 Configure Vaultwarden SNMP 
 
