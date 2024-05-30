@@ -72,7 +72,14 @@ Pas de volgende bestanden aan waar nodig en deploy ze vervolgens.
 
 ### 5.3 Deploy Vaultwarden
 
-Pas de [Vaultwarden deployment file](vaultwarden.yaml) aan waar nodig en deploy deze. 
+Pas de volgende files aan waar nodig en deploy ze: 
+[Vaultwarden deployment](vaultwarden-pv.yaml) 
+[Vaultwarden pv](vaultwarden-pv.yaml) 
+[Vaultwarden pvc](vaultwarden.yaml) 
+
+```kubectl apply -f vaultwarden-pv.yaml ```
+
+```kubectl apply -f vaultwarden-pvc.yaml ```
 
 ```kubectl apply -f vaultwarden.yaml ```
 
