@@ -38,11 +38,34 @@ Om de Vaultwarden manifest file uit te rollen moet er eerst aan een aantal voorw
 
 ## 5. Vaultwarden Rollout
 
+Eerst gaan we de namespace maken als deze nog niet bestaat.
+```kubectl create namespace ns-management```
+
 ### 5.1 Generate Secret 
 
 Om de vaultwarden admin token te beveiligen gaan we eerst hiervoor een secret genereren. 
+encodeer je gewenst paswoord naar base64 (https://www.base64encode.org/)
+
+pas de [secrets file](vaultwarden-secret.yaml) aan.
+
+pas de file vervolgens toe 
+```kubectl apply -f vaultwarden-secret.yaml ```
 
 ### 5.2 Deploy Cloudflare
 ### 5.3 Deploy Vaultwarden
 ### 5.4 Cloudflare Application security 
 ### 5.5 Configure Vaultwarden SNMP 
+
+Surf naar je vaultwarden hostname/admin bvb: https://vaultwarden.bloedlinks.app/admin
+Klik vervolgens op "SMTP Email Settings"
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/8c4e94ab-cfea-4f4d-bae2-59f057c8ce15)
+
+Vul hier je SMTP Settings in en klik onderaan het scherm op Save. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/d90be41c-20af-4cab-8295-08f29c22c7c2)
+
+Vervolgens kan je een test email sturen om de service te testen. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/9aeec110-d6ad-4773-a559-4e466726d94b)
+
