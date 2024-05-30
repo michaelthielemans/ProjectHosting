@@ -57,8 +57,8 @@ pas de file vervolgens toe
 
 ### 5.2 Deploy Cloudflare
 
-
-
+[Cloudflare-management-secret file](/Cloudflare/namespace-management/cloudflare-management-secret.yaml)
+[Cloudflare-management-deployment file](/Cloudflare/namespace-management/cloudflare-management.yaml)
 ### 5.3 Deploy Vaultwarden
 ### 5.4 Cloudflare Application security 
 ### 5.5 Configure Vaultwarden SNMP 
