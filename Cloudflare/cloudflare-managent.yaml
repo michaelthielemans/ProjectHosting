@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudflare-config
+  namespace: ns-management
+data:
+  config.yaml: |
+    tunnel: bae9622d-6a85-4dac-b165-d47d752f92da
+    credentials-file: /etc/cloudflared/bae9622d-6a85-4dac-b165-d47d752f92da.json
+    ingress:
+      - hostname: vaultwarden.bloedlinks.app
+        service: http://vaultwarden.ns-management.svc.cluster.local:80
+      - service: http_status:404
+
+    originRequest:
+      noTLSVerify: true
+    logLevel: info
+    warp-routing:
+      enabled: true
+    dns:
+      - address: 10.96.0.10
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflared
+  namespace: ns-management
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflared
+  template:
+    metadata:
+      labels:
+        app: cloudflared
+    spec:
+      dnsPolicy: ClusterFirst
+      containers:
+      - name: cloudflared
+        image: cloudflare/cloudflared:latest
+        args: ["tunnel", "--config", "/etc/cloudflared/config.yaml", "run"]
+        env:
+        - name: TUNNEL_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare-tunnel-token
+              key: TUNNEL_TOKEN
+        volumeMounts:
+        - name: config
+          mountPath: /etc/cloudflared
+      volumes:
+      - name: config
+        configMap:
+          name: cloudflare-config
