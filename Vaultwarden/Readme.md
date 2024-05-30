@@ -52,6 +52,8 @@ pas de file vervolgens toe
 ```kubectl apply -f vaultwarden-secret.yaml ```
 
 ### 5.2 Deploy Cloudflare
+
+pas de 
 ### 5.3 Deploy Vaultwarden
 ### 5.4 Cloudflare Application security 
 ### 5.5 Configure Vaultwarden SNMP 
