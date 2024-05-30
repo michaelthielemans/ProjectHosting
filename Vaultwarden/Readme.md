@@ -72,9 +72,51 @@ Pas de volgende bestanden aan waar nodig en deploy ze vervolgens.
 
 ### 5.3 Deploy Vaultwarden
 
+Pas de [Vaultwarden deployment file](vaultwarden.yaml) aan waar nodig en deploy deze. 
 
+```kubectl apply -f vaultwarden.yaml ```
 
 ### 5.4 Cloudflare Application security 
+
+Om te voorkomen dat iedereen zomaar toegang kan krijgen tot onze vaultwarden kunnen er allerhande veiligheidsmaatregelen getroffen worden om deze te beschermen. 
+Surf naar www.cloudflare.com en navigeer vervolgens naar : Zero Trust -> Access -> Applications.
+
+Klik vervolgens op "Add an application"
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/4e30e667-c683-46bb-ab70-236626fb3944)
+
+Selecteer "Self Hosted"
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/d06a2f69-22b8-45ec-af29-5fbb93427d65)
+
+Vul nu de parameters in die voor jou van toepassing zijn. Het veld session duration bepaalt hoe lang je sessie actief blijft vooraleer je opnieuw moet authentificeren. Scroll vervolgens naar beneden en druk op next. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/a567ed33-f880-4243-b9aa-e9f5b423903e)
+
+Vervolgens kunnen we verder de policies uitwerken, vul opnieuw de details in voor de applicatie. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/6b682b41-c846-4b92-984b-7e5ca1f6f288)
+
+Bij het rules veld kan er gefilterd worden op de volgende regels. In ons geval wordt er gefilterd op e-mail & is er multi factor autheticatie ingesteld. 
+
+1. Any Access Service Token
+2. Authentication Method
+3. Common name
+4. Country
+5. Emails
+6. Emails ending in
+7. Everyone
+8. External Evaluation
+9. IP ranges
+10. Login Methods
+11. Service Token
+12. Valid Certificate
+
+Scrol vervolgens naar bedenen en klik op "Save policy"
+
+![Naamloos](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/040e7b87-c955-4f0e-862c-3eae7e61b57b)
+
+
 ### 5.5 Configure Vaultwarden SNMP 
 
 Surf naar je vaultwarden hostname/admin bvb: https://vaultwarden.bloedlinks.app/admin
