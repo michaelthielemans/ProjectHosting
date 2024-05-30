@@ -43,6 +43,8 @@ Om de Vaultwarden manifest file uit te rollen moet er eerst aan een aantal voorw
 ## 5. Vaultwarden Rollout
 
 Eerst gaan we de namespace maken als deze nog niet bestaat.
+
+
 ```kubectl create namespace ns-management```
 
 ### 5.1 Generate Secret 
@@ -53,6 +55,7 @@ encodeer je gewenst paswoord naar base64 (https://www.base64encode.org/)
 pas de [secrets file](vaultwarden-secret.yaml) aan.
 
 pas de file vervolgens toe 
+
 ```kubectl apply -f vaultwarden-secret.yaml ```
 
 ### 5.2 Deploy Cloudflare
@@ -64,6 +67,7 @@ Pas de volgende bestanden aan waar nodig en deploy ze vervolgens.
 [Cloudflare-management-deployment file](/Cloudflare/namespace-management/cloudflare-management.yaml)
 
 ```kubectl apply -f cloudflare-management-secret.yaml ```
+
 ```kubectl apply -f cloudflare-management.yaml ```
 
 ### 5.3 Deploy Vaultwarden
