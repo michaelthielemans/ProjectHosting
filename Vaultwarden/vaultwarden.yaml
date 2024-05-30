@@ -1,9 +1,4 @@
 apiVersion: v1
-kind: Namespace
-metadata:
-  name: ns-management
----
-apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: vaultwarden-pv
