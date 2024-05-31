@@ -24,9 +24,13 @@ echo [smtp.gmail.com]:587 <USERNAME>@gmail.com:<PASSWORD> > /etc/postfix/sasl_pa
 postmap /etc/postfix/sasl_passwd
 chmod 400 /etc/postfix/sasl_passwd
 ```
-### **Let op:** Het wachtwoord moet een app-wachtwoord zijn. App-wachtwoorden kunnen alleen worden gebruikt met accounts waarop 2-stapsverificatie is ingeschakeld.
+### **!!! Let op:** Het wachtwoord moet een app-wachtwoord zijn. App-wachtwoorden kunnen alleen worden gebruikt met accounts waarop 2-stapsverificatie is ingeschakeld.!!!
 https://myaccount.google.com/u/2/apppasswords?rapt=AEjHL4M6fXW8Ck5LQFDPTQgcCttgJ-w2LisRkc_OYpDJir-pDmG5uM0hGR_JchdMw-N_1w3CT8irp11hDRGoRPkHgx_5krtpOnS1XF57U8P-Le_w1nRyU7U
-
+```sh
+echo [smtp.gmail.com]:587 wazuh2wt@gmail.com:gclqapvhzxhyuhdv > /etc/postfix/sasl_passwd
+postmap /etc/postfix/sasl_passwd
+chmod 400 /etc/postfix/sasl_passwd
+```
 ## Beveilig je wachtwoord-databasebestand.
 ```sh
 chown root:root /etc/postfix/sasl_passwd /etc/postfix/sasl_passwd.db
