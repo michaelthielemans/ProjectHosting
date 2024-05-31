@@ -16,19 +16,14 @@ sudo chmod 640 /etc/suricata/rules/*.rules
 HOME_NET: "<UBUNTU_IP>"
 EXTERNAL_NET: "any"
 
-default-rule-path: /etc/suricata/rules
 rule-files:
   - "*.rules"
-
-# Globale statistiekenconfiguratie
-stats:
-  enabled: no
 
 # Linux high speed capture ondersteuning
 af-packet:
   - interface: ens33
 ```
-### 4. Voeg de volgende configuratie toe aan het bestand `/var/ossec/etc/ossec.conf`. Dit stelt de Wazuh-agent in staat om het Suricata-logbestand te lezen:
+### 4. Voeg de volgende configuratie toe aan het bestand `nano /var/ossec/etc/shared/agent.conf`. Dit stelt de Wazuh-agent in staat om het Suricata-logbestand te lezen:
 
 ```xml
 <ossec_config>
@@ -41,7 +36,7 @@ af-packet:
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-### 1. controleer of de rule files aanwezig zijn in de /var/lib/suricata/rules/ directory. Als dat niet het geval is, download en plaats ze daar.
+### 1. controleer of de rule files aanwezig zijn in de /var/lib/suricata/rules/ directory. Als dat niet het geval is, ga met cd in de map staan.
 ```bash
 ls /var/lib/suricata/rules/
 ```
@@ -66,4 +61,7 @@ sudo chmod -R 755 /var/lib/suricata/rules/
 ### Stap 5: restart suricata
 ```bash
 sudo systemctl restart suricata
+sudo systemctl restart wazuh-agent
 ```
+
+### stap 6: restart wazuh manager
