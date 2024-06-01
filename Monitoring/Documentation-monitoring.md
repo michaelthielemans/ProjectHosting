@@ -119,6 +119,8 @@ Vervang `<node-ip>` met het IP-adres van de Kubernetes nodes. Log in met de stan
 
 ### Problemen en Oplossingen
 
+Onderstaande problemen en oplossingen zijn enkele van de meest impactvolle die wij in het installatie en proces ondervonden.
+
 #### SMTP Connectie Problemen
 
 **Probleem**: De Grafana pod kon geen verbinding maken met de SMTP-server, waardoor e-mailnotificaties niet werkten.
@@ -140,13 +142,14 @@ kubectl exec -it <grafana-pod-name> -n monitoring -- curl -4 -v telnet://smtp.gm
 **Oplossing**:
 1. Gebruik een LoadBalancer of Ingress Controller om sessiebeheer beter te ondersteunen.
 2. Configureer sessionAffinity in de service definitie om sessies naar dezelfde pod te leiden.
+3. Laat het aantal replicas op 1
 
 ```yaml
 service:
   type: NodePort
   port: 80
   targetPort: 3000
-  nodePort: 31111
+  nodePort: 30000-32767
   sessionAffinity: ClientIP
 ```
 
