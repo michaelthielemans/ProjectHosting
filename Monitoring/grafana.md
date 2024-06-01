@@ -36,6 +36,14 @@ grafana:
     targetPort: 3000
     nodePort: 31111
 ```
+### Nakijken SMTP settings in de pod
+
+Controleer de grafana pod naam en maak verbinding met de pod. Eenmaal op de pod toon de SMTP variabelen.
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119010746/ea819650-5b9d-4814-8802-043cdd3e1fd4)
+
+
+
 
 ### Waarom we de NodePort aanpassen in de custom values
 
