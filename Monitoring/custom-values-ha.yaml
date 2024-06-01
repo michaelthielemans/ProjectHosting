@@ -1,6 +1,26 @@
 prometheus:
   prometheusSpec:
-    replicas: 2
+    replicas: 1
+    retention: 10d
 
 grafana:
-  replicas: 2
+  replicas: 1
+  smtp:
+    enabled: true
+    host: smtp.gmail.com:587   # Replace with your SMTP server
+    user: linuxprojecthosting@gmail.com  # Replace with your email address
+    password: fjfr berk azzn kaoh  # Replace with your email password
+    from_address: linuxprojecthosting@gmail.com  # Replace with the sender email address
+    from_name: Grafana
+  env:
+    GF_SMTP_ENABLED: "true"
+    GF_SMTP_HOST: "smtp.gmail.com:587"
+    GF_SMTP_USER: "linuxprojecthosting@gmail.com"
+    GF_SMTP_PASSWORD: "fjfr berk azzn kaoh"
+    GF_SMTP_FROM_ADDRESS: "linuxprojecthosting@gmail.com"
+    GF_SMTP_FROM_NAME: "Grafana"
+  service:
+    type: NodePort
+    port: 80
+    targetPort: 3000
+    nodePort: 31111
