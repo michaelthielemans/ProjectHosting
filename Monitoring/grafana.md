@@ -9,28 +9,27 @@ Dit document beschrijft de stappen om Grafana te configureren na de initiële in
 Voeg de SMTP instellingen toe aan je `custom-values-ha.yaml` bestand:
 
 ```yaml
+prometheus:
+  prometheusSpec:
+    replicas: 1
+    retention: 10d
+
 grafana:
-  replicas: 2
+  replicas: 1
   smtp:
     enabled: true
-    host: smtp.gmail.com:587
-    user: linuxprojecthosting@gmail.com
-    password: fjfr berk azzn kaoh
-    from_address: linuxprojecthosting@gmail.com
+    host: smtp.gmail.com:587   # Replace with your SMTP server
+    user: linuxprojecthosting@gmail.com  # Replace with your email address
+    password: invullen # Replace with your email password
+    from_address: linuxprojecthosting@gmail.com  # Replace with the sender email address
     from_name: Grafana
   env:
-    - name: GF_SMTP_ENABLED
-      value: "true"
-    - name: GF_SMTP_HOST
-      value: "smtp.gmail.com:587"
-    - name: GF_SMTP_USER
-      value: "linuxprojecthosting@gmail.com"
-    - name: GF_SMTP_PASSWORD
-      value: "fjfr berk azzn kaoh"
-    - name: GF_SMTP_FROM_ADDRESS
-      value: "linuxprojecthosting@gmail.com"
-    - name: GF_SMTP_FROM_NAME
-      value: "Grafana"
+    GF_SMTP_ENABLED: "true"
+    GF_SMTP_HOST: "smtp.gmail.com:587"
+    GF_SMTP_USER: "linuxprojecthosting@gmail.com"
+    GF_SMTP_PASSWORD: "invullen"
+    GF_SMTP_FROM_ADDRESS: "linuxprojecthosting@gmail.com"
+    GF_SMTP_FROM_NAME: "Grafana"
   service:
     type: NodePort
     port: 80
