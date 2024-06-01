@@ -1,0 +1,129 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: ns-klanten
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      initContainers:
+      - name: init-nginx
+        image: busybox
+        command: ['sh', '-c', 'mkdir -p /etc/nginx/snippets && cp /config/fastcgi-php.conf /etc/nginx/snippets/fastcgi-php.conf && ls -l /etc/nginx/snippets']
+        volumeMounts:
+        - name: nginx-snippets
+          mountPath: /config
+      containers:
+      - name: nginx
+        image: nginx:latest
+        env:
+          - name: WORDPRESS_DB_HOST
+            value: mariadb
+          - name: WORDPRESS_DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: db-credentials
+                key: WORDPRESS_DB_USER
+          - name: WORDPRESS_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-credentials
+                key: WORDPRESS_DB_PASSWORD
+          - name: WORDPRESS_DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: db-credentials
+                key: WORDPRESS_DB_NAME
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/conf.d
+        - name: nginx-snippets
+          mountPath: /etc/nginx/snippets
+        - name: web-content
+          mountPath: /var/www/html
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config
+      - name: nginx-snippets
+        configMap:
+          name: nginx-snippets
+      - name: web-content
+        persistentVolumeClaim:
+          claimName: nfs-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-fpm
+  namespace: ns-klanten
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-fpm
+  template:
+    metadata:
+      labels:
+        app: php-fpm
+    spec:
+      initContainers:
+      - name: install-plugins
+        image: wordpress:php7.4-fpm
+        command: ['sh', '-c', '/scripts/install-plugins.sh']
+        volumeMounts:
+        - name: plugin-install-scripts
+          mountPath: /scripts
+        - name: web-content
+          mountPath: /var/www/html
+      containers:
+      - name: php-fpm
+        image: wordpress:php7.4-fpm
+        ports:
+        - containerPort: 9000
+        volumeMounts:
+        - name: web-content
+          mountPath: /var/www/html
+      volumes:
+      - name: plugin-install-scripts
+        configMap:
+          name: wp-plugins-install
+      - name: web-content
+        persistentVolumeClaim:
+          claimName: nfs-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+  namespace: ns-klanten
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      containers:
+      - name: mariadb
+        image: mariadb:latest
+        ports:
+        - containerPort: 3306
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-credentials
+                key: MYSQL_ROOT_PASSWORD
