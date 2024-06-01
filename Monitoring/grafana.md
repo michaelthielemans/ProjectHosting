@@ -52,6 +52,11 @@ Pas de configuratie toe met Helm:
 helm upgrade --install prometheus-operator prometheus-community/kube-prometheus-stack -n monitoring -f custom-values-ha.yaml
 ```
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119010746/e4930f32-431f-4373-b13e-59184351a428)
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119010746/7a358861-0e5b-4195-ac86-d4a2a9b27ca7)
+
+
+
 ## Dashboards Toevoegen
 
 ### Voeg Prometheus toe als Data Source in Grafana
