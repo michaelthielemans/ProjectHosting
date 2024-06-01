@@ -4,7 +4,7 @@ metadata:
   name: nginx
   namespace: ns-klanten
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
@@ -74,7 +74,7 @@ metadata:
   name: php-fpm
   namespace: ns-klanten
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: php-fpm
@@ -114,7 +114,7 @@ metadata:
   name: mariadb
   namespace: ns-klanten
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: mariadb
