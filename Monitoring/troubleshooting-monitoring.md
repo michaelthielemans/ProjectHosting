@@ -1,11 +1,8 @@
-Hier is een `troubleshoot.md` bestand dat je kunt gebruiken om SMTP-connectiviteit vanuit een pod te testen, evenals verschillende commando's om de status van je pods, replicasets en netwerkconnectiviteit te controleren.
+# Troubleshooting voor Grafana en Prometheus in Kubernetes
 
-```markdown
-# Troubleshooting SMTP Connectie vanuit een Pod
+Dit document biedt een uitgebreide gids voor het oplossen van problemen met Grafana en Prometheus in een Kubernetes-clusteromgeving. Hierin worden verschillende aspecten behandeld zoals het controleren van podstatus, het testen van netwerkconnectiviteit en het oplossen van specifieke problemen.
 
-Dit document biedt stapsgewijze instructies om SMTP-connectiviteit te testen vanuit een pod en om verschillende controles uit te voeren op pods, replicasets, en netwerkconnectiviteit.
-
-## Stap 1: Controleer de Status van de Pods
+## Controleer de Status van de Pods
 
 Gebruik de volgende commando's om de status van de pods in de `monitoring` namespace te controleren.
 
@@ -23,7 +20,7 @@ Vervang `<pod-name>` door de naam van de pod die je wilt onderzoeken.
 kubectl describe pod <pod-name> -n monitoring
 ```
 
-## Stap 2: Controleer de ReplicaSets
+## Controleer de ReplicaSets
 
 Gebruik de volgende commando's om de status van de replicasets in de `monitoring` namespace te controleren.
 
@@ -41,7 +38,7 @@ Vervang `<replicaset-name>` door de naam van de replicaset die je wilt onderzoek
 kubectl describe rs <replicaset-name> -n monitoring
 ```
 
-## Stap 3: Test Netwerkconnectiviteit vanuit een Pod
+## Test Netwerkconnectiviteit vanuit een Pod
 
 Gebruik een tijdelijke testpod om netwerkconnectiviteit te controleren en verbinding te maken met de SMTP-server.
 
@@ -68,7 +65,7 @@ spec:
     fsGroup: 0
 ```
 
-Maak de pod:
+### Pas de Test Pod toe
 
 ```bash
 kubectl apply -f network-test.yaml
@@ -130,26 +127,75 @@ kubectl exec -it <grafana-pod-name> -n monitoring -- env | grep GF_SMTP
 
 Vervang `<grafana-pod-name>` door de naam van je Grafana pod.
 
-## Stap 4: Verwijder de Test Pod
+### Controleer Firewall en Beveiligingsgroepen
 
-Als je klaar bent met testen, kun je de test pod verwijderen.
+Controleer of de netwerkpolicies, firewalls en beveiligingsgroepen van je Kubernetes-cluster uitgaand verkeer op poort 587 naar `smtp.gmail.com` toestaan.
+
+### Controleer Network Policies
+
+### Lijst alle Network Policies
 
 ```bash
-kubectl delete pod network-test -n monitoring
+kubectl get networkpolicies -n monitoring
+```
+
+### Gedetailleerde Informatie over een Specifieke Network Policy
+
+Vervang `<networkpolicy-name>` door de naam van de network policy die je wilt onderzoeken.
+
+```bash
+kubectl describe networkpolicy <networkpolicy-name> -n monitoring
+```
+
+### Logs Controleren
+
+Controleer de logs van de Grafana pod voor gedetailleerde foutmeldingen.
+
+```sh
+kubectl logs <grafana-pod-name> -n monitoring
+```
+
+Controleer de logs van de Prometheus pod voor gedetailleerde foutmeldingen.
+
+```sh
+kubectl logs <prometheus-pod-name> -n monitoring
 ```
 
 ## Veelvoorkomende Problemen en Oplossingen
 
-- **SMTP Verbinding Fout**: Controleer of er firewallregels of beveiligingsgroepen zijn die uitgaand verkeer op poort 587 blokkeren.
-- **Pod Netwerkconnectiviteit**: Zorg ervoor dat er geen netwerkpolicies zijn die uitgaand verkeer vanuit de pod blokkeren.
+### SMTP Verbinding Fout
 
-## Extra Hulpbronnen
+1. **Controleer de Firewallregels en Beveiligingsgroepen**:
+   Zorg ervoor dat uitgaand verkeer op poort 587 is toegestaan.
+
+2. **Controleer de Network Policies**:
+   Zorg ervoor dat er geen restrictieve network policies zijn die uitgaand verkeer vanuit de pod blokkeren.
+
+3. **Controleer de SMTP Configuratie**:
+   Zorg ervoor dat de SMTP-instellingen correct zijn geconfigureerd in de `custom-values-ha.yaml` en dat deze zijn toegepast.
+
+### Pods Starten Niet
+
+1. **Controleer de Pod Logs**:
+   Gebruik `kubectl logs <pod-name> -n monitoring` om de logs te controleren.
+
+2. **Controleer de Resource Requests en Limits**:
+   Zorg ervoor dat er voldoende resources beschikbaar zijn in het cluster om de pods te starten.
+
+3. **Controleer de Events**:
+   Gebruik `kubectl describe pod <pod-name> -n monitoring` om events te controleren die mogelijk de oorzaak zijn van het probleem.
+
+### Grafana Dashboards Laden Niet Correct
+
+1. **Controleer de Data Source Configuratie**:
+   Zorg ervoor dat de Prometheus data source correct is geconfigureerd in Grafana.
+
+2. **Controleer de Grafana Logs**:
+   Gebruik `kubectl logs <grafana-pod-name> -n monitoring` om de logs te controleren op foutmeldingen.
+
+### Extra Hulpbronnen
 
 - [Prometheus Documentation](https://prometheus.io/docs/introduction/overview/)
 - [Grafana Documentation](https://grafana.com/docs/grafana/latest/)
 - [Kube-Prometheus Stack](https://github.com/prometheus-operator/kube-prometheus)
 
----
-
-Door deze stappen te volgen, kun je effectief SMTP-connectiviteit vanuit een pod testen en verschillende aspecten van je Kubernetes cluster controleren. Als je tegen problemen aanloopt, gebruik dan de bovenstaande commando's en richtlijnen om het probleem te diagnosticeren en op te lossen.
-```
