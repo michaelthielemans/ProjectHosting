@@ -42,11 +42,11 @@ Maak een `custom-values-ha.yaml` bestand met de volgende inhoud:
 ```yaml
 prometheus:
   prometheusSpec:
-    replicas: 2
+    replicas: 1
     retention: 10d
 
 grafana:
-  replicas: 2
+  replicas: 1
 ```
 
 Installeer of upgrade de Prometheus Operator met de aangepaste configuratie:
