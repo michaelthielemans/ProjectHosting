@@ -16,7 +16,7 @@ grafana:
     GF_SMTP_ENABLED: "true"
     GF_SMTP_HOST: "smtp.gmail.com:587"
     GF_SMTP_USER: "linuxprojecthosting@gmail.com"
-    GF_SMTP_PASSWORD: "fjfr berk azzn kaoh"
+    GF_SMTP_PASSWORD: "nog in te vullen door gebruiker"
     GF_SMTP_FROM_ADDRESS: "linuxprojecthosting@gmail.com"
     GF_SMTP_FROM_NAME: "Grafana"
   service:
