@@ -11,6 +11,7 @@ Gebruik de volgende commando's om de status van de pods in de `monitoring` names
 ```bash
 kubectl get pods -n monitoring
 ```
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119010746/78b064ff-09c6-4673-b660-1a063e529121)
 
 ### Gedetailleerde Informatie over een Specifieke Pod
 
@@ -84,6 +85,9 @@ Gebruik `curl` om de verbinding met de SMTP-server te testen.
 ```sh
 curl -4 -v telnet://smtp.gmail.com:587
 ```
+Voorbeeld op production pod:
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119010746/844efdbc-5312-4781-b10a-6d5bf728fcc7)
+
 
 ### Test SMTP Connectiviteit met `telnet`
 
@@ -93,31 +97,6 @@ Als `telnet` beschikbaar is, kun je het volgende commando gebruiken om verbindin
 telnet smtp.gmail.com 587
 ```
 
-### Handmatige SMTP Authentificatie met `telnet`
-
-1. **Verbind met de SMTP Server**:
-
-   ```sh
-   telnet smtp.gmail.com 587
-   ```
-
-2. **Voer de SMTP Handshake uit**:
-
-   ```sh
-   EHLO smtp.gmail.com
-   AUTH LOGIN
-   ```
-
-3. **Gebruik Base64 Encodering voor Authenticatie**:
-
-   Encodeer je gebruikersnaam en wachtwoord in Base64.
-
-   ```sh
-   echo -n 'linuxprojecthosting@gmail.com' | base64
-   echo -n 'in te vullen' | base64
-   ```
-
-   Gebruik de gecodeerde waarden in de `telnet` sessie.
 
 ### Controleer de Ingesteld Environment Variables in de Grafana Pod
 
