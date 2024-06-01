@@ -43,6 +43,13 @@ spec:
                 key: WORDPRESS_DB_NAME
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "1000m"
+          limits:
+            memory: "1024Mi"
+            cpu: "2000m"
         volumeMounts:
         - name: nginx-config
           mountPath: /etc/nginx/conf.d
