@@ -1,5 +1,7 @@
 ### High Availability Setup voor Prometheus en Grafana
 
+voorlopig niet gebruiken zonder oplossing voor sessiebeheer mogelijks veroorzaakt door gebruik nodeport
+
 #### Prerequisites
 
 - Een actieve Kubernetes cluster.
