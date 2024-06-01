@@ -16,22 +16,21 @@
 
 # Responsibility Silos
 
-| **Silo**               | **Technology**           | **Lead**  | **Support** |
-|------------------------|--------------------------|-----------|-------------|
-| HyperVisor             | VMWARE                   | Michael   | Niels       |
-| Cluster                | Kubernetes               | Michael   | Niels       |
-| Storage                | TrueNAS                  | Niels     |             |
-| DNS                    | ...                      | ...       |             |
-| Mailserver             | ...                      | ...       |             |
-| Security               | WAZUH                    | Dieter    |             |
-| Backups                | VSphere + TrueNAS        | Niels     | Michael     |
-| Ticketing              | FreeScout HelpDesk       | Jakub     |             |
-| Automation Platform    | ansible (+ puppet)       | Michael   |             |
-| Docker Images / Webstacks | Docker - LAMP        | Niels     |             |
-| Procedures and Compliance | ...                  | ...       |             |
-| Documentation          | Github                   | ALL       |             |
-| Monitoring             | Prometheus - Grafana     | Wim       | Michael     |
-| Logging                | ...                      | ...       | ...         |
+| **Silo**               | **Technology**           | **Responsible**  |
+|------------------------|--------------------------|-----------|
+| HyperVisor             | VMWARE                   | Michael   |
+| Cluster                | Kubernetes               | Michael   |
+| Storage                | TrueNAS                  | Niels     |
+| DNS                    | Cloudflare               | Niels     |
+| Password vault         | Vaultwarden              | Niels     |
+| Security               | WAZUH                    | Dieter    |
+| Backups                | TrueNAS                  | Niels     |
+| Automation Platform    | ansible (+ puppet)       | Michael   |
+| Docker + K8S Webstack  | Docker / YAML            | Niels     |
+| Procedures and Compliance | ...                   | ...       |
+| Documentation          | Github                   | ALL       | 
+| Monitoring             | Prometheus - Grafana     | Wim       |
+| Logging                | ...                      | ...       | 
 
 # Conventions
 
@@ -43,4 +42,4 @@
 ## Types of Webshops
 - Small
 - Medium
-- Heavy -> more resources -> more replicas
+- Large -> more resources -> more replicas
