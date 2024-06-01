@@ -9,7 +9,7 @@ grafana:
     enabled: true
     host: smtp.gmail.com:587   # Replace with your SMTP server
     user: linuxprojecthosting@gmail.com  # Replace with your email address
-    password: fjfr berk azzn kaoh  # Replace with your email password
+    password:   # Replace with your email password
     from_address: linuxprojecthosting@gmail.com  # Replace with the sender email address
     from_name: Grafana
   env:
