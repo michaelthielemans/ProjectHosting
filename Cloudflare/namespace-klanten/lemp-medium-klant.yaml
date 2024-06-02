@@ -83,13 +83,6 @@ spec:
       labels:
         app: php-fpm
     spec:
-      initContainers:
-      - name: install-plugins
-        image: wordpress:php7.4-fpm
-        command: ['sh', '-c', '/scripts/install-plugins.sh']
-        volumeMounts:
-        - name: plugin-install-scripts
-          mountPath: /scripts
         - name: web-content
           mountPath: /var/www/html
       containers:
@@ -101,9 +94,6 @@ spec:
         - name: web-content
           mountPath: /var/www/html
       volumes:
-      - name: plugin-install-scripts
-        configMap:
-          name: wp-plugins-install
       - name: web-content
         persistentVolumeClaim:
           claimName: nfs-pvc
