@@ -14,7 +14,7 @@ spec:
     - hard
     - nfsvers=4.1
   nfs:
-    path: /mnt/Main/Klanten/klant1 
+    path: /mnt/Main/Klanten/klant1
     server: 172.24.1.99
 ---
 apiVersion: v1
