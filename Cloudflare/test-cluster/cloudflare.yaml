@@ -8,8 +8,8 @@ data:
     tunnel: bae9622d-6a85-4dac-b165-d47d752f92da
     credentials-file: /etc/cloudflared/bae9622d-6a85-4dac-b165-d47d752f92da.json
     ingress:
-      - hostname: vaultwarden.bloedlinks.app
-        service: http://vaultwarden.ns-management.svc.cluster.local:80
+      - hostname: hosting.bloedlinks.app
+        service: http://wordpress.default.svc.cluster.local:80
       - service: http_status:404
 
     originRequest:
