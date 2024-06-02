@@ -83,9 +83,6 @@ spec:
       labels:
         app: php-fpm
     spec:
-        volumeMounts:
-        - name: web-content
-          mountPath: /var/www/html
       containers:
       - name: php-fpm
         image: wordpress:php7.4-fpm
