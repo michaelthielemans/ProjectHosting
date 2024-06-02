@@ -12,13 +12,17 @@ data:
         service: http://vaultwarden.ns-management.svc.cluster.local:80
       - service: http_status:404
 
+      - hostname: hosting.bloedlinks.app
+        service: http://nginx.ns-management.svc.cluster.local:80
+      - service: http_status:404
+
     originRequest:
       noTLSVerify: true
     logLevel: info
     warp-routing:
       enabled: true
     dns:
-      - address: 10.96.0.10
+      - address:  10.96.0.10
 ---
 apiVersion: apps/v1
 kind: Deployment
