@@ -40,16 +40,4 @@ data:
     include fastcgi_params;
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     fastcgi_param PATH_INFO $fastcgi_path_info;
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: wp-plugins-install
-  namespace: ns-klanten
-data:
-  install-plugins.sh: |
-    #!/bin/bash
-    set -e
 
-    wp plugin install wp-file-manager --activate
-    wp plugin install woocommerce --activate
