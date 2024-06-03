@@ -35,7 +35,7 @@ Om de Vaultwarden manifest file uit te rollen moet er eerst aan een aantal voorw
 ## 4. Procedure
 
 1. Genereer een sterk admin paswoord doormiddel van argon2
-2. Pas de [Cloudflare manifest file](cloudflare.yaml) aan die gekoppeld is aan de namespace "ns-management" en ontplooi deze
+2. Pas de [Cloudflare manifest file](/Cloudflare/namespace-management/Hosting/cloudflare-management.yaml) en [Cloudflare secrets file](/Cloudflare/namespace-management/Hosting/cloudflare-management-secret.yaml) aan die gekoppeld is aan de namespace "ns-management" en ontplooi deze
 3. Pas de [Vaultwarden manifest file](vaultwarden.yaml) aan waar nodig en ontplooi deze
 4. Configureer de Cloudflare application security
 5. Configureer de SNMP settings in het admin dashboard
