@@ -37,4 +37,4 @@ Wij stellen optioneel adminer beschikbaar aan de klant. Hij kan adminer raadpleg
 
 ## 4. Procedure
 
-1. Pas de [cloudflare deployment](#/Cloudflare/namespace-klanten/cloudflare/cloudflare-klanten.yaml) aan waar nodig.   
+1. Pas de [cloudflare deployment](/Cloudflare/namespace-klanten/cloudflare/cloudflare-klanten.yaml) aan waar nodig.   
