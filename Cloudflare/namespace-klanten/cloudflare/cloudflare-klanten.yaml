@@ -5,11 +5,17 @@ metadata:
   namespace: ns-klanten
 data:
   config.yaml: |
-    tunnel: 3bb358bc-d87a-438c-9022-3b44717142d1
-    credentials-file: /etc/cloudflared/3bb358bc-d87a-438c-9022-3b44717142d1.json
+    tunnel: bae9622d-6a85-4dac-b165-d47d752f92da
+    credentials-file: /etc/cloudflared/bae9622d-6a85-4dac-b165-d47d752f92da.json
     ingress:
-      - hostname: test.bloedlinks.app
+      - hostname: klant1.bloedlinks.app
         service: http://nginx.ns-klanten.svc.cluster.local:80
+      - hostname: klant2.bloedlinks.app
+        service: http://nginx.ns-klanten.svc.cluster.local:80
+      - hostname: klant3.bloedlinks.app
+        service: http://nginx.ns-klanten.svc.cluster.local:80
+      - hostname: adminer.bloedlinks.app
+        service: http://adminer.ns-klanten.svc.cluster.local:8080
       - service: http_status:404
 
     originRequest:
@@ -42,7 +48,10 @@ spec:
         args: ["tunnel", "--config", "/etc/cloudflared/config.yaml", "run"]
         env:
         - name: TUNNEL_TOKEN
-          value: "eyJhIjoiMWIwZGEyNzdiY2YzN2QxYjUxMjViMTFhOTBkYTNkMzEiLCJzIjoicU80bDJUVGlMWEFCdFRWMHI1VVc5ciszb2J4RGY0VnA2RG5nSlAxUjZucz0iLCJ0IjoiM2JiMzU4YmMtZDg3YS00MzhjLTkwMjItM2I0NDcxNzE0MmQxIn0="
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare-tunnel-token
+              key: TUNNEL_TOKEN
         volumeMounts:
         - name: config
           mountPath: /etc/cloudflared
