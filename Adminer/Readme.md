@@ -32,7 +32,7 @@ Wij stellen optioneel adminer beschikbaar aan de klant. Hij kan adminer raadpleg
 
 ## 3. Prerequisites
 
-1. [Cloudflare zero trust tunnel](#/cloudflare/readme.md)
+1. [Cloudflare zero trust tunnel](#./cloudflare/readme.md)
 2. Namespace ns-klanten
 
 ## 4. Procedure
