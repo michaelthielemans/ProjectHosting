@@ -1,0 +1,41 @@
+# Virus-Total
+
+#### 
+
+### 
+
+```xml
+<ossec_config>
+  ...
+  <command>
+    <name>firewall-drop</name>
+    <executable>firewall-drop</executable>
+    <timeout_allowed>yes</timeout_allowed>
+  </command>
+  ...
+</ossec_config>
+```
+### 
+
+
+### 
+
+```xml
+<ossec_config>
+  ...
+  <active-response>
+    <command>firewall-drop</command>
+    <location>local</location>
+    <rules_id>5763</rules_id>
+    <timeout>180</timeout>
+  </active-response>
+  ...
+</ossec_config>
+```
+
+
+### Herstart de Wazuh-manager service om de wijzigingen toe te passen:
+
+```sh
+sudo systemctl restart wazuh-manager
+```
