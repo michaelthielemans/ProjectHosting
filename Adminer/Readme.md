@@ -28,11 +28,11 @@ Verantwoordelijke : Janssen Niels
 ## 2. Overview
 
 Adminer is een lichtgewicht databasebeheer tool die gebruikt wordt om databases te beheren via een webinterface. 
-Wij stellen optioneel adminer beschikbaar aan de klant. Hij kan adminer raadplegen via [adminer.bloedlinks.app](adminer.bloedlinks.app) en met zijn database credentials hierop inloggen. 
+Wij stellen optioneel adminer beschikbaar aan de klant. Hij kan adminer raadplegen via [adminer.bloedlinks.app](http://adminer.bloedlinks.app) en met zijn database credentials hierop inloggen. 
 
 ## 3. Prerequisites
 
-1. [Cloudflare zero trust tunnel](#/Cloudflare/Readme.md)
+1. [Cloudflare zero trust tunnel](#/cloudflare/readme.md)
 2. Namespace ns-klanten
 
 ## 4. Procedure
