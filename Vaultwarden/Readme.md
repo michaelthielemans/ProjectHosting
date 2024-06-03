@@ -62,9 +62,9 @@ pas de file vervolgens toe
 
 Pas de volgende bestanden aan waar nodig en deploy ze vervolgens.
 
-[Cloudflare-management-secret file](/Cloudflare/namespace-management/cloudflare-management-secret.yaml)
+[Cloudflare-management-secret file](/Cloudflare/namespace-management/Hosting/cloudflare-management-secret.yaml)
 
-[Cloudflare-management-deployment file](/Cloudflare/namespace-management/cloudflare-management.yaml)
+[Cloudflare-management-deployment file](/Cloudflare/namespace-management/Hosting/cloudflare-management.yaml)
 
 ```kubectl apply -f cloudflare-management-secret.yaml ```
 
@@ -73,9 +73,8 @@ Pas de volgende bestanden aan waar nodig en deploy ze vervolgens.
 ### 5.3 Deploy Vaultwarden
 
 Pas de volgende files aan waar nodig en deploy ze: 
-[Vaultwarden deployment](vaultwarden-pv.yaml) 
-[Vaultwarden pv](vaultwarden-pv.yaml) 
-[Vaultwarden pvc](vaultwarden.yaml) 
+[Vaultwarden deployment](vaultwarden.yaml) 
+[Vaultwarden pv + pvc](vaultwarden-pv+pvc.yaml) 
 
 ```kubectl apply -f vaultwarden-pv.yaml ```
 
