@@ -1,8 +1,8 @@
 # Virus-Total
 
-#### 
+#### Maak eerst een API code op de website van virus-total
 
-### 
+### Deze code zet je in de "/var/ossec/etc/ossec.conf"
 
 ```xml
 <ossec_config>
