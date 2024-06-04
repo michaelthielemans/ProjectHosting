@@ -23,6 +23,7 @@
 | Storage                | TrueNAS                  | Niels     |
 | DNS                    | Cloudflare               | Niels     |
 | Password vault         | Vaultwarden              | Niels     |
+| Helm Automatisation    | Helm                     | Niels     |
 | Security               | WAZUH                    | Dieter    |
 | Backups                | TrueNAS                  | Niels     |
 | Automation Platform    | ansible (+ puppet)       | Michael   |
