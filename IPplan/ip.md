@@ -17,12 +17,13 @@
 | --------------- | ----------- | --------------------- | ----------- |
 | prod            | 172.24.1.51 | PROD-VM-Masternode-01 | online      |
 | prod            | 172.24.1.52 | PROD-VM-Masternode-02 | online      |
-| prod            | 172.24.1.53 | PROD-VM-Workernode-01 | online      |
-| prod            | 172.24.1.54 | PROD-VM-Workernode-02 | online      |
-| prod            | 172.24.1.55 | PROD-VM-Workernode-03 | online      |
+| prod            | 172.24.1.53 | PROD-VM-Masternode-03 | online      |
+| prod            | 172.24.1.54 | PROD-VM-Workernode-01 | online      |
+| prod            | 172.24.1.55 | PROD-VM-Workernode-02 | online      |
+| prod            | 172.24.1.56 | PROD-VM-Workernode-03 | online      |
 | prod            | 172.24.1.60 | KubeVip ClusterIP     | online      |
-| prod            | 172.24.1.61 | Production Gateway    | online      |
-| prod            | 172.24.1.62 | Production Gateway (spare)| online      |
+| prod            | 172.24.1.61 | Prod Ingress Gateway  | not in use  |
+| prod            | 172.24.1.62 | Prod Ingress Gateway (spare)| not in use  |
 
 ## MANAGEMENT
 
@@ -31,7 +32,7 @@
 | mgmt            | 172.24.1.71  | MGMT-VM-Masternode-01    | online                                         |
 | mgmt            | 172.24.1.72  | MGMT-VM-Workernode-01    | online                                         |
 | mgmt            | 172.24.1.73  | MGMT-VM-Workernode-02    | online                                         |
-| mgmt            | 172.24.1.75  | MGMT-VM-Ansible          | online                                         |
+| mgmt            | 172.24.1.75  | MGMT-VM-Ansible          | online                                        |
 
 ## TEST
 
