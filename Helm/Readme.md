@@ -1,4 +1,4 @@
-![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/a1cbd67c-0d6a-4a83-b649-fa3c87ccc5e7)
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/42abdb63-517c-4139-856e-7d25c5d32e09)
 
 
 Beheerder : Janssen Niels
