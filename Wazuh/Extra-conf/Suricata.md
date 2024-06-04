@@ -23,7 +23,7 @@ rule-files:
 af-packet:
   - interface: ens33
 ```
-### 4. Voeg de volgende configuratie toe aan het bestand `nano /var/ossec/etc/shared/agent.conf`. Dit stelt de Wazuh-agent in staat om het Suricata-logbestand te lezen:
+### 4. Voeg de volgende configuratie toe aan het bestand `nano /var/ossec/etc/ossec.conf'. Dit stelt de Wazuh-agent in staat om het Suricata-logbestand te lezen:
 
 ```xml
 <ossec_config>
