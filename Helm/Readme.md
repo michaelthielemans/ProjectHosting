@@ -54,7 +54,7 @@ De volgende hoofdstukken moeten voltooid zijn om de ontplooiing die dadelijk bes
 2. Maak de [Helm folder](/Helm) beschikbaar op de kubernetes cluster.
 3. Package de helm folder
 4. Open de mail waar de aanvraag van de klant staat. 
-5. Pas de [values.yaml](/Helm/values.yaml) file aan de hand van de mail.
+5. Pas de [values.yaml](/Helm/lemp-klanten/values.yaml) file aan de hand van de mail.
 6. voer de helm install uit.
 8. Controlleer dat de deployment correct werkt.  
 
@@ -71,7 +71,7 @@ Package de helm folder.
 
 ```sudo helm package lemp-klanten```
 
-Pas de [values.yaml](/Helm/values.yaml) aan naar de noden van de klant. 
+Pas de [values.yaml](/Helm/lemp-klanten/values.yaml) aan naar de noden van de klant. 
 
 Als alle aanpassingen gedaan voer dan het volgende commando uit om de deployment voor de klant uit te voeren. 
 
