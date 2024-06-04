@@ -1,5 +1,7 @@
 # Deploying a High available kubernetes control plane.
 
+
+
 ### Number of control plane nodes
 Best practice is to use 3 or 5 controller nodes.
 Why: etcd is a datastore dat will replicate data based on quora. If you have a even number of control plane nodes chances are that you have a split brain scenario. Etcd will make decisions based on 50% + 1 majority. 
@@ -32,6 +34,7 @@ Prepare the nodes like standard nodes
 7. Using the output from the kubeadm init command on the first control plane, run the kubeadm join command on the remainder of the control plane nodes.
 8. Copy the generated kube-vip manifest to the remainder of the control plane nodes and place in their static Pods manifest directory (default of /etc/kubernetes/manifests/)
 	>you can check the result by running kubectl get pods -n kube-system
+9. check if the kubelets of the workernodes communicate with the VIP api-server !
 
 #### 1. Generate the manifest file for kube-vip
 Set the VIP virtual IP that will be used on the control-plane and the active interface on the control nodes:
@@ -85,6 +88,22 @@ kubeadm init --control-plane-endpoint dns-name --upload-certs --skip-phases=addo
 ```
   > --upload-certs flag is used to auto upload the certificates that should be shared across the control-plane instances in the cluster.
 
+
+## 9. Update the Kubelet Configuration on Worker Nodes
+Ensure that the kubelet on each worker node is configured to communicate with the API server using the VIP.
+
+Locate Kubelet Configuration:
+This is typically found at /etc/systemd/system/kubelet.service.d/10-kubeadm.conf or similar.
+
+Edit the Kubelet Configuration:
+Update the --api-server parameter to use the VIP.
+```
+KUBELET_EXTRA_ARGS=--api-servers=https://192.168.1.100:6443
+#reload and restart kubelet
+systemctl daemon-reload
+systemctl restart kubelet
+
+```
 
 
 
