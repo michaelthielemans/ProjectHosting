@@ -13,10 +13,7 @@ Verantwoordelijke : Janssen Niels
 | [2. Overview](#2-overview)  |
 | [3. Prerequisites](#3-prerequisites)                     |
 | [4. Procedure](#4-procedure)       |
-| [5. Install TrueNAS scale](#5-install-truenas-scale)         |
-| [5.1 Virtual Machine overview](#51-virtual-machine-overview)     |
-| [5.2 TrueNAS Installer](#52-truenas-installer)           |
-| [6. TrueNAS WebInterface](#6-truenas-webinterface)         |
+| [5. Uitvoering](#5-uitvoering)         |
 
 ## 2. Overview 
 
