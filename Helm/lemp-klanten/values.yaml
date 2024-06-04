@@ -1,0 +1,54 @@
+identifier: "klant2"
+namespace: "ns-klanten"
+resourceTier: "medium"
+
+dbCredentials:
+  user: ZGItdXNlcg==
+  password: eUd6WnFKS0Q0WXpaTVJ0c2ttb3BRYQ==
+  dbName: d29yZHByZXNzLWRi
+  rootPassword: cm9vdC1wYXNzd29yZA==
+  mysqlDatabase: d29yZHByZXNzLWRi
+  mysqlUser: ZGItdXNlcg==
+  mysqlPassword: eUd6WnFKS0Q0WXpaTVJ0c2ttb3BRYQ==
+
+wordpress:
+  phpVersion: "8.1-fpm" # Options: 7.4-fpm, 8.1-fpm
+
+database:
+  type: "mariadb" # Options: mariadb, mysql
+  version: "10.6" # Options for mariadb: 10.6, 10.5, 10.4; Options for mysql: 5.7, 8.0
+
+
+resources:
+  low:
+    requests:
+      memory: "256Mi"
+      cpu: "500m"
+    limits:
+      memory: "512Mi"
+      cpu: "800m"
+  medium:
+    requests:
+      memory: "512Mi"
+      cpu: "800m"
+    limits:
+      memory: "1024Mi"
+      cpu: "1000m"
+  high:
+    requests:
+      memory: "1024Mi"
+      cpu: "1000m"
+    limits:
+      memory: "2048Mi"
+      cpu: "2000m"
+
+nfs:
+  server: "172.24.1.99"
+  path: "/mnt/Main/Klanten/klant2"
+
+service:
+  port: 80
+
+serviceAccount:
+  create: true
+  name: ""

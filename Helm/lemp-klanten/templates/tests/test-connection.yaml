@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "lemp-klanten.fullname" . }}-test-connection"
+  labels:
+    {{- include "lemp-klanten.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "lemp-klanten.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never

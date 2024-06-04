@@ -1,0 +1,160 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.identifier }}-nginx
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.identifier }}-nginx
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.identifier }}-nginx
+    spec:
+      initContainers:
+      - name: init-nginx
+        image: busybox
+        command: ['sh', '-c', 'mkdir -p /etc/nginx/snippets && cp /config/fastcgi-php.conf /etc/nginx/snippets/fastcgi-php.conf && ls -l /etc/nginx/snippets']
+        volumeMounts:
+        - name: nginx-snippets
+          mountPath: /config
+      containers:
+      - name: nginx
+        image: nginx:latest
+        env:
+          - name: WORDPRESS_DB_HOST
+            value: {{ .Values.identifier }}-{{ .Values.database.type }}
+          - name: WORDPRESS_DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.identifier }}-db-credentials
+                key: WORDPRESS_DB_USER
+          - name: WORDPRESS_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.identifier }}-db-credentials
+                key: WORDPRESS_DB_PASSWORD
+          - name: WORDPRESS_DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.identifier }}-db-credentials
+                key: WORDPRESS_DB_NAME
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: {{ .Values.resources.medium.requests.memory }}
+            cpu: {{ .Values.resources.medium.requests.cpu }}
+          limits:
+            memory: {{ .Values.resources.medium.limits.memory }}
+            cpu: {{ .Values.resources.medium.limits.cpu }}
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/conf.d
+        - name: nginx-snippets
+          mountPath: /etc/nginx/snippets
+        - name: web-content
+          mountPath: /var/www/html
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: {{ .Values.identifier }}-nginx-config
+      - name: nginx-snippets
+        configMap:
+          name: {{ .Values.identifier }}-nginx-snippets
+      - name: web-content
+        persistentVolumeClaim:
+          claimName: {{ .Values.identifier }}-nfs-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.identifier }}-php-fpm
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.identifier }}-php-fpm
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.identifier }}-php-fpm
+    spec:
+      containers:
+      - name: php-fpm
+        image: wordpress:php{{ .Values.wordpress.phpVersion }}
+        ports:
+        - containerPort: 9000
+        resources:
+          requests:
+            memory: {{ .Values.resources.medium.requests.memory }}
+            cpu: {{ .Values.resources.medium.requests.cpu }}
+          limits:
+            memory: {{ .Values.resources.medium.limits.memory }}
+            cpu: {{ .Values.resources.medium.limits.cpu }}
+        volumeMounts:
+        - name: web-content
+          mountPath: /var/www/html
+      volumes:
+      - name: web-content
+        persistentVolumeClaim:
+          claimName: {{ .Values.identifier }}-nfs-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.identifier }}-{{ .Values.database.type }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.identifier }}-{{ .Values.database.type }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.identifier }}-{{ .Values.database.type }}
+    spec:
+      containers:
+      - name: {{ .Values.database.type }}
+        image: {{ .Values.database.type }}:{{ .Values.database.version }}
+        ports:
+        - containerPort: 3306
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.identifier }}-db-credentials
+                key: MYSQL_ROOT_PASSWORD
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.identifier }}-db-credentials
+                key: MYSQL_DATABASE
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.identifier }}-db-credentials
+                key: MYSQL_USER
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.identifier }}-db-credentials
+                key: MYSQL_PASSWORD
+        resources:
+          requests:
+            memory: {{ .Values.resources.medium.requests.memory }}
+            cpu: {{ .Values.resources.medium.requests.cpu }}
+          limits:
+            memory: {{ .Values.resources.medium.limits.memory }}
+            cpu: {{ .Values.resources.medium.limits.cpu }}
+        volumeMounts:
+        - name: {{ .Values.database.type }}-data
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: {{ .Values.database.type }}-data
+        persistentVolumeClaim:
+          claimName: {{ .Values.identifier }}-nfs-pvc-{{ .Values.database.type }}

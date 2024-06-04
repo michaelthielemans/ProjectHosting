@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.identifier }}-nginx
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: {{ .Values.identifier }}-nginx
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.identifier }}-php-fpm
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: {{ .Values.identifier }}-php-fpm
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.identifier }}-{{ .Values.database.type }}
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: {{ .Values.identifier }}-{{ .Values.database.type }}
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
