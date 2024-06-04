@@ -3,13 +3,13 @@ namespace: "ns-klanten"
 resourceTier: "medium"
 
 dbCredentials:
-  user: ZGItdXNlcg==
-  password: eUd6WnFKS0Q0WXpaTVJ0c2ttb3BRYQ==
-  dbName: d29yZHByZXNzLWRi
-  rootPassword: cm9vdC1wYXNzd29yZA==
-  mysqlDatabase: d29yZHByZXNzLWRi
-  mysqlUser: ZGItdXNlcg==
-  mysqlPassword: eUd6WnFKS0Q0WXpaTVJ0c2ttb3BRYQ==
+  user: <mysql-user-base64-encoded>
+  password: <mysql-password-base64-encoded>
+  dbName: <mysql-datbase-name-base64-encoded>
+  rootPassword: <mysql-root-password-base64-encoded>
+  mysqlDatabase: <mysql-database-name-base64-encoded>
+  mysqlUser: <mysql-user-base64-encoded>
+  mysqlPassword: <mysql-password-base64-encoded>
 
 wordpress:
   phpVersion: "8.1-fpm" # Options: 7.4-fpm, 8.1-fpm
