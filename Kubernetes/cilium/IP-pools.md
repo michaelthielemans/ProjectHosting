@@ -40,7 +40,7 @@ spec:
 
 
 
-### Ceck if the pool is created
+### Check if the pool is created
 ```
 kubectl get ippools
 NAME        DISABLED   CONFLICTING   IPS AVAILABLE   AGE
