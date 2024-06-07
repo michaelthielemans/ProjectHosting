@@ -9,13 +9,14 @@ Verantwoordelijke : Janssen Niels
 | Navigation |             
 | :-------------------------------------------------  |
 | [1. Table of Contents](#1-table-of-contents)             |
-| [2. Overview](#2-minimum-hardware-requirements)  |
-| [3. Procedure](#3-procedure)                     |
-| [4. Download TrueNAS scale](#4-download-truenas-scale)       |
-| [5. Install TrueNAS scale](#5-install-truenas-scale)         |
-| [5.1 Virtual Machine overview](#51-virtual-machine-overview)     |
-| [5.2 TrueNAS Installer](#52-truenas-installer)           |
-| [6. TrueNAS WebInterface](#6-truenas-webinterface)         |
+| [2. Overview](#2-overview)  |
+| [3. Prerequisites](#3-prerequisites)                     |
+| [4. Procedure](#4-procedure)       |
+| [5. Execution](#5-execution)         |
+| [5.1 Docker image creation](#51-docker-image-creation)     |
+| [5.2 Save Docker image](#52-save-docker-image)           |
+| [5.3 Docker Scout Image Analysis](#53-docker-scout-image-analysis)         |
+| [5.4 Docker file ](#53-docker-file)         |
 
 ## 2. Overview
 
@@ -108,4 +109,4 @@ volumes:
   mysql_data:
 ```
 
-### 5.5
+
