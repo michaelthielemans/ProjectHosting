@@ -39,9 +39,18 @@ Wij stellen optioneel adminer beschikbaar aan de klant. Hij kan adminer raadpleg
 
 ## 5. Execution
 
+Voer nu het volgende commando uit om de adminer deployment te ontplooien.
+
 ```kubectl apply -f adminer.yaml```
 
 ## 6. Testing
 
+Voer het volgende commando uit om te controleren dat de pod correct gestart is. 
+
 ```kubectl get pods -n ns-klanten```
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/d4997d09-a41f-4d48-b6cc-f8339de06c8e)
+
+Surf naar de adminer domain name die gekoppeld is aan cloudflare om de gehele keten te testen. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/6985a696-7613-4bca-99c8-4b17fa8dffda)
