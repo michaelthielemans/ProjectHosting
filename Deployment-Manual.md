@@ -17,7 +17,7 @@ Verantwoordelijke : Janssen Niels
 | [5.4 Prepare Helm](#54-prepare-helm)           |
 | [5.5 Generate database credentials Vaultwarden](#55-generate-database-credentials-vaultwarden)           |
 | [5.6 Complete values.yaml](#56-complete-values.yaml)           |
-| [5.7 Deploy Helm chart](#57-deploy-helm-chart)           |
+| [5.7. Deploy Helm chart](#57-deploy-helm-chart)           |
 
 
 ## 2. Overview
