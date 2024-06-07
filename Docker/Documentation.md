@@ -20,7 +20,11 @@ Verantwoordelijke : Janssen Niels
 
 ## 2. Overview
 
+Docker is een open-source platform voor het ontwikkelen van applicaties in een sandbox. Zijn lichtgewicht gevirtualiseerde omgevingen zijn ook bekend als containers.
+
 ## 3. Prerequisites
+
+Docker moet geïnstalleerd zijn op het machine / vm.  
 
 ## 4. Procedure
 
