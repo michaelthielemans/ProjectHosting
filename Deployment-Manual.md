@@ -124,11 +124,11 @@ Voorbeeld:
 |                                | Auxiliary Groups             |     ❌                                     |
 |                                | Primary Group                |     ❌                                     |
 | Directories and Permissions    | Home Directory               | /mnt/Maint/Klanten/klant3                |
-|                                | Home Directory Permissions   | Read, Write, Execute                     |
-|                                |                              | User                                     |
-|                                |                              | Group                                    |
-|                                |                              | Other                                    |
-|                                | Create Home Directory        |  ❌                                        |
+|                                | Home Directory Permissions   |                      |
+|                                |                              | User Read ✅, Write✅, Execute✅                                 |
+|                                |                              | Group     Read ❌, Write ❌, Execute ❌                               |
+|                                |                              | Other     Read ❌, Write ❌, Execute ❌                                |
+|                                | Create Home Directory        |     ❌                                     |
 | Authentication                 | Authorized Keys              |  ❌                                        |
 |                                | SSH password login enabled   |     ✅                                     |
 |                                | Shell                        | nologin                                  |
