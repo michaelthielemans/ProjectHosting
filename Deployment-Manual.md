@@ -11,13 +11,13 @@ Verantwoordelijke : Janssen Niels
 | [3. Prequisites](#3-prerequisites)                     |
 | [4. Procedure](#4-procedure)       |
 | [5. Execution](#5-execution)         |
-| [5.1 Analysis customer requirements ](#51-virtual-machine-overview)     |
-| [5.2 Creation of NFS share](#52-truenas-installer)           |
-| [5.3 Cloudflare DNS + Deployment](#52-truenas-installer)           |
-| [5.4 Prepare Helm](#52-truenas-installer)           |
-| [5.5 Generate database credentials Vaultwarden](#52-truenas-installer)           |
-| [5.6 Complete values.yaml](#52-truenas-installer)           |
-| [5.7 Deploy Helm chart](#52-truenas-installer)           |
+| [5.1 Analysis customer requirements](#51-analysis-customer-requirements)     |
+| [5.2 Creation of NFS share](#52-creation-of-nfs-share)           |
+| [5.3 Cloudflare DNS + Deployment](#53-cloudflare-dns-+-deployment)           |
+| [5.4 Prepare Helm](#54-prepare-helm)           |
+| [5.5 Generate database credentials Vaultwarden](#55-generate-database-credentials-vaultwarden)           |
+| [5.6 Complete values.yaml](#56-complete-values.yaml)           |
+| [5.7 Deploy Helm chart](#57-deploy-helm-chart)           |
 
 
 ## 2. Overview
