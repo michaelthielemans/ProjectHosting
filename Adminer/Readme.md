@@ -33,12 +33,15 @@ Wij stellen optioneel adminer beschikbaar aan de klant. Hij kan adminer raadpleg
 
 ## 4. Procedure
 
-1. Pas de [cloudflare deployment](/Cloudflare/namespace-klanten/cloudflare/cloudflare-klanten.yaml) aan waar nodig.
-2. Pas de Adminer deployment aan waar nodig
+1. Pas de [Cloudflare deployment](/Cloudflare/namespace-klanten/cloudflare/cloudflare-klanten.yaml) aan waar nodig.
+2. Pas de [Adminer deployment](adminer.yaml) aan waar nodig
 3. Voer de deployment uit
 
 ## 5. Execution
 
+```kubectl apply -f adminer.yaml```
+
 ## 6. Testing
 
+```kubectl get pods -n ns-klanten```
 
