@@ -147,11 +147,24 @@ Open Filezilla, test de SFTP Connectie en maak 2 subfolders aan: "wordpress" en 
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/cafe0977-dcb5-463c-a995-d1c40844f4ac)
 
-
-
 ## 5.4 Cloudflare DNS + Deployment
 
+Vervolgens moeten we voor de klant zijn domeinnaam tunnelen naar de kubernetes namespace: ns-klanten. Surft naar [Cloudflare](https://www.cloudflare.com) en log in. 
+Navigeer vervolgens naar Zero Trust -> Networks -> Tunnels. Als de tunnel "to-thomasmore" niet bestaat  [volg dan het volgende hoofdstuk](/Cloudflare/Readme.md).
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/ea9044f7-aff1-47d3-8500-b039f8414601)
+
+Klik op de drie bolletjes bij de "to-thomasmore" tunnel, dan op "Configure" -> "Public Hostnames" -> Add a public hostname. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/c80bfa7c-3bbd-47aa-a748-547d3e41bd09)
+
+Vul de parameters in zoals in onderstaande afbeelding aangegeven staat en klik op Save. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/4c9a62b0-c14f-40d8-b236-0dd86be5747d)
+
 ## 5.5 Prepare Helm 
+
+Bereid de [helm folderstructuur](/Helm) voor op een masternode. 
 
 ## 5.6 Generate database credentials Vaultwarden
 
