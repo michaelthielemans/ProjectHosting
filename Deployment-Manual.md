@@ -13,7 +13,7 @@ Verantwoordelijke : Janssen Niels
 | [5. Execution](#5-execution)         |
 | [5.1 Analysis customer requirements](#51-analysis-customer-requirements)     |
 | [5.2 Creation of NFS share](#52-creation-of-nfs-share)           |
-| [5.3 Cloudflare DNS + Deployment](#53-cloudflare-dns-+-deployment)           |
+| [5.3 Cloudflare DNS+Deployment](#53-cloudflare-dns-+-deployment)           |
 | [5.4 Prepare Helm](#54-prepare-helm)           |
 | [5.5 Generate database credentials Vaultwarden](#55-generate-database-credentials-vaultwarden)           |
 | [5.6 Complete values.yaml](#56-complete-values.yaml)           |
