@@ -139,6 +139,14 @@ Voorbeeld:
 |                                | Allow all sudo commands with no password |   ❌                                       |
 | Samba Authentication           |                              |      ❌                                    |
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/60257036-4472-4afe-a990-271858fac843)
+
+Klik vervolgens op "Save" beneden in het venster. 
+
+Open Filezilla, test de SFTP Connectie en maak 2 subfolders aan: "wordpress" en "database" 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/cafe0977-dcb5-463c-a995-d1c40844f4ac)
+
 
 
 ## 5.4 Cloudflare DNS + Deployment
