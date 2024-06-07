@@ -159,8 +159,15 @@ Klik op de drie bolletjes bij de "to-thomasmore" tunnel, dan op "Configure" -> "
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/c80bfa7c-3bbd-47aa-a748-547d3e41bd09)
 
 Vul de parameters in zoals in onderstaande afbeelding aangegeven staat en klik op Save. 
+(Achterliggend wordt er automatisch een CNAME record aangemaakt die door de tunnel naar je klant zijn NGINX pod verwijst) 
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/4c9a62b0-c14f-40d8-b236-0dd86be5747d)
+
+ssh vervolgens naar een masternode en pas de cloudflare deployment file aan met de informatie die je zonet in cloudflare hebt ingegeven. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/8fa3c1c9-762c-4ecb-923b-fc0c49186e9e)
+
+```kubectl apply -f <cloudflare-deployment.yaml```
 
 ## 5.5 Prepare Helm 
 
@@ -168,9 +175,97 @@ Bereid de [helm folderstructuur](/Helm) voor op een masternode.
 
 ## 5.6 Generate database credentials Vaultwarden
 
+Open je vaultwarden tabblad opnieuw en maak een nieuwe entry aan voor de database van de klant. Kopiëer vervolgens zijn wachtwoord. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/4d600ddc-8ffc-4b91-89a8-d2dbd8fbb145)
+
+Op de master node gaan we nu de volgende informatie encoderen naar "base64".
+
+1. Database user = db-user
+2. Database wachtwoord = <database-wachtwoord>
+3. Database naam = wordpress-db
+4. Database root wachtwoord = <database-root-wachtwoord>
+
+gebruik hiervoor het volgende commando of [deze website](https://www.base64decode.org/)
+
+```echo -n "<string>" | base64```
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/8130dfb7-037e-41b0-bc39-e9f4b63c57f5)
+
+Kopiëer het wachtwoord
+
+
 ## 5.7 Complete values.yaml
 
+Open nu de values.yaml file. 
+
+```nano values.yaml```
+
+Vul de klant zijn informatie verder in aan de hand van de aanvraag en informatie die we zonet gegenereerd hebben. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/65f57314-a5fb-4d7b-9c06-198bb449de3b)
+
+```
+identifier: "klant3"
+namespace: "ns-klanten"
+resourceTier: "medium"
+
+dbCredentials:
+  user: ZGItdXNlcg==
+  password: eUd6WnFKS0Q0WXpaTVJ0c2ttb3BRYQ==
+  dbName: d29yZHByZXNzLWRi
+  rootPassword: cm9vdC1wYXNzd29yZA==
+  mysqlDatabase: d29yZHByZXNzLWRi
+  mysqlUser: ZGItdXNlcg==
+  mysqlPassword: eUd6WnFKS0Q0WXpaTVJ0c2ttb3BRYQ==
+
+wordpress:
+  phpVersion: "8.1-fpm" # Options: 7.4-fpm, 8.1-fpm
+
+database:
+  type: "mariadb" # Options: mariadb, mysql
+  version: "10.6" # Options for mariadb: 10.6, 10.5, 10.4; Options for mysql: 5.7, 8.0
+
+
+resources:
+  low:
+    requests:
+      memory: "256Mi"
+      cpu: "500m"
+    limits:
+      memory: "512Mi"
+      cpu: "800m"
+  medium:
+    requests:
+      memory: "512Mi"
+      cpu: "800m"
+    limits:
+      memory: "1024Mi"
+      cpu: "1000m"
+  high:
+    requests:
+      memory: "1024Mi"
+      cpu: "1000m"
+    limits:
+      memory: "2048Mi"
+      cpu: "2000m"
+
+nfs:
+  server: "172.24.1.99"
+  path: "/mnt/Maint/Klanten/klant2"
+
+service:
+  port: 80
+
+serviceAccount:
+  create: true
+  name: ""
+```
+
 ## 5.8 Deploy Helm chart
+
+
+
 
 ## 5.9 Test deployment 
 
