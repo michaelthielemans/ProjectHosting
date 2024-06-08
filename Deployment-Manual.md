@@ -48,12 +48,12 @@ De volgende hoofstukken dienen eerst uitgevoerd te worden alvorens dit modelijk 
 
 ## 5. Execution
 
-## 5.1 Analysis customer requirements 
+### 5.1 Analysis customer requirements 
 
 open de [linux project hosting mailbox](http://www.gmail.com) en analyseer de binnengekomen aanvraag. 
 
 
-## 5.2 Creation of NFS share 
+### 5.2 Creation of NFS share 
 
 Surf naar  [de TrueNAS webinterface](http://172.24.1.99) en log in met je credentials. 
 
@@ -74,7 +74,7 @@ Vul hier de ID van de klant in die je terugvindt in de mail en klik vervolgens o
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/7bfefdad-6180-4778-977d-b5854239204d)
 
-## 5.3 Enable SFTP 
+### 5.3 Enable SFTP 
 
 Om SFTP correct te laten werken moeten we eerst controleren dat de SSH service aanstaat. 
 Klik op het tab System Settings -> Services en zet de service aan als dit nog niet het geval is. 
@@ -147,7 +147,7 @@ Open Filezilla, test de SFTP Connectie en maak 2 subfolders aan: "wordpress" en 
 
 ![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/cafe0977-dcb5-463c-a995-d1c40844f4ac)
 
-## 5.4 Cloudflare DNS + Deployment
+### 5.4 Cloudflare DNS + Deployment
 
 Vervolgens moeten we voor de klant zijn domeinnaam tunnelen naar de kubernetes namespace: ns-klanten. Surft naar [Cloudflare](https://www.cloudflare.com) en log in. 
 Navigeer vervolgens naar Zero Trust -> Networks -> Tunnels. Als de tunnel "to-thomasmore" niet bestaat  [volg dan het volgende hoofdstuk](/Cloudflare/Readme.md).
@@ -169,11 +169,11 @@ ssh vervolgens naar een masternode en pas de cloudflare deployment file aan met 
 
 ```kubectl apply -f <cloudflare-deployment.yaml```
 
-## 5.5 Prepare Helm 
+### 5.5 Prepare Helm 
 
 Bereid de [helm folderstructuur](/Helm) voor op een masternode. 
 
-## 5.6 Generate database credentials Vaultwarden
+### 5.6 Generate database credentials Vaultwarden
 
 Open je vaultwarden tabblad opnieuw en maak een nieuwe entry aan voor de database van de klant. Kopiëer vervolgens zijn wachtwoord. 
 
@@ -195,7 +195,7 @@ gebruik hiervoor het volgende commando of [deze website](https://www.base64decod
 Kopiëer het wachtwoord
 
 
-## 5.7 Complete values.yaml
+### 5.7 Complete values.yaml
 
 Open nu de values.yaml file. 
 
@@ -262,7 +262,7 @@ serviceAccount:
   name: ""
 ```
 
-## 5.8 Deploy Helm chart
+### 5.8 Deploy Helm chart
 
 Nu gaan we via helm de value's toepassen op de Helm chart. 
 
@@ -277,7 +277,7 @@ Controleer nu dat de 3 pods aangemaakt door deze helm chart in de correcte "Runn
 
 ```kubectl get pods -n ns-klanten```
 
-## 5.9 Test deployment 
+### 5.9 Test deployment 
 
 Om de volledige keten te testen, surfen we nu naar de website van de klant. 
 
