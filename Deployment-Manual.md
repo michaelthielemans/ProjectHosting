@@ -264,9 +264,30 @@ serviceAccount:
 
 ## 5.8 Deploy Helm chart
 
+Nu gaan we via helm de value's toepassen op de Helm chart. 
 
+```helm install klant3 <helm-package> -f <values.yaml>```
 
+voorbeeld: 
+```helm install klant3 lemp-klanten-0.1.0.tgz -f lemp-klanten/values.yaml```
 
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/0587bb45-24c8-49f3-b25d-fdd49c0e4afb)
+
+Controleer nu dat de 3 pods aangemaakt door deze helm chart in de correcte "Running" state zijn. 
+
+```kubectl get pods -n ns-klanten```
 
 ## 5.9 Test deployment 
+
+Om de volledige keten te testen, surfen we nu naar de website van de klant. 
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/fe375bfd-869b-4486-99e8-18ca2e7d5b76)
+
+Log vervolgens in met de database credentials van de klant in de niet base-64 geëncodeerde versie. 
+Druk vervolgens op submit
+
+![image](https://github.com/michaelthielemans/ProjectHosting/assets/119003253/fbc30f8b-5fef-4ae7-9518-6f76685bf859)
+
+
+Als de klant de wens had dat er bepaalde Wordpress plugins voorgeïnstalleerd worden, kan dit nu gebeuren. 
 
