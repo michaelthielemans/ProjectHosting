@@ -14,7 +14,7 @@ Verantwoordelijke : Janssen Niels
 | [3.1 NFS Share Creation](#31-nfs-share-creation)                     |
 | [3.2 Mounting an NFS share](#4-mounting-an-nfs-share)       |
 | [4. Data Protection](#4-data-protection)         |
-| [4.1 Scrub Tasks](#51-scrub-tasks)     |
+| [4.1 Scrub Tasks](#41-scrub-tasks)     |
 | [4.2 S.M.A.R.T. tests](#42-smart-tests)           |
 | [4.3. Cloud Sync Tasks](#43-cloud-sync-tasks)         |
 | [4.4. Periodic Snapshot Tasks](#44-periodic-snapshot-tasks)         |
