@@ -4,13 +4,13 @@
 
 ### Number of control plane nodes
 Best practice is to use 3 or 5 controller nodes.
-Why: etcd is a datastore dat will replicate data based on quora. If you have a even number of control plane nodes chances are that you have a split brain scenario. Etcd will make decisions based on 50% + 1 majority. 
+Why: etcd is a datastore that will replicate data based on quora. If you have a even number of control plane nodes, chances are that you have a split brain scenario. Etcd will make decisions based on 50% + 1 majority. 
 
 ### HA control plane architecture
 
-3 controller nodes, in front of these nodes you need a loadbalancer that provides a VIP(virtual IP)
+When installing more than one controller node you need to place a loadbalancer in front of those contollplane nodes so it can provide a VIP(virtual IP). If you have no VIP you need to point your worker nodes to one specific controlplane node, if that node goes down connections coming from the workernodes should be rerouted to another control plane node.
 
-KUBE-VIP makes use of a static pod on each node
+KUBE-VIP makes use of a static pod on each node:
 > Static Pods are pods that are created and managed by a kubelet on a node, rather than by the Kubernetes API server.
 > When the kubelet on a node detects a static pod manifest file in a specific directory,
 > it creates a pod from the manifest file and manages the pod’s lifecycle.
