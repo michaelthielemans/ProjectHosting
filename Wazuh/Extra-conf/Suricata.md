@@ -43,6 +43,7 @@ ls /var/lib/suricata/rules/
 ### 2. Download Suricata Rules
 Als er geen rule files zijn, kun je de officiële rules downloaden. 
 ```bash
+cd /var/lib/suricata/rules/
 sudo apt-get install suricata-update
 ```
 ### 3. Update de rules:
